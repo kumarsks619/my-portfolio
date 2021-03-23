@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --text-light: rgba(20, 19, 19, 0.4);
+    --dark: #0f141e;
+    --bg-dark-transparent: rgba(20, 19, 19, 0.712);
+    --text-white: rgba(228, 225, 225, 0.685);
+    --white: #fff;
+}
+
+.app {
+    max-width: 90vw;
+    margin: 30px auto 0;
+}

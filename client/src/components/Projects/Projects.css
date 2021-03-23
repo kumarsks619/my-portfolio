@@ -1,0 +1,108 @@
+.projects__projectsWrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.projects__projectNavBtns {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-height: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.projects__projectNavBtns button {
+    position: absolute;
+    background-color: transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.projects__projectNavBtns button:focus {
+    outline: none;
+}
+
+.projects__projectNavBtns button:active {
+    border-color: #fff !important;
+}
+
+.projects__projectNavBtns button:hover {
+    transform: scaleX(1.5);
+}
+
+.projects__projectNavBtns button:first-child {
+    position: absolute;
+    top: -40vh;
+    left: -60px;
+    border-left: none;
+    border-right: 25px solid var(--dark);
+}
+
+.projects__projectNavBtns button:last-child {
+    position: absolute;
+    top: -40vh;
+    right: -60px;
+    border-right: none;
+    border-left: 25px solid var(--dark);
+}
+
+.projects__viewAll {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 50px;
+}
+
+.projects__viewAll a {
+    background-color: var(--dark);
+    border: none;
+    color: var(--text-white);
+    padding: 20px 100px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.projects__viewAll a:hover {
+    background-color: var(--text-white);
+    color: var(--dark);
+    border: 1px solid var(--dark);
+}
+
+.projects__allProjects {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.projects__allProjectsHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.projects__allProjectsHeader h2 {
+    font-size: 3rem;
+    color: var(--dark);
+    text-align: center;
+}
+
+.projects__allProjectsHeader span {
+    width: 300px;
+    border-bottom: 3px solid var(--dark);
+}

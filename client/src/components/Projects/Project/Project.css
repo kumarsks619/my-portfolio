@@ -1,0 +1,111 @@
+.project {
+    background-color: transparent;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+.project__imgWrapper {
+    flex: 0.675;
+    position: relative;
+}
+
+.project__imgWrapper img {
+    width: 100%;
+    height: 100%;
+}
+
+.project__imgOverlay {
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.602);
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+}
+
+.project__imgOverlay button {
+    opacity: 0;
+    background-color: transparent;
+    border: 1px solid var(--text-white);
+    padding: 15px 50px;
+    color: var(--text-white);
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+}
+
+.project__imgOverlay button:hover {
+    background-color: var(--text-white);
+    color: var(--text-light);
+}
+
+.project__imgOverlay button:active {
+    background-color: #fff;
+}
+
+.project__imgOverlay button:focus {
+    outline: none;
+}
+
+.project__imgWrapper:hover img {
+    filter: grayscale(100%);
+}
+
+.project__imgWrapper:hover .project__imgOverlay {
+    height: 100%;
+}
+
+.project__imgWrapper:hover .project__imgOverlay button {
+    opacity: 1;
+}
+
+.project__descWrapper {
+    flex: 0.3;
+}
+
+.project__descWrapper h2 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.project__descWrapper p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin: 0 auto 20px;
+}
+
+.project__descWrapper h3 {
+    color: var(--dark);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.project__techUsed {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project__techUsed span {
+    color: var(--text-white);
+    background-color: var(--dark);
+    margin: 5px 10px 5px 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.project__techUsed span:hover {
+    color: #fff;
+}

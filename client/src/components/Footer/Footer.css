@@ -1,0 +1,137 @@
+.footer {
+    width: 100%;
+    margin-top: 200px;
+    padding: 80px 50px 50px;
+    background-color: var(--text-white);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.footer__sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer__section {
+    flex: 0.3;
+}
+
+.footer__sectionHeader {
+    color: var(--dark);
+    margin-bottom: 20px;
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer__sectionHeader span:nth-child(2) {
+    flex: 0.7;
+    border-top: 3px solid var(--dark);
+    margin-left: 10px;
+}
+
+.footer__sectionHeader span:nth-child(3) {
+    flex-basis: 100%;
+}
+
+.footer__section p {
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin: 10px 0;
+    padding-right: 100px;
+}
+
+.footer__contactInfo span {
+    color: var(--dark);
+}
+
+.footer__contactInfo i {
+    color: var(--dark);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.footer__socialLinks {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__socialLinks a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.footer__socialLinks a:hover {
+    color: var(--dark);
+    border-left: 3px solid var(--dark);
+    padding-left: 6px;
+}
+
+.footer__socialLinks i {
+    color: var(--dark);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.footer__creditsWrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.footer__creditsWrapper a {
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-bottom: 3px solid var(--dark);
+    padding: 5px;
+    margin-left: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.footer__creditsWrapper a span {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.footer__creditsWrapper a span:last-child {
+    position: absolute;
+    opacity: 0;
+}
+
+.footer__creditsWrapper a:hover span:first-child {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.footer__creditsWrapper a:hover span:last-child {
+    transform: translateX(-85%);
+    opacity: 1;
+}
+
+.footer__topBtn {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer__topBtn:hover {
+    color: var(--dark);
+    transform: scale(1.1);
+}
