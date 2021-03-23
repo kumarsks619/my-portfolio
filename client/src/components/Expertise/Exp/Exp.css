@@ -1,0 +1,51 @@
+.exp {
+    width: 80%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.exp h2,
+.exp h3,
+.exp h4 {
+    letter-spacing: 3px;
+}
+
+.exp a {
+    color: var(--dark);
+    margin-left: 10px;
+}
+
+.exp__date {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-top: 10px;
+}
+
+.exp__date span:nth-child(2) {
+    width: 50px;
+    border-top: 3px solid var(--text-light);
+    margin: 0 10px;
+}
+
+.exp p {
+    margin: 15px 0;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.exp ul li {
+    margin: 5px 0;
+    color: var(--dark);
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.exp > span {
+    width: 50%;
+    border-top: 3px solid var(--dark);
+    height: 50px;
+    margin-top: 30px;
+}

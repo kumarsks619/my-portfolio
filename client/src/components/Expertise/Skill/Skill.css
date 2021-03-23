@@ -1,0 +1,55 @@
+.skill {
+    margin-bottom: 40px;
+    width: 80%;
+    background-color: var(--text-white);
+    position: relative;
+}
+
+.skill__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.skill__content p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.skill__content img {
+    width: 80px;
+}
+
+.skill__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--bg-dark-transparent);
+    transition: all 0.3s ease;
+    display: grid;
+    place-items: center;
+}
+
+.skill__starsWrapper {
+    opacity: 0;
+    font-size: 1.2rem;
+    display: flex;
+    color: var(--white);
+    letter-spacing: 15px;
+}
+
+.skill:hover .skill__overlay {
+    width: 100%;
+}
+
+.skill:hover .skill__starsWrapper {
+    opacity: 1;
+}
+
+.skill:hover img {
+    filter: grayscale(100%);
+}

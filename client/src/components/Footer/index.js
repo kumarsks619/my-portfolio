@@ -68,7 +68,7 @@ const Footer = () => {
 
             <div className="footer__creditsWrapper">
                 <p>
-                    copyright &copy; 2021 | Made with <i class="fas fa-heart"></i> by
+                    Copyright &copy; 2021 | Made with <i class="fas fa-heart"></i> by
                     <a href="#">
                         <span>VeNoM</span>
                         <span>Shubham</span>

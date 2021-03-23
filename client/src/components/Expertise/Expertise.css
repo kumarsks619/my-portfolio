@@ -1,0 +1,40 @@
+.expertise {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.expertise h1 {
+    font-size: 2rem;
+    color: var(--dark);
+    letter-spacing: 3px;
+}
+
+.expertise__expSection {
+    flex: 0.7;
+    background-color: var(--text-white);
+    border-right: 5px solid var(--dark);
+    padding: 20px 50px;
+}
+.expertise__skillsSection {
+    flex: 0.3;
+    padding-top: 20px;
+}
+
+.expertise__skillsSection h1 {
+    margin-left: 50px;
+    border-bottom: 4px solid var(--dark);
+    width: fit-content;
+}
+
+.expertise__expWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.expertise__skillsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
