@@ -1,0 +1,48 @@
+.callToAction {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    height: 200px;
+    margin: 150px 0;
+}
+
+.callToAction span {
+    border-top: 3px solid var(--text-white);
+    width: 80%;
+    margin-bottom: 80px;
+}
+
+.callToAction p {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--text-light);
+}
+
+.callToAction a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.callToAction a:hover {
+    border-bottom: 5px solid var(--dark);
+}
+
+.callToAction h1 {
+    font-size: 3.5rem;
+    color: var(--dark);
+}
+
+.callToAction h1 i {
+    margin: 0 20px;
+    transition: all 0.3s ease;
+}
+
+.callToAction a:hover i:first-child {
+    transform: rotateZ(-180deg);
+}
+
+.callToAction a:hover i:last-child {
+    transform: rotateZ(180deg);
+}
