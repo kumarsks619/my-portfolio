@@ -1,10 +1,11 @@
 import React from 'react'
+import { HashLink } from 'react-router-hash-link'
 
 import './Home.css'
 
 const Home = () => {
     return (
-        <main className="home" id="top">
+        <main className="home" id="topID">
             <div className="home__contentWrapper">
                 <p className="home__name">Shubham Kumar Singh</p>
                 <p className="home__profession">
@@ -27,10 +28,16 @@ const Home = () => {
                     <span>r</span>
                 </p>
                 <p className="home__intro">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus
-                    esse ad aperiam ratione non quisquam culpa voluptatibus iste molestias
-                    repudiandae. Vel, est? Praesentium, itaque cumque?
+                    I'm a pre-final year student involved in Full Stack Web Development
+                    with specialization in MERN stack. Currently doing Freelancing stuffs
+                    and collaborating with small businesses and startups. Always welcoming
+                    new opportunities !
                 </p>
+                <div className="home__btns">
+                    <HashLink to="/projects#top">View Projects</HashLink>
+                    <span>or</span>
+                    <HashLink to="/about#top">Know Me</HashLink>
+                </div>
             </div>
         </main>
     )

@@ -11,15 +11,16 @@
 
 .header__logoWrapper {
     width: 120px;
-    transition: all 0.3s ease;
-}
-
-.header__logoWrapper:hover {
-    transform: rotateY(180deg);
+    cursor: pointer;
 }
 
 .header__logoWrapper img {
     width: 100%;
+    transition: all 0.3s ease;
+}
+
+.header__logoWrapper:hover img {
+    transform: rotateY(180deg);
 }
 
 .header__nameWrapper {

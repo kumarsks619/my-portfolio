@@ -52,3 +52,25 @@
     letter-spacing: 1px;
     font-size: 1.1rem;
 }
+
+.home__btns {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.home__btns a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.home__btns a:hover {
+    border-bottom: 3px solid var(--dark);
+}
+
+.home__btns span {
+    margin: 0 10px;
+    color: var(--text-light);
+    font-weight: 700;
+}

@@ -1,9 +1,12 @@
 import React from 'react'
-import { HashLink } from 'react-router-hash-link'
 
 import './Footer.css'
 
 const Footer = () => {
+    const handleGotoTop = () => {
+        document.documentElement.scrollTop = 0
+    }
+
     return (
         <footer className="footer">
             <div className="footer__sections">
@@ -75,9 +78,9 @@ const Footer = () => {
                 </p>
             </div>
 
-            <HashLink to="#top" className="footer__topBtn">
+            <span className="footer__topBtn" onClick={handleGotoTop}>
                 <i className="fas fa-arrow-circle-up"></i>
-            </HashLink>
+            </span>
         </footer>
     )
 }

@@ -18,9 +18,10 @@ const About = () => {
                 <h1>Shubham Kumar Singh</h1>
                 <h4>A Web Developer</h4>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-                    architecto, in voluptatum nobis ipsam natus delectus fuga consequuntur
-                    neque omnis eligendi dolores quaerat, provident recusandae?
+                    I'm Shubham, a Mechanical Engineer by degree but like to explore
+                    coding stuffs, so tried my hands in the field of web development and
+                    now I'm enjoying doing this. I like to be called "VeNoM", as this is
+                    my Gaming name.
                 </p>
             </div>
 

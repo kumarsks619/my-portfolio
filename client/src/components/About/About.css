@@ -73,6 +73,10 @@
     margin: 0 !important;
 }
 
+.about__intro p:last-child {
+    line-height: 1.8rem;
+}
+
 .about__edu {
     background-image: url('../../assets/img/me-edu.jpg');
     background-repeat: no-repeat;

@@ -9,7 +9,7 @@ const Contact = () => {
         <div className="contact">
             <a href="#" className="contact__treeWrapper">
                 <div className="contact__treeSection">
-                    <TreeItem name={'Gmail'} iconClass={'fas fa-envelope'} />
+                    <TreeItem name={'Gmail'} iconClass={'far fa-envelope'} />
                     <TreeItem name={'Linkedin'} iconClass={'fab fa-linkedin'} />
                     <TreeItem name={'GitHub'} iconClass={'fab fa-github'} />
                 </div>
@@ -25,7 +25,7 @@ const Contact = () => {
                 </div>
             </a>
 
-            <div className="contact__header">
+            <div className="contact__header" id="formID">
                 <span></span>
                 <h1>Drop a message here!</h1>
                 <span></span>

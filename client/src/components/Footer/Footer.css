@@ -121,6 +121,15 @@
     opacity: 1;
 }
 
+.footer__creditsWrapper i {
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.footer__creditsWrapper:hover i {
+    color: var(--dark);
+}
+
 .footer__topBtn {
     position: absolute;
     right: 30px;
@@ -129,6 +138,7 @@
     color: var(--text-light);
     font-size: 2.5rem;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .footer__topBtn:hover {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { HashLink } from 'react-router-hash-link'
 
 import './Header.css'
 import logo from '../../assets/img/sks-logo.png'
@@ -10,13 +9,17 @@ const Header = ({ history, location }) => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+    const handleGotoHome = () => {
+        history.push('/')
+        document.documentElement.scrollTop = 0
+        setIsMenuOpen(false)
+    }
+
     return (
         <>
             <header className="header">
-                <div className="header__logoWrapper">
-                    <HashLink to="/#top">
-                        <img src={logo} alt="Shubham Kumar Singh" />
-                    </HashLink>
+                <div className="header__logoWrapper" onClick={handleGotoHome}>
+                    <img src={logo} alt="Shubham Kumar Singh" />
                 </div>
                 <div className="header__nameWrapper">
                     <p className="header__name">
