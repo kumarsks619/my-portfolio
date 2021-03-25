@@ -1,0 +1,183 @@
+.about {
+    display: flex;
+    flex-direction: column;
+}
+
+.about span.line {
+    border-top: 3px solid var(--text-white);
+    width: 80%;
+    margin: 80px 0;
+    align-self: center;
+}
+
+.about__section {
+    display: flex;
+    flex-direction: column;
+}
+
+.about__section h3 {
+    font-size: 2rem;
+    color: var(--dark);
+    letter-spacing: 3px;
+}
+
+.about__section p {
+    font-weight: 700;
+    color: var(--text-light);
+    width: 50%;
+    margin-top: 10px;
+}
+
+.about__section h1 {
+    color: var(--dark);
+    letter-spacing: 3px;
+}
+
+.about__section h4 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.about__intro {
+    padding-top: 200px;
+    background-image: url('../../assets/img/me-about.jpeg');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: contain;
+    filter: grayscale(100%);
+    align-items: flex-start;
+    transition: all 2s ease;
+}
+
+.about__intro h4 {
+    background-color: var(--text-white);
+    width: fit-content;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 3px solid var(--text-light);
+    border-right: none;
+    border-top: none;
+    margin-top: 10px;
+}
+
+.about__intro:hover {
+    filter: grayscale(0%);
+}
+
+.about__introGreet {
+    display: flex;
+    align-items: center;
+}
+
+.about__introGreet > div {
+    margin: 0 !important;
+}
+
+.about__edu {
+    background-image: url('../../assets/img/me-edu.jpg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: contain;
+    filter: grayscale(100%);
+    align-items: flex-end;
+    transition: all 2s ease;
+}
+
+.about__edu:hover {
+    filter: grayscale(0%);
+}
+
+.about__eduDate {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.about__eduDate span:nth-child(2) {
+    width: 50px;
+    border-top: 3px solid var(--text-light);
+    margin: 0 10px;
+}
+
+.about__edu h4 {
+    text-transform: capitalize;
+}
+
+.about__edu h3 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+
+.about__edu p {
+    text-align: right;
+}
+
+.about__edu .verticalLine {
+    height: 100px;
+    border-left: 5px solid var(--dark);
+    margin: 20px 0;
+}
+
+.about__interests {
+    align-items: flex-start;
+    background-image: none;
+    filter: grayscale(100%);
+    position: relative;
+    padding: 30px 0;
+    margin-top: 150px;
+}
+
+.about__interests,
+.about__interests h1,
+.about__interests h2,
+.about__interests h3,
+.about__interests h4,
+.about__interests p,
+.about__interests span,
+.about__interests .verticalLine {
+    color: var(--white) !important;
+    border-color: var(--white) !important;
+}
+
+.about__interests video {
+    position: absolute;
+    z-index: -1;
+    left: -88px;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about__interests h4 {
+    margin-bottom: 40px;
+}
+
+.about__interests p {
+    text-align: left;
+}
+
+.about__interests .verticalLine {
+    height: 150px;
+}
+
+.about__closingTag {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 150px;
+}
+
+.about__closingTag h1 {
+    font-size: 3rem;
+    color: var(--dark);
+    text-align: center;
+}
+
+.about__closingTag span {
+    width: 300px;
+    border-bottom: 5px solid var(--dark);
+}

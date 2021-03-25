@@ -1,0 +1,47 @@
+.contact {
+    margin-top: 100px;
+}
+
+.contact__treeWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.contact__treeSection {
+    flex: 0.5;
+}
+
+.contact__treeStem {
+    border-left: 10px solid var(--dark);
+}
+
+.contact__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 150px;
+}
+
+.contact__header h1 {
+    font-size: 3rem;
+    color: var(--dark);
+    text-align: center;
+}
+
+.contact__header span {
+    width: 300px;
+    border-bottom: 5px solid var(--dark);
+}
+
+.contact__headerDesc {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    font-weight: 700;
+    margin-top: 15px;
+    padding: 0 300px;
+}

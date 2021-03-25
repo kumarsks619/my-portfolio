@@ -15,9 +15,8 @@ const Footer = () => {
                         <span>Information</span>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore a
-                        et, reprehenderit magnam facilis vero consequuntur dignissimos
-                        laboriosam suscipit dolor!
+                        Feel free to reach out to me any time. I prefer to talk over
+                        email, especially since we may be a few time zones away.
                     </p>
                     <p className="footer__contactInfo">
                         <i className="fas fa-envelope"></i>
@@ -37,8 +36,8 @@ const Footer = () => {
                         <span>Availability</span>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-                        omnis. Sint earum esse ea aliquid.
+                        I usually work on several projects but I’ll be happy to discuss
+                        new opportunities. Let’s get in touch!
                     </p>
                 </div>
 
@@ -51,7 +50,7 @@ const Footer = () => {
                     </div>
                     <div className="footer__socialLinks">
                         <a href="#">
-                            <i class="fab fa-linkedin"></i> Linkedin
+                            <i className="fab fa-linkedin"></i> Linkedin
                         </a>
                         <a href="#">
                             <i className="fab fa-github"></i> GitHub
@@ -68,7 +67,7 @@ const Footer = () => {
 
             <div className="footer__creditsWrapper">
                 <p>
-                    Copyright &copy; 2021 | Made with <i class="fas fa-heart"></i> by
+                    Copyright &copy; 2021 | Made with <i className="fas fa-heart"></i> by
                     <a href="#">
                         <span>VeNoM</span>
                         <span>Shubham</span>

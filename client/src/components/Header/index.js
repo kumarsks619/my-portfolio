@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 
 import './Header.css'
 import logo from '../../assets/img/sks-logo.png'
@@ -14,9 +14,9 @@ const Header = ({ history, location }) => {
         <>
             <header className="header">
                 <div className="header__logoWrapper">
-                    <Link to="/">
+                    <HashLink to="/#top">
                         <img src={logo} alt="Shubham Kumar Singh" />
-                    </Link>
+                    </HashLink>
                 </div>
                 <div className="header__nameWrapper">
                     <p className="header__name">

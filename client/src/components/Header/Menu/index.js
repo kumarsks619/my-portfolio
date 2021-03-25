@@ -5,6 +5,7 @@ import './Menu.css'
 const Menu = ({ isMenuOpen, setIsMenuOpen, history }) => {
     const handleOnClick = (pageName) => {
         history.push(`/${pageName}`)
+        document.documentElement.scrollTop = 0
         setIsMenuOpen(false)
     }
 
