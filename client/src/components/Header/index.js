@@ -25,13 +25,18 @@ const Header = ({ history, location }) => {
                     <p className="header__name">
                         {page ? (
                             <>
-                                Shubham's <span>{page}</span>
+                                <span className="responsive__hide">Shubham's</span>{' '}
+                                <span className="pageName">{page}</span>
                             </>
                         ) : (
-                            'Shubham Kumar Singh'
+                            <span className="responsive__hide">Shubham Kumar Singh</span>
                         )}
                     </p>
-                    {!page && <p className="header__profession">Web Developer</p>}
+                    {!page && (
+                        <p className="header__profession">
+                            <span className="responsive__hide">Web Developer</span>
+                        </p>
+                    )}
                 </div>
                 <div className="header__menuBtnWrapper">
                     <button
@@ -40,7 +45,7 @@ const Header = ({ history, location }) => {
                     >
                         {isMenuOpen ? (
                             <>
-                                Close
+                                <span className="responsive__hide">Close</span>
                                 <div className="header__menuBtnBars close">
                                     <span></span>
                                     <span></span>
@@ -49,7 +54,7 @@ const Header = ({ history, location }) => {
                             </>
                         ) : (
                             <>
-                                Menu
+                                <span className="responsive__hide">Menu</span>
                                 <div className="header__menuBtnBars open">
                                     <span></span>
                                     <span></span>

@@ -45,12 +45,15 @@
     border: none;
     border-bottom: 1px solid var(--text-light);
     color: var(--dark);
+    transition: all 0.3s ease;
 }
 
 .contactForm input:focus,
 .contactForm select:focus,
 .contactForm textarea:focus {
     outline: none;
+    border-color: var(--dark);
+    border-width: 3px;
 }
 
 .contactForm textarea {

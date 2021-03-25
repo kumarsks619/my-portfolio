@@ -11,6 +11,7 @@ import Expertise from './components/Expertise'
 import NotFound from './components/NotFound'
 import Home from './components/Home'
 import Projects from './components/Projects'
+import './responsive.css'
 
 const App = () => {
     return (

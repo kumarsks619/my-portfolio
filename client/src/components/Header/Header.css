@@ -35,15 +35,16 @@
     text-transform: capitalize;
 }
 
-.header__name span {
+.header__name span.pageName {
     border: 2px solid var(--dark);
     padding: 0 10px;
     letter-spacing: 3px;
     margin-left: 5px;
     transition: all 0.3s ease;
+    text-transform: capitalize;
 }
 
-.header__name span:hover {
+.header__name span.pageName:hover {
     background-color: var(--dark);
     color: var(--text-white);
 }
