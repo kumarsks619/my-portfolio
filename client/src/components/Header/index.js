@@ -15,9 +15,18 @@ const Header = ({ history, location }) => {
         setIsMenuOpen(false)
     }
 
+    // document.addEventListener('scroll', () => {
+    //     if (document.documentElement.scrollTop > 100) {
+    //         document.getElementById('headerID').style.background =
+    //             'linear-gradient(to bottom, var(--bg-dark-transparent) 0%, #fff 100%)'
+    //     } else {
+    //         document.getElementById('headerID').style.background = 'transparent'
+    //     }
+    // })
+
     return (
         <>
-            <header className="header">
+            <header className="header" id="headerID">
                 <div className="header__logoWrapper" onClick={handleGotoHome}>
                     <img src={logo} alt="Shubham Kumar Singh" />
                 </div>
