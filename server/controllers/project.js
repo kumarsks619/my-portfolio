@@ -6,7 +6,7 @@ const Project = require('../models/Project')
 const projectAdd = asyncHandler(async (req, res) => {
     const { name, description, technologies, start, end, type, image, link } = req.body
 
-    const newProject = new Project({
+    const newProject = await Project.create({
         name,
         description,
         technologies,
@@ -19,9 +19,12 @@ const projectAdd = asyncHandler(async (req, res) => {
         link,
     })
 
-    await newProject.save()
-
-    res.status(200).json(newProject)
+    if (newProject) {
+        res.status(200).json(newProject)
+    } else {
+        res.status(400)
+        throw new Error('Invalid Project data!')
+    }
 })
 
 // to delete an existing Project
@@ -42,7 +45,7 @@ const projectRemove = asyncHandler(async (req, res) => {
     }
 })
 
-// to get all the projects
+// to get all the Projects
 const projectGetAll = asyncHandler(async (req, res) => {
     const foundProjects = await Project.find({})
 

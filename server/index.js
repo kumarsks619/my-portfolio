@@ -7,6 +7,8 @@ const morgan = require('morgan')
 const connectDB = require('./config/db')
 const authRoutes = require('./routes/auth')
 const projectRoutes = require('./routes/project')
+const expertiseRoutes = require('./routes/expertise')
+const contactRoutes = require('./routes/contact')
 const { notFoundHandler, errorHandler } = require('./middleware/error')
 
 // connecting to database
@@ -30,6 +32,8 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/project', projectRoutes)
+app.use('/api/expertise', expertiseRoutes)
+app.use('/api/contact', contactRoutes)
 
 // Error Handler middleware
 app.use(notFoundHandler)
