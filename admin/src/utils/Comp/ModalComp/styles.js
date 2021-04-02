@@ -17,7 +17,7 @@ export const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         width: 'fit-content',
         maxHeight: '90vh',
-        overflowY: 'scroll',
+        overflowY: 'auto',
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],

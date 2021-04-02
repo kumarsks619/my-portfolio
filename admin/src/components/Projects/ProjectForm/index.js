@@ -195,7 +195,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                 <div className="btnsWrapper">
                     <Button
                         variant="outlined"
-                        color="secondary"
+                        color="primary"
                         className="formBtn"
                         onClick={handleModalClose}
                     >

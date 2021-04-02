@@ -45,6 +45,7 @@ export const adminLogin = (username, password) => async (dispatch) => {
 export const adminLogout = () => (dispatch) => {
     localStorage.removeItem('admin')
     dispatch({ type: actionTypes.ADMIN_LOGOUT })
+    dispatch(alertAdd('Admin Logout!', 'success'))
 }
 
 // to change an Admin password

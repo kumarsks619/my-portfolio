@@ -6,6 +6,11 @@ const Project = require('../models/Project')
 const projectAdd = asyncHandler(async (req, res) => {
     const { name, description, technologies, start, end, type, image, link } = req.body
 
+    if (start > end) {
+        res.status(400)
+        throw new Error("End date of project can't be ahead of it's start date!")
+    }
+
     const newProject = await Project.create({
         name,
         description,
@@ -37,7 +42,6 @@ const projectRemove = asyncHandler(async (req, res) => {
         await foundProject.remove()
         res.status(200).json({
             message: 'Project Removed!',
-            projectID,
         })
     } else {
         res.status(404)
