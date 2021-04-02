@@ -1,0 +1,9 @@
+.heading__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.heading__divider {
+    margin: 20px 0 30px !important;
+}
