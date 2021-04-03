@@ -36,7 +36,6 @@ const experienceRemove = asyncHandler(async (req, res) => {
         await foundExperience.remove()
         res.status(200).json({
             message: 'Experience Removed!',
-            experienceID,
         })
     } else {
         res.status(404)
@@ -46,7 +45,7 @@ const experienceRemove = asyncHandler(async (req, res) => {
 
 // to get all the Experiences
 const experienceGetAll = asyncHandler(async (req, res) => {
-    const foundExperiences = await Experience.find({})
+    const foundExperiences = await Experience.find({}).sort({ createdAt: -1 })
 
     res.status(200).json(foundExperiences)
 })
@@ -89,7 +88,7 @@ const skillRemove = asyncHandler(async (req, res) => {
 
 // to get all the Skills
 const skillGetAll = asyncHandler(async (req, res) => {
-    const foundSkills = await Skill.find({})
+    const foundSkills = await Skill.find({}).sort({ stars: -1 })
 
     res.status(200).json(foundSkills)
 })

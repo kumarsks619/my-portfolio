@@ -1,0 +1,56 @@
+.expForm {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.expForm .formHeading {
+    margin: 20px 0;
+}
+
+.expForm .formInput {
+    margin-top: 15px;
+}
+
+.expForm .formGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expForm .formGroup .formInput {
+    flex: 0.45;
+}
+
+.expForm .imageInput input {
+    display: none;
+}
+
+.expForm .btnsWrapper {
+    margin: 20px 0;
+    display: flex;
+}
+
+.expForm .formBtn:first-child {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.expForm .dynamicInputGroup {
+    margin-top: 20px;
+}
+
+.expForm .dynamicInputsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.expForm .dynamicInputsWrapper .dynamicInputWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.expForm .dynamicInputsWrapper .dynamicInputWrapper .dynamicInput {
+    flex: 0.45;
+}

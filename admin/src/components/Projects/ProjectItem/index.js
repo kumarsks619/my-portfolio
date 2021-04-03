@@ -3,6 +3,7 @@ import { Typography, IconButton, Link } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import Chip from '@material-ui/core/Chip'
 import { useDispatch, useSelector } from 'react-redux'
+import Moment from 'react-moment'
 
 import './ProjectItem.css'
 import ConfirmModal from '../../../utils/Comp/ConfirmModal'
@@ -77,8 +78,8 @@ const ProjectItem = ({
                             color="textSecondary"
                             className="contentEntity"
                         >
-                            {new Date(start).toDateString()} -{' '}
-                            {new Date(end).toDateString()}
+                            <Moment format="MMM YYYY">{start}</Moment> -{' '}
+                            <Moment format="MMM YYYY">{end}</Moment>
                         </Typography>
 
                         <Typography variant="h6" color="textSecondary">

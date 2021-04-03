@@ -51,8 +51,7 @@ const projectRemove = asyncHandler(async (req, res) => {
 
 // to get all the Projects
 const projectGetAll = asyncHandler(async (req, res) => {
-    const foundProjects = await Project.find({})
-
+    const foundProjects = await Project.find({}).sort({ createdAt: -1 })
     res.status(200).json(foundProjects)
 })
 

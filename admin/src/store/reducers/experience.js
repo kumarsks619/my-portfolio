@@ -1,23 +1,23 @@
 import * as actionTypes from '../actionTypes'
 
-export const projectAddReducer = (
-    state = { loading: false, project: {}, error: null, success: false },
+export const expAddReducer = (
+    state = { loading: false, experience: {}, error: null, success: false },
     action
 ) => {
     switch (action.type) {
-        case actionTypes.PROJECT_ADD_REQUEST:
+        case actionTypes.EXPERIENCE_ADD_REQUEST:
             return { ...state, loading: true }
 
-        case actionTypes.PROJECT_ADD_SUCCESS:
+        case actionTypes.EXPERIENCE_ADD_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 error: null,
-                project: action.payload,
+                experience: action.payload,
                 success: true,
             }
 
-        case actionTypes.PROJECT_ADD_FAIL:
+        case actionTypes.EXPERIENCE_ADD_FAIL:
             return { ...state, loading: false, error: action.payload }
 
         default:
@@ -25,36 +25,36 @@ export const projectAddReducer = (
     }
 }
 
-export const projectGetAllReducer = (
-    state = { loading: false, projects: [], error: null },
+export const expGetAllReducer = (
+    state = { loading: false, experiences: [], error: null },
     action
 ) => {
     switch (action.type) {
-        case actionTypes.PROJECT_GET_ALL_REQUEST:
+        case actionTypes.EXPERIENCE_GET_ALL_REQUEST:
             return { ...state, loading: true }
 
-        case actionTypes.PROJECT_GET_ALL_SUCCESS:
+        case actionTypes.EXPERIENCE_GET_ALL_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 error: null,
-                projects: action.payload,
+                experiences: action.payload,
             }
 
-        case actionTypes.PROJECT_GET_ALL_FAIL:
+        case actionTypes.EXPERIENCE_GET_ALL_FAIL:
             return { ...state, loading: false, error: action.payload }
 
-        case actionTypes.PROJECT_ADD_NEW:
+        case actionTypes.EXPERIENCE_ADD_NEW:
             return {
                 ...state,
-                projects: [action.payload, ...state.projects],
+                experiences: [action.payload, ...state.experiences],
             }
 
-        case actionTypes.PROJECT_REMOVE_DELETED:
+        case actionTypes.EXPERIENCE_REMOVE_DELETED:
             return {
                 ...state,
-                projects: state.projects.filter(
-                    (project) => project._id !== action.payload
+                experiences: state.experiences.filter(
+                    (exp) => exp._id !== action.payload
                 ),
             }
 
@@ -63,24 +63,24 @@ export const projectGetAllReducer = (
     }
 }
 
-export const projectRemoveReducer = (
-    state = { loading: false, projectID: '', error: null, success: false },
+export const expRemoveReducer = (
+    state = { loading: false, expID: '', error: null, success: false },
     action
 ) => {
     switch (action.type) {
-        case actionTypes.PROJECT_REMOVE_REQUEST:
+        case actionTypes.EXPERIENCE_REMOVE_REQUEST:
             return { ...state, loading: true }
 
-        case actionTypes.PROJECT_REMOVE_SUCCESS:
+        case actionTypes.EXPERIENCE_REMOVE_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 error: null,
-                projectID: action.payload,
+                expID: action.payload,
                 success: true,
             }
 
-        case actionTypes.PROJECT_REMOVE_FAIL:
+        case actionTypes.EXPERIENCE_REMOVE_FAIL:
             return { ...state, loading: false, error: action.payload }
 
         default:

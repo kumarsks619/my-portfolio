@@ -1,0 +1,44 @@
+.expItem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 15px;
+    box-shadow: 1px 1px 3px #ddd;
+    border-radius: 5px;
+}
+
+.expItem .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.expItem .main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expItem .main .mainContent {
+    flex: 0.5;
+}
+
+.expItem .main .subContent {
+    flex: 0.5;
+}
+
+.expItem .main .withLinkWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.expItem .main .withLinkWrapper .MuiSvgIcon-root {
+    margin-left: 10px;
+}
+
+.expItem .main li.withLinkWrapper::before {
+    content: '✔';
+}

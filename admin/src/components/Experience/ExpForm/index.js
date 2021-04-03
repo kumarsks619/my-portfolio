@@ -10,47 +10,49 @@ import {
 } from '@material-ui/core'
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
-import FileBase from 'react-file-base64'
-import AddCircleIcon from '@material-ui/icons/AddCircle'
 import { useDispatch, useSelector } from 'react-redux'
+import AddCircleIcon from '@material-ui/icons/AddCircle'
 
 import ModalComp from '../../../utils/Comp/ModalComp'
 import { useForm } from '../../../utils/Hooks/useForm'
-import { useDynamicInputs } from '../../../utils/Hooks/useDynamicInputs'
-import { projectAdd } from '../../../store/actions/project'
 import Loading from '../../../utils/Comp/Loading'
-import './ProjectForm.css'
+import { useDoubleDynamicInputs } from '../../../utils/Hooks/useDoubleDynamicInputs'
+import { expAdd } from '../../../store/actions/experience'
+import './ExpForm.css'
 
-const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
+const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
-    const { loading, success } = useSelector((state) => state.projectAdd)
+    const { loading, success } = useSelector((state) => state.expAdd)
 
     const { inputVals, handleOnChange, handleReset } = useForm({
-        name: '',
+        position: '',
+        companyName: '',
+        companyLink: '',
         description: '',
-        type: '',
-        link: '',
     })
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
-    const [image, setImage] = useState('')
     const {
-        values: technologies,
-        setValues: setTechnologies,
-        createInputs: createTechnologiesInputAdd,
-        handleInputAdd: handleTechnologyInputAdd,
-    } = useDynamicInputs('Technology')
+        values: tasks,
+        setValues: setTasks,
+        createInputs: createTasksInputAdd,
+        handleInputAdd: handleTaskInputAdd,
+    } = useDoubleDynamicInputs('Task', 'Link')
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
 
         dispatch(
-            projectAdd({
-                ...inputVals,
+            expAdd({
+                position: inputVals.position,
+                company: {
+                    name: inputVals.companyName,
+                    link: inputVals.companyLink,
+                },
                 start: startDate,
                 end: endDate,
-                image,
-                technologies,
+                description: inputVals.description,
+                tasks,
             })
         )
     }
@@ -60,7 +62,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
         handleReset()
         setStartDate(null)
         setEndDate(null)
-        setTechnologies([])
+        setTasks([])
     }
 
     useEffect(() => {
@@ -73,21 +75,54 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>
             {loading && <Loading />}
 
-            <form className="projectForm" onSubmit={handleOnSubmit}>
+            <form className="expForm" onSubmit={handleOnSubmit}>
                 <Typography variant="h5" color="textSecondary" className="formHeading">
-                    Add Project
+                    Add Experience
                 </Typography>
 
-                <TextField
-                    required
-                    type="text"
-                    variant="outlined"
-                    label="Project Name"
-                    name="name"
-                    className="formInput"
-                    value={inputVals.name}
-                    onChange={handleOnChange}
-                />
+                <FormControl variant="outlined" className="formInput">
+                    <InputLabel id="position">Position</InputLabel>
+                    <Select
+                        required
+                        labelId="position"
+                        label="Position"
+                        name="position"
+                        value={inputVals.position}
+                        onChange={handleOnChange}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Intern">Intern</MenuItem>
+                        <MenuItem value="Freelancer">Freelancer</MenuItem>
+                        <MenuItem value="Junior Developer">Junior Developer</MenuItem>
+                        <MenuItem value="Senior Developer">Senior Developer</MenuItem>
+                    </Select>
+                </FormControl>
+
+                <div className="formGroup">
+                    <TextField
+                        required
+                        type="text"
+                        variant="outlined"
+                        label="Company"
+                        className="formInput"
+                        name="companyName"
+                        value={inputVals.companyName}
+                        onChange={handleOnChange}
+                    />
+
+                    <TextField
+                        required
+                        type="text"
+                        variant="outlined"
+                        label="Company's Website"
+                        className="formInput"
+                        name="companyLink"
+                        value={inputVals.companyLink}
+                        onChange={handleOnChange}
+                    />
+                </div>
 
                 <TextField
                     required
@@ -104,22 +139,20 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                 <div className="dynamicInputGroup">
                     <div className="formGroup">
                         <InputLabel style={{ fontSize: '1.1rem' }}>
-                            Technologies Used:
+                            Tasks/Roles:
                         </InputLabel>
                         <Button
                             variant="outlined"
                             color="primary"
                             size="small"
                             startIcon={<AddCircleIcon />}
-                            onClick={handleTechnologyInputAdd}
+                            onClick={handleTaskInputAdd}
                             className="adminHome__dataFormBtn"
                         >
                             Add
                         </Button>
                     </div>
-                    <div className="dynamicInputsWrapper">
-                        {createTechnologiesInputAdd()}
-                    </div>
+                    <div className="dynamicInputsWrapper">{createTasksInputAdd()}</div>
                 </div>
 
                 <div className="formGroup">
@@ -153,46 +186,6 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                     </MuiPickersUtilsProvider>
                 </div>
 
-                <div className="formGroup">
-                    <FormControl variant="outlined" className="formInput">
-                        <InputLabel id="project-type">Project Type</InputLabel>
-                        <Select
-                            required
-                            labelId="project-type"
-                            label="Project Type"
-                            name="type"
-                            value={inputVals.type}
-                            onChange={handleOnChange}
-                        >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value="Freelance">Freelance</MenuItem>
-                            <MenuItem value="Personal">Personal</MenuItem>
-                            <MenuItem value="Internship">Internship</MenuItem>
-                        </Select>
-                    </FormControl>
-                    <label className="formInput imageInput">
-                        <FileBase
-                            type="file"
-                            multiple={false}
-                            onDone={({ base64 }) => setImage(base64)}
-                        />
-                        {image ? 'Image Selected' : 'Choose an Image'}
-                    </label>
-                </div>
-
-                <TextField
-                    required
-                    type="text"
-                    variant="outlined"
-                    label="Project Link"
-                    className="formInput"
-                    name="link"
-                    value={inputVals.link}
-                    onChange={handleOnChange}
-                />
-
                 <div className="btnsWrapper">
                     <Button
                         variant="outlined"
@@ -208,7 +201,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                         color="primary"
                         className="formBtn"
                     >
-                        Add Project
+                        Add Experience
                     </Button>
                 </div>
             </form>
@@ -216,4 +209,4 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
     )
 }
 
-export default ProjectForm
+export default ExpForm
