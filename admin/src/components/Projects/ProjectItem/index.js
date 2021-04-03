@@ -30,7 +30,7 @@ const ProjectItem = ({
         if (isConfirm) {
             dispatch(projectRemove(_id))
         }
-    }, [isConfirm, dispatch])
+    }, [isConfirm, dispatch, _id])
 
     return (
         <>

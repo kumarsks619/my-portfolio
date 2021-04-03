@@ -29,7 +29,7 @@ const ProjectItem = ({
         if (isConfirm) {
             dispatch(expRemove(_id))
         }
-    }, [isConfirm, dispatch])
+    }, [isConfirm, dispatch, _id])
 
     return (
         <>

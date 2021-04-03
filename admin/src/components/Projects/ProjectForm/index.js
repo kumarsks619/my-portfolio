@@ -60,6 +60,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
         handleReset()
         setStartDate(null)
         setEndDate(null)
+        setImage('')
         setTechnologies([])
     }
 

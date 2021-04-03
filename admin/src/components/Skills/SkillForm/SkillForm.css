@@ -1,0 +1,59 @@
+.skillForm {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.skillForm .formHeading {
+    margin: 20px 0;
+}
+
+.skillForm .formInput {
+    margin-top: 15px;
+}
+
+.skillForm .formGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skillForm .formGroup .formInput {
+    flex: 0.45;
+}
+
+.skillForm .imageInput input {
+    display: none;
+}
+
+.skillForm .imageInput {
+    padding: 15px 0;
+    background-color: #fff;
+    font-size: 0.9rem;
+    color: #3f51b5;
+    border-radius: 5px;
+    border: 1px solid #3f51b5;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.skillForm .imageInput:hover {
+    box-shadow: none;
+}
+
+.skillForm .imageInput:active {
+    box-shadow: none;
+    border-width: 2px;
+}
+
+.skillForm .btnsWrapper {
+    margin: 20px 0;
+    display: flex;
+}
+
+.skillForm .formBtn:first-child {
+    margin-left: auto;
+    margin-right: 10px;
+}
