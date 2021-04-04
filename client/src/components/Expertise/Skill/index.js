@@ -1,22 +1,20 @@
 import React from 'react'
 
 import './Skill.css'
-import reactImg from '../../../assets/img/react.png'
 
-const Skill = () => {
+const Skill = ({ name, image, stars }) => {
     return (
         <div className="skill">
             <div className="skill__content">
-                <p>ReactJS</p>
-                <img src={reactImg} alt="React" />
+                <p>{name}</p>
+                <img src={image} alt={name} />
             </div>
 
             <div className="skill__overlay">
                 <div className="skill__starsWrapper">
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-star"></i>
+                    {new Array(stars).fill(0).map((_, index) => (
+                        <i key={index} className="fas fa-star"></i>
+                    ))}
                 </div>
             </div>
         </div>

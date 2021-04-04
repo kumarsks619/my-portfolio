@@ -12,10 +12,6 @@ const Home = () => {
                     <span>w</span>
                     <span>e</span>
                     <span>b</span>
-                    <span>s</span>
-                    <span>i</span>
-                    <span>t</span>
-                    <span>e</span>
                     <br />
                     <span>d</span>
                     <span>e</span>

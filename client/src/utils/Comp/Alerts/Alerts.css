@@ -1,0 +1,25 @@
+.alerts {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.alerts .alert {
+    margin: 10px 0;
+    font-size: 1rem;
+    align-items: center;
+    padding: 20px 40px;
+    border: 1px solid var(--text-light);
+    font-weight: 700;
+}
+
+.alert.success {
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+.alert.error {
+    background-color: var(--dark);
+    color: var(--white);
+}

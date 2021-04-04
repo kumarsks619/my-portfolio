@@ -6,7 +6,7 @@ export const skillAddReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.SKILL_ADD_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null, success: false }
 
         case actionTypes.SKILL_ADD_SUCCESS:
             return {
@@ -31,7 +31,7 @@ export const skillGetAllReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.SKILL_GET_ALL_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null }
 
         case actionTypes.SKILL_GET_ALL_SUCCESS:
             return {
@@ -67,7 +67,7 @@ export const skillRemoveReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.SKILL_REMOVE_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null, success: false }
 
         case actionTypes.SKILL_REMOVE_SUCCESS:
             return {

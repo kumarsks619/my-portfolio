@@ -43,9 +43,19 @@
     font-weight: 700;
 }
 
-.exp > span {
+.exp > span.line {
     width: 50%;
     border-top: 3px solid var(--dark);
     height: 50px;
     margin-top: 30px;
+}
+
+.exp > div.at {
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding-left: 5px;
+    border-left: 3px solid var(---dark);
+    border-left: 4px solid var(--dark);
 }

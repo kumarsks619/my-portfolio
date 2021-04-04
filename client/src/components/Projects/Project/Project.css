@@ -28,7 +28,7 @@
     transition: all 0.3s ease;
 }
 
-.project__imgOverlay button {
+.project__imgOverlay a {
     opacity: 0;
     background-color: transparent;
     border: 1px solid var(--text-white);
@@ -40,18 +40,19 @@
     font-size: 1.2rem;
     letter-spacing: 3px;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-.project__imgOverlay button:hover {
+.project__imgOverlay a:hover {
     background-color: var(--text-white);
     color: var(--text-light);
 }
 
-.project__imgOverlay button:active {
+.project__imgOverlay a:active {
     background-color: #fff;
 }
 
-.project__imgOverlay button:focus {
+.project__imgOverlay a:focus {
     outline: none;
 }
 
@@ -63,7 +64,7 @@
     height: 100%;
 }
 
-.project__imgWrapper:hover .project__imgOverlay button {
+.project__imgWrapper:hover .project__imgOverlay a {
     opacity: 1;
 }
 
@@ -108,4 +109,16 @@
 
 .project__techUsed span:hover {
     color: #fff;
+}
+
+.project__date {
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+}
+
+.project__date span:nth-child(2) {
+    width: 50px;
+    border-top: 3px solid var(--text-light);
+    margin: 0 10px;
 }

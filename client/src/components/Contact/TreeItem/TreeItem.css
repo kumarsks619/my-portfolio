@@ -16,6 +16,8 @@
     font-size: 2rem;
     flex: 0.8;
     justify-content: flex-end;
+    text-decoration: none;
+    color: inherit;
 }
 
 .treeItem__leaf h2 {

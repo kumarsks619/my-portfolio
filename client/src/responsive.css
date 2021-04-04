@@ -45,16 +45,20 @@
     }
 
     /* Projects **************************************************************************/
+    .projects__projectsWrapper {
+        height: auto;
+    }
+
     .projects__projectNavBtns button:first-child {
-        top: -90vh;
+        top: -75vh;
         left: 0;
-        border-right: 25px solid var(--white);
+        border-right: 25px solid var(--dark);
     }
 
     .projects__projectNavBtns button:last-child {
-        top: -90vh;
+        top: -75vh;
         right: 0;
-        border-left: 25px solid var(--white);
+        border-left: 25px solid var(--dark);
     }
 
     .projects__allProjects {
@@ -80,7 +84,12 @@
 
     .project__imgWrapper {
         flex: 1;
-        height: 300px;
+        max-height: 300px;
+    }
+
+    .project__imgWrapper img {
+        width: 100%;
+        height: 100%;
     }
 
     .project__imgOverlay button {
@@ -90,7 +99,7 @@
     .project__descWrapper {
         padding-left: 20px;
         padding-right: 20px;
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
     .project__descWrapper h2 {

@@ -12,12 +12,12 @@ import {
     IconButton,
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import HomeIcon from '@material-ui/icons/Home'
 import TvIcon from '@material-ui/icons/Tv'
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew'
 import WidgetsIcon from '@material-ui/icons/Widgets'
 import { useDispatch, useSelector } from 'react-redux'
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew'
+import MessageIcon from '@material-ui/icons/Message'
 
 import useStyles from './styles'
 import Routes from '../../Routes'
@@ -63,11 +63,11 @@ const Sidebar = () => {
                 <div className={classes.drawerContainer}>
                     <List>
                         <Link to="/">
-                            <ListItem button key={'Home'}>
+                            <ListItem button key={'Messages'}>
                                 <ListItemIcon>
-                                    <HomeIcon />
+                                    <MessageIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={'Home'} />
+                                <ListItemText primary={'Messages'} />
                             </ListItem>
                         </Link>
 

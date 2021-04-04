@@ -2,15 +2,20 @@ import React from 'react'
 
 import './TreeItem.css'
 
-const TreeItem = ({ right, iconClass, name }) => {
+const TreeItem = ({ right, iconClass, name, link }) => {
     return (
         <div className={right ? 'treeItem right' : 'treeItem'}>
-            <div className={right ? 'treeItem__leaf right' : 'treeItem__leaf'}>
+            <a
+                className={right ? 'treeItem__leaf right' : 'treeItem__leaf'}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <h2>
                     <span className="responsive__hide">{name}</span>
                 </h2>
                 <i className={iconClass}></i>
-            </div>
+            </a>
             <div className="treeItem__branch"></div>
         </div>
     )

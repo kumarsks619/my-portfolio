@@ -6,7 +6,7 @@ export const expAddReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.EXPERIENCE_ADD_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null, success: false }
 
         case actionTypes.EXPERIENCE_ADD_SUCCESS:
             return {
@@ -31,7 +31,7 @@ export const expGetAllReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.EXPERIENCE_GET_ALL_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null }
 
         case actionTypes.EXPERIENCE_GET_ALL_SUCCESS:
             return {
@@ -69,7 +69,7 @@ export const expRemoveReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.EXPERIENCE_REMOVE_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null, success: false }
 
         case actionTypes.EXPERIENCE_REMOVE_SUCCESS:
             return {

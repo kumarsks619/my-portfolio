@@ -84,6 +84,11 @@
     cursor: pointer;
 }
 
+.contactForm button:active,
+.contactForm button:focus {
+    outline: none;
+}
+
 .contactForm button span {
     display: block;
     text-align: center;

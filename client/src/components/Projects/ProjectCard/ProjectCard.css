@@ -2,16 +2,19 @@
     width: 48%;
     margin-bottom: 70px;
     position: relative;
+    height: 50vh;
 }
 
 .projectCard__img {
     width: 100%;
+    height: 100%;
     transition: all 0.8s ease;
     backface-visibility: hidden;
 }
 
 .projectCard__img img {
     width: 100%;
+    height: 100%;
 }
 
 .projectCard__overlay {
@@ -40,9 +43,9 @@
 }
 
 .projectCard__date span:nth-child(2) {
-    width: 30px;
-    border-top: 2px solid var(--text-white);
-    margin: 0 5px;
+    width: 50px;
+    border-top: 3px solid var(--text-white);
+    margin: 0 10px;
 }
 
 .projectCard__backfaceOverlay {

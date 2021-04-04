@@ -1,44 +1,46 @@
 import React from 'react'
+import Moment from 'react-moment'
 
 import './Exp.css'
 
-const Exp = () => {
+const Exp = ({
+    position,
+    company: { name, link },
+    duration: { start, end },
+    description,
+    tasks,
+}) => {
     return (
         <div className="exp">
-            <h2>Intern</h2>
+            <h2>{position}</h2>
+            <div className="at">@</div>
             <h3>
-                The YoungMinds
-                <a href="#" target="_blank" rel="noreferrer noopener">
+                {name}
+                <a href={link} target="_blank" rel="noreferrer noopener">
                     <i className="fas fa-external-link-alt"></i>
                 </a>
             </h3>
             <div className="exp__date">
-                <span>Nov 2020</span>
+                <span>{<Moment format="MMM YYYY">{start}</Moment>}</span>
                 <span></span>
-                <span>March 2021</span>
+                <span>{end ? <Moment format="MMM YYYY">{end}</Moment> : 'Current'}</span>
             </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde tempore cum
-                praesentium, numquam atque soluta!
-            </p>
+            <p>{description}</p>
             <h4>Tasks/Roles:</h4>
             <ul>
-                <li>
-                    Dashboard controlled Chatbot
-                    <a href="#" target="_blank" rel="noreferrer noopener">
-                        <i className="fas fa-external-link-alt"></i>
-                    </a>
-                </li>
-                <li>
-                    The bot is controlled by a Dashboard
-                    <a href="#" target="_blank" rel="noreferrer noopener">
-                        <i className="fas fa-external-link-alt"></i>
-                    </a>
-                </li>
-                <li>Dashboard also collects the data and plots graph</li>
+                {tasks.map((task) => (
+                    <li key={task._id}>
+                        {task.text}
+                        {task.link && (
+                            <a href={task.link} target="_blank" rel="noreferrer noopener">
+                                <i className="fas fa-external-link-alt"></i>
+                            </a>
+                        )}
+                    </li>
+                ))}
             </ul>
 
-            <span></span>
+            <span className="line"></span>
         </div>
     )
 }

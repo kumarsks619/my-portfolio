@@ -1,36 +1,47 @@
 import React from 'react'
+import Moment from 'react-moment'
 
 import './Project.css'
-import project1 from '../../../assets/img/1.png'
 
-const Project = () => {
+const Project = ({
+    image,
+    name,
+    description,
+    technologies,
+    duration: { start, end },
+    type,
+    link,
+}) => {
     return (
         <div className="project" id="projectItemID">
             <div className="project__imgWrapper">
-                <img src={project1} alt="WanderLust" />
+                <img src={image} alt={name} />
                 <div className="project__imgOverlay">
-                    <button>View Project</button>
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                        View Project
+                    </a>
                 </div>
             </div>
             <div className="project__descWrapper">
-                <h2>WanderLust</h2>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur qui
-                    temporibus eveniet beatae adipisci sint eaque perspiciatis veniam
-                    aperiam. Sequi?
-                </p>
+                <h2>{name}</h2>
+                <p>{description}</p>
                 <h3>Technologies Used:</h3>
                 <div className="project__techUsed">
-                    <span>ReactJS</span>
-                    <span>NodeJS</span>
-                    <span>MongoDB</span>
-                    <span>Material-UI</span>
-                    <span>Heroku & Netlify</span>
+                    {technologies.map((technology, index) => (
+                        <span key={index}>{technology}</span>
+                    ))}
                 </div>
                 <h3>Project Duration:</h3>
-                <p>15 Feb 2020 - Current</p>
+                <p className="project__date">
+                    <span>{<Moment format="MMM YYYY">{start}</Moment>}</span>
+                    <span></span>
+                    <span>
+                        {' '}
+                        {end ? <Moment format="MMM YYYY">{end}</Moment> : 'Current'}
+                    </span>
+                </p>
                 <h3>Project Type:</h3>
-                <p>Freelance</p>
+                <p>{type}</p>
             </div>
         </div>
     )

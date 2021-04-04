@@ -52,16 +52,32 @@ const Footer = () => {
                         <span>Me Up On</span>
                     </div>
                     <div className="footer__socialLinks">
-                        <a href="#">
+                        <a
+                            href="https://www.linkedin.com/in/kumarsks619"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <i className="fab fa-linkedin"></i> Linkedin
                         </a>
-                        <a href="#">
+                        <a
+                            href="https://github.com/kumarsks619"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <i className="fab fa-github"></i> GitHub
                         </a>
-                        <a href="#">
+                        <a
+                            href="https://www.instagram.com/blck_tie"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <i className="fab fa-instagram"></i> Instagram
                         </a>
-                        <a href="#">
+                        <a
+                            href="https://www.facebook.com/kumarsks619"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <i className="fab fa-facebook-square"></i> Facebook
                         </a>
                     </div>
@@ -71,7 +87,11 @@ const Footer = () => {
             <div className="footer__creditsWrapper">
                 <p>
                     Copyright &copy; 2021 | Made with <i className="fas fa-heart"></i> by
-                    <a href="#">
+                    <a
+                        href="https://kumarsks619.netlify.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <span>VeNoM</span>
                         <span>Shubham</span>
                     </a>

@@ -28,7 +28,7 @@ export const adminChangePassword = (
 ) => {
     switch (action.type) {
         case actionTypes.ADMIN_PASSWORD_CHANGE_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null, success: false }
 
         case actionTypes.ADMIN_PASSWORD_CHANGE_SUCCESS:
             return { ...state, loading: false, error: null, success: true }

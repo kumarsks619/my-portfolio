@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 
 const Message = require('../models/Message')
+const generateToken = require('../utils/generateToken')
 
 // to send a Message
 const messageSend = asyncHandler(async (req, res) => {
@@ -17,6 +18,9 @@ const messageSend = asyncHandler(async (req, res) => {
     if (newMessage) {
         res.status(200).json({
             message: 'Message Sent!',
+            token: generateToken(
+                `Message Sent at: ${new Date().toTimeString()} - ${new Date().toDateString()}`
+            ),
         })
     } else {
         res.status(400)
@@ -34,7 +38,6 @@ const messageRemove = asyncHandler(async (req, res) => {
         await foundMessage.remove()
         res.status(200).json({
             message: 'Message Removed!',
-            messageID,
         })
     } else {
         res.status(404)
@@ -44,7 +47,7 @@ const messageRemove = asyncHandler(async (req, res) => {
 
 // to get all the Messages
 const messageGetAll = asyncHandler(async (req, res) => {
-    const foundMessages = await Message.find({})
+    const foundMessages = await Message.find({}).sort({ createdAt: -1 })
 
     res.status(200).json(foundMessages)
 })

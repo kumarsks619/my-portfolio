@@ -1,0 +1,35 @@
+.messageItem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 15px;
+    box-shadow: 1px 1px 3px #ddd;
+    border-radius: 5px;
+}
+
+.messageItem .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.messageItem .main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.messageItem .main .mainContent {
+    flex: 0.5;
+}
+
+.messageItem .main .subContent {
+    flex: 0.5;
+}
+
+.messageItem .contentEntity {
+    margin-bottom: 15px;
+}

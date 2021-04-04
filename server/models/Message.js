@@ -11,11 +11,11 @@ const messageSchema = new Schema(
             required: true,
         },
         service: {
-            type: Number,
+            type: String,
             required: true,
         },
         budget: {
-            type: Number,
+            type: String,
             required: true,
         },
         message: {

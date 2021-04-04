@@ -6,7 +6,7 @@ export const projectAddReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.PROJECT_ADD_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null, success: false }
 
         case actionTypes.PROJECT_ADD_SUCCESS:
             return {
@@ -31,7 +31,7 @@ export const projectGetAllReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.PROJECT_GET_ALL_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null }
 
         case actionTypes.PROJECT_GET_ALL_SUCCESS:
             return {
@@ -69,7 +69,7 @@ export const projectRemoveReducer = (
 ) => {
     switch (action.type) {
         case actionTypes.PROJECT_REMOVE_REQUEST:
-            return { ...state, loading: true }
+            return { ...state, loading: true, error: null, success: false }
 
         case actionTypes.PROJECT_REMOVE_SUCCESS:
             return {
