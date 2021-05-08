@@ -6,6 +6,7 @@ import SkillForm from './SkillForm'
 import SkillItem from './SkillItem'
 import Loading from '../../utils/Comp/Loading'
 import { skillGetAll } from '../../store/actions/skill'
+import './Skills.css'
 
 const Skills = () => {
     const dispatch = useDispatch()

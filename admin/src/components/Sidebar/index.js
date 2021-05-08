@@ -10,6 +10,7 @@ import {
     ListItemIcon,
     ListItemText,
     IconButton,
+    Badge,
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import TvIcon from '@material-ui/icons/Tv'
@@ -27,6 +28,10 @@ import { adminLogout } from '../../store/actions/auth'
 const Sidebar = () => {
     const dispatch = useDispatch()
     const { admin } = useSelector((state) => state.adminLogin)
+    const { messages } = useSelector((state) => state.messageGetAll)
+    const { projects } = useSelector((state) => state.projectGetAll)
+    const { experiences } = useSelector((state) => state.expGetAll)
+    const { skills } = useSelector((state) => state.skillGetAll)
 
     const classes = useStyles()
 
@@ -65,7 +70,12 @@ const Sidebar = () => {
                         <Link to="/">
                             <ListItem button key={'Messages'}>
                                 <ListItemIcon>
-                                    <MessageIcon />
+                                    <Badge
+                                        badgeContent={messages && messages.length}
+                                        color="primary"
+                                    >
+                                        <MessageIcon />
+                                    </Badge>
                                 </ListItemIcon>
                                 <ListItemText primary={'Messages'} />
                             </ListItem>
@@ -74,7 +84,12 @@ const Sidebar = () => {
                         <Link to="/projects">
                             <ListItem button key={'Projects'}>
                                 <ListItemIcon>
-                                    <TvIcon />
+                                    <Badge
+                                        badgeContent={projects && projects.length}
+                                        color="primary"
+                                    >
+                                        <TvIcon />
+                                    </Badge>
                                 </ListItemIcon>
                                 <ListItemText primary={'Projects'} />
                             </ListItem>
@@ -83,7 +98,12 @@ const Sidebar = () => {
                         <Link to="/experience">
                             <ListItem button key={'Experience'}>
                                 <ListItemIcon>
-                                    <AccessibilityNewIcon />
+                                    <Badge
+                                        badgeContent={experiences && experiences.length}
+                                        color="primary"
+                                    >
+                                        <AccessibilityNewIcon />
+                                    </Badge>
                                 </ListItemIcon>
                                 <ListItemText primary={'Experience'} />
                             </ListItem>
@@ -92,7 +112,12 @@ const Sidebar = () => {
                         <Link to="/skills">
                             <ListItem button key={'Skills'}>
                                 <ListItemIcon>
-                                    <WidgetsIcon />
+                                    <Badge
+                                        badgeContent={skills && skills.length}
+                                        color="primary"
+                                    >
+                                        <WidgetsIcon />
+                                    </Badge>
                                 </ListItemIcon>
                                 <ListItemText primary={'Skills'} />
                             </ListItem>

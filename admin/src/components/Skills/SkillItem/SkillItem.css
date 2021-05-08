@@ -1,8 +1,9 @@
 .skillItem {
     display: flex;
     flex-direction: column;
-    width: 100%;
     margin-bottom: 30px;
+    margin-right: 30px;
+    width: 400px;
     border: 1px solid #ddd;
     box-sizing: border-box;
     padding: 15px;

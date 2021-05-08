@@ -1,0 +1,55 @@
+[{
+  
+  "position": "Freelancer",
+  "company": {
+    "name": "Purple Marketing",
+    "link": "http://demo.marketinghooters.com/"
+  },
+  "duration": {
+    "start": "2020-07-04T17:51:19.080Z",
+    "end": "2020-07-04T17:51:19.081Z"
+  },
+  "description": "The Purple Marketing supports startups in various ways.",
+  "tasks": [
+    {
+      
+      "text": "Completed the Website Frontend.",
+      "link": ""
+    },
+    {
+     
+      "text": "Fixed bugs.",
+      "link": ""
+    }
+  ]
+  
+},{
+  
+  "position": "Intern",
+  "company": {
+    "name": "The YoungMinds",
+    "link": "http://theyoungminds.org/"
+  },
+  "duration": {
+    "start": "2020-11-04T17:53:59.135Z",
+    "end": "2021-03-04T17:53:59.138Z"
+  },
+  "description": "The Young Minds Education is aimed to promote and provide accessible and equitable education to all.",
+  "tasks": [
+    {
+      
+      "text": "Dashboard controlled Chatbot.",
+      "link": "https://chatbot-619.web.app/"
+    },
+    {
+      
+      "text": "Built the Dashboard to control the bot.",
+      "link": "https://ym-admin-panel.web.app/"
+    },
+    {
+     
+      "text": "Dashboard also collects the data and plots graph.",
+      "link": ""
+    }
+  ]
+}]

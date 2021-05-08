@@ -37,7 +37,6 @@ export const useDoubleDynamicInputs = (label1, label2) => {
                 />
 
                 <TextField
-                    required
                     type="text"
                     variant="outlined"
                     label={label2}
