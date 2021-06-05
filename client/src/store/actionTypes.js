@@ -21,3 +21,8 @@ export const SKILL_GET_ALL_FAIL = 'SKILL_GET_ALL_FAIL'
 export const MESSAGE_SEND_REQUEST = 'MESSAGE_SEND_REQUEST'
 export const MESSAGE_SEND_SUCCESS = 'MESSAGE_SEND_SUCCESS'
 export const MESSAGE_SEND_FAIL = 'MESSAGE_SEND_FAIL'
+
+// RESUME ************************************************************************************
+export const RESUME_GET_LINK_REQUEST = 'RESUME_GET_LINK_REQUEST'
+export const RESUME_GET_LINK_SUCCESS = 'RESUME_GET_LINK_SUCCESS'
+export const RESUME_GET_LINK_FAIL = 'RESUME_GET_LINK_FAIL'

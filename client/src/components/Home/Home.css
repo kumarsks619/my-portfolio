@@ -56,6 +56,7 @@
 .home__btns {
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 .home__btns a {
@@ -73,4 +74,25 @@
     margin: 0 10px;
     color: var(--text-light);
     font-weight: 700;
+}
+
+.home__resume {
+    background-color: var(--dark);
+    border: none;
+    color: var(--text-white);
+    padding: 10px 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+.home__resume:hover {
+    background-color: var(--text-white);
+    color: var(--dark);
+    border-color: var(--dark);
 }

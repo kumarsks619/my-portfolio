@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HashLink } from 'react-router-hash-link'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { resumeGetLink } from '../../store/actions'
 import './Home.css'
 
 const Home = () => {
+    const dispatch = useDispatch()
+
+    const { loading, link } = useSelector((state) => state.resume)
+
+    useEffect(() => {
+        dispatch(resumeGetLink())
+    }, [dispatch])
+
     return (
         <main className="home" id="topID">
             <div className="home__contentWrapper">
@@ -34,6 +44,16 @@ const Home = () => {
                     <span>or</span>
                     <HashLink to="/about#top">Know Me</HashLink>
                 </div>
+                {!loading && (
+                    <a
+                        href={link}
+                        className="home__resume"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        My Resume
+                    </a>
+                )}
             </div>
         </main>
     )

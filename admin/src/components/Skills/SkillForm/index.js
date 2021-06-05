@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
     Typography,
     FormControl,
@@ -17,14 +17,16 @@ import Loading from '../../../utils/Comp/Loading'
 import { skillAdd } from '../../../store/actions/skill'
 import './SkillForm.css'
 
+const initialInputVals = {
+    name: '',
+    stars: '',
+}
+
 const SkillForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.skillAdd)
 
-    const { inputVals, handleOnChange, handleReset } = useForm({
-        name: '',
-        stars: '',
-    })
+    const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
     const [image, setImage] = useState('')
 
     const handleOnSubmit = (e) => {
@@ -38,17 +40,17 @@ const SkillForm = ({ isFormOpen, setIsFormOpen }) => {
         )
     }
 
-    const handleModalClose = () => {
+    const handleModalClose = useCallback(() => {
         setIsFormOpen(false)
         handleReset()
         setImage('')
-    }
+    }, [handleReset, setIsFormOpen])
 
     useEffect(() => {
         if (success) {
             handleModalClose()
         }
-    }, [success])
+    }, [success, handleModalClose])
 
     return (
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>

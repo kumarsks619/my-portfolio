@@ -8,3 +8,14 @@
     display: flex;
     align-items: center;
 }
+
+.sidebar__resumeButtonWrapper {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 15px;
+}
+
+.sidebar__resumeButton {
+    width: 80%;
+}

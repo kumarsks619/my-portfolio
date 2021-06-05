@@ -17,7 +17,7 @@ export const skillAddReducer = (
                 success: true,
             }
 
-        case actionTypes.SKILL_GET_ALL_FAIL:
+        case actionTypes.SKILL_ADD_FAIL:
             return { ...state, loading: false, error: action.payload }
 
         default:

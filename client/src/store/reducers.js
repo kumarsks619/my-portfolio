@@ -116,3 +116,28 @@ export const messageSendReducer = (
             return state
     }
 }
+
+export const resumeGetLinkReducer = (
+    state = { loading: false, link: '', error: null, lastFetch: null },
+    action
+) => {
+    switch (action.type) {
+        case actionTypes.RESUME_GET_LINK_REQUEST:
+            return { ...state, loading: true }
+
+        case actionTypes.RESUME_GET_LINK_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                link: action.payload,
+                lastFetch: Date.now(),
+            }
+
+        case actionTypes.RESUME_GET_LINK_FAIL:
+            return { ...state, loading: false, error: action.payload, lastFetch: null }
+
+        default:
+            return state
+    }
+}

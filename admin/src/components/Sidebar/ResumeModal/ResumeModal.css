@@ -1,0 +1,23 @@
+.resumeForm {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.resumeForm .formHeading {
+    margin: 20px 0;
+}
+
+.resumeForm .formInput {
+    margin-top: 15px;
+}
+
+.resumeForm .btnsWrapper {
+    margin: 20px 0;
+    display: flex;
+}
+
+.resumeForm .formBtn:first-child {
+    margin-left: auto;
+    margin-right: 10px;
+}

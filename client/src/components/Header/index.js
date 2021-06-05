@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import './Header.css'
 import logo from '../../assets/img/sks-logo.png'
@@ -8,6 +8,7 @@ const Header = ({ history, location }) => {
     const page = location.pathname.split('/')[1]
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
 
     const handleGotoHome = () => {
         history.push('/')
@@ -15,18 +16,28 @@ const Header = ({ history, location }) => {
         setIsMenuOpen(false)
     }
 
-    // document.addEventListener('scroll', () => {
-    //     if (document.documentElement.scrollTop > 100) {
-    //         document.getElementById('headerID').style.background =
-    //             'linear-gradient(to bottom, var(--bg-dark-transparent) 0%, #fff 100%)'
-    //     } else {
-    //         document.getElementById('headerID').style.background = 'transparent'
-    //     }
-    // })
+    const headerBackgroundAddListener = useCallback(() => {
+        if (window.scrollY > 150) {
+            setIsScrolled(true)
+        } else {
+            setIsScrolled(false)
+        }
+    }, [])
+
+    useEffect(() => {
+        document.addEventListener('scroll', headerBackgroundAddListener)
+
+        return () => {
+            document.removeEventListener('scroll', headerBackgroundAddListener)
+        }
+    }, [headerBackgroundAddListener])
 
     return (
         <>
-            <header className="header" id="headerID">
+            <header
+                className={!isMenuOpen && isScrolled ? 'header scrolled' : 'header'}
+                id="headerID"
+            >
                 <div className="header__logoWrapper" onClick={handleGotoHome}>
                     <img src={logo} alt="Shubham Kumar Singh" />
                 </div>

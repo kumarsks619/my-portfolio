@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Typography, TextField, Button } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -9,16 +9,18 @@ import { adminChangePassword } from '../../../store/actions/auth'
 import { alertAdd } from '../../../store/actions/alert'
 import Loading from '../../../utils/Comp/Loading'
 
+const initialInputVals = {
+    username: '',
+    currentPassword: '',
+    newPassword: '',
+    newPasswordConfirm: '',
+}
+
 const ChangePasswordForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.adminChangePassword)
 
-    const { inputVals, handleOnChange, handleReset } = useForm({
-        username: '',
-        currentPassword: '',
-        newPassword: '',
-        newPasswordConfirm: '',
-    })
+    const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
@@ -35,16 +37,16 @@ const ChangePasswordForm = ({ isFormOpen, setIsFormOpen }) => {
         )
     }
 
-    const handleModalClose = () => {
+    const handleModalClose = useCallback(() => {
         setIsFormOpen(false)
         handleReset()
-    }
+    }, [handleReset, setIsFormOpen])
 
     useEffect(() => {
         if (success) {
             handleModalClose()
         }
-    }, [success])
+    }, [success, handleModalClose])
 
     return (
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>

@@ -19,14 +19,12 @@ const ProjectCard = ({ name, image, link, duration: { start, end } }) => {
                     </span>
                 </div>
             </div>
-            <a
-                href={link}
-                className="projectCard__backfaceOverlay"
-                target="_blank"
-                rel="noreferrer noopener"
-            >
-                <p>View Project</p>
-            </a>
+
+            <div className="projectCard__shutter">
+                <a href={link} target="_blank" rel="noreferrer noopener">
+                    <p>View Project</p>
+                </a>
+            </div>
         </div>
     )
 }

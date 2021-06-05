@@ -48,40 +48,34 @@
     margin: 0 10px;
 }
 
-.projectCard__backfaceOverlay {
-    display: block;
+.projectCard__shutter {
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+    height: 0;
+    background-color: var(--dark);
     display: grid;
     place-items: center;
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-    background-color: var(--dark);
-    transition: all 0.8s ease;
-    text-decoration: none;
+    z-index: 2;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.projectCard__backfaceOverlay p {
+.projectCard:hover .projectCard__shutter {
+    height: 70%;
+}
+
+.projectCard__shutter > a {
     background-color: var(--dark);
-    border: none;
     color: var(--text-white);
-    padding: 20px 100px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
     text-decoration: none;
+    border-bottom: 2px solid transparent;
 }
 
-.projectCard:hover .projectCard__img,
-.projectCard:hover .projectCard__overlay {
-    transform: rotateY(180deg);
-}
-
-.projectCard:hover .projectCard__backfaceOverlay {
-    transform: rotateY(360deg);
+.projectCard__shutter > a:hover {
+    border-color: var(--text-white);
 }

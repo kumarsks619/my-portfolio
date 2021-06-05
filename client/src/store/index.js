@@ -9,6 +9,7 @@ import {
     expGetAllReducer,
     skillGetAllReducer,
     messageSendReducer,
+    resumeGetLinkReducer,
 } from './reducers'
 
 const reducers = combineReducers({
@@ -17,6 +18,7 @@ const reducers = combineReducers({
     exp: expGetAllReducer,
     skills: skillGetAllReducer,
     message: messageSendReducer,
+    resume: resumeGetLinkReducer,
 })
 
 const initialState = {}

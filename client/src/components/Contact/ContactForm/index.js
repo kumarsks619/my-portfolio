@@ -6,17 +6,18 @@ import LottieComp from '../../../utils/Comp/LottieComp'
 import loaderLottie from '../../../assets/lotties/loader.json'
 import './ContactForm.css'
 
+const initialInputsVals = {
+    name: '',
+    email: '',
+    service: '0',
+    budget: '0',
+    message: '',
+}
+
 const ContactForm = () => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.message)
 
-    const initialInputsVals = {
-        name: '',
-        email: '',
-        service: '0',
-        budget: '0',
-        message: '',
-    }
     const [inputVals, setInputVals] = useState(initialInputsVals)
 
     const handleOnChange = (e) => {

@@ -5,22 +5,24 @@ import * as actionTypes from './actionTypes'
 import axiosInstance from '../utils/axiosInstance'
 import { handleCache } from '../utils/handleCache'
 
-export const alertAdd = (msg, alertType, timeout = 5000) => (dispatch) => {
-    const _id = v4()
-    dispatch({
-        type: actionTypes.ALERT_ADD,
-        payload: { _id, msg, alertType },
-    })
+export const alertAdd =
+    (msg, alertType, timeout = 5000) =>
+    (dispatch) => {
+        const _id = v4()
+        dispatch({
+            type: actionTypes.ALERT_ADD,
+            payload: { _id, msg, alertType },
+        })
 
-    setTimeout(
-        () =>
-            dispatch({
-                type: actionTypes.ALERT_REMOVE,
-                payload: _id,
-            }),
-        timeout
-    )
-}
+        setTimeout(
+            () =>
+                dispatch({
+                    type: actionTypes.ALERT_REMOVE,
+                    payload: _id,
+                }),
+            timeout
+        )
+    }
 
 // to get all Experiences
 export const expGetAll = () => async (dispatch, getState) => {
@@ -159,5 +161,37 @@ export const messageSend = (messageData) => async (dispatch) => {
         })
 
         dispatch(alertAdd(errorMsg, 'error'))
+    }
+}
+
+// to get Resume link
+export const resumeGetLink = () => async (dispatch, getState) => {
+    const { lastFetch } = getState().resume
+
+    if (!handleCache(lastFetch)) {
+        try {
+            dispatch({
+                type: actionTypes.RESUME_GET_LINK_REQUEST,
+            })
+
+            const { data } = await axiosInstance.get('/api/resume')
+
+            dispatch({
+                type: actionTypes.RESUME_GET_LINK_SUCCESS,
+                payload: data,
+            })
+        } catch (err) {
+            const errorMsg =
+                err.response && err.response.data.message
+                    ? err.response.data.message
+                    : err.message
+
+            dispatch({
+                type: actionTypes.RESUME_GET_LINK_FAIL,
+                payload: errorMsg,
+            })
+
+            dispatch(alertAdd(errorMsg, 'error'))
+        }
     }
 }

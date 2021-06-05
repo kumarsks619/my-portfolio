@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
     Typography,
     FormControl,
@@ -21,16 +21,18 @@ import { projectAdd } from '../../../store/actions/project'
 import Loading from '../../../utils/Comp/Loading'
 import './ProjectForm.css'
 
+const initialInputVals = {
+    name: '',
+    description: '',
+    type: '',
+    link: '',
+}
+
 const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.projectAdd)
 
-    const { inputVals, handleOnChange, handleReset } = useForm({
-        name: '',
-        description: '',
-        type: '',
-        link: '',
-    })
+    const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
     const [image, setImage] = useState('')
@@ -55,20 +57,20 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
         )
     }
 
-    const handleModalClose = () => {
+    const handleModalClose = useCallback(() => {
         setIsFormOpen(false)
         handleReset()
         setStartDate(null)
         setEndDate(null)
         setImage('')
         setTechnologies([])
-    }
+    }, [handleReset, setIsFormOpen, setTechnologies])
 
     useEffect(() => {
         if (success) {
             handleModalClose()
         }
-    }, [success])
+    }, [success, handleModalClose])
 
     return (
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>

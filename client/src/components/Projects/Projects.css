@@ -74,12 +74,13 @@
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
+    border: 1px solid transparent;
 }
 
 .projects__viewAll a:hover {
     background-color: var(--text-white);
     color: var(--dark);
-    border: 1px solid var(--dark);
+    border-color: var(--dark);
 }
 
 .projects__allProjects {

@@ -7,6 +7,12 @@
     margin-bottom: 20px;
     color: var(--dark);
     z-index: 20;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: #fff;
+    top: 0;
 }
 
 .header__logoWrapper {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
     Typography,
     FormControl,
@@ -20,16 +20,18 @@ import { useDoubleDynamicInputs } from '../../../utils/Hooks/useDoubleDynamicInp
 import { expAdd } from '../../../store/actions/experience'
 import './ExpForm.css'
 
+const initialInputVals = {
+    position: '',
+    companyName: '',
+    companyLink: '',
+    description: '',
+}
+
 const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.expAdd)
 
-    const { inputVals, handleOnChange, handleReset } = useForm({
-        position: '',
-        companyName: '',
-        companyLink: '',
-        description: '',
-    })
+    const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
     const {
@@ -57,19 +59,19 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
         )
     }
 
-    const handleModalClose = () => {
+    const handleModalClose = useCallback(() => {
         setIsFormOpen(false)
         handleReset()
         setStartDate(null)
         setEndDate(null)
         setTasks([])
-    }
+    }, [handleReset, setIsFormOpen, setTasks])
 
     useEffect(() => {
         if (success) {
             handleModalClose()
         }
-    }, [success])
+    }, [success, handleModalClose])
 
     return (
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>

@@ -10,6 +10,7 @@ import {
     messageRemoveAllReducer,
     messageRemoveReducer,
 } from './message'
+import { resumeAddNewReducer, resumeGetLinkReducer } from './resume'
 
 export default combineReducers({
     alerts: alertReducer,
@@ -27,4 +28,6 @@ export default combineReducers({
     messageGetAll: messageGetAllReducer,
     messageRemove: messageRemoveReducer,
     messageRemoveAll: messageRemoveAllReducer,
+    resumeAddNew: resumeAddNewReducer,
+    resumeGetLink: resumeGetLinkReducer,
 })
