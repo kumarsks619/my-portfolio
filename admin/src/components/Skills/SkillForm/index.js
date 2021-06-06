@@ -9,12 +9,13 @@ import {
     Button,
 } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
-import FileBase from 'react-file-base64'
 
 import ModalComp from '../../../utils/Comp/ModalComp'
 import { useForm } from '../../../utils/Hooks/useForm'
 import Loading from '../../../utils/Comp/Loading'
 import { skillAdd } from '../../../store/actions/skill'
+import { alertAdd } from '../../../store/actions/alert'
+import { handleImageCompress } from '../../../utils/imageCompressor'
 import './SkillForm.css'
 
 const initialInputVals = {
@@ -28,6 +29,25 @@ const SkillForm = ({ isFormOpen, setIsFormOpen }) => {
 
     const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
     const [image, setImage] = useState('')
+
+    const handleImageSelect = (e) => {
+        if (e.target.files[0]) {
+            // validating the file extension
+            const allowedExt = ['jpeg', 'jpg', 'png']
+            const fileExt = e.target.files[0].name.split('.').pop().toLowerCase()
+            if (!allowedExt.includes(fileExt)) {
+                dispatch(
+                    alertAdd(
+                        'Invalid Image Chosen! Only JPEG, JPG & PNG allowed.',
+                        'error'
+                    )
+                )
+                return
+            }
+
+            handleImageCompress(e.target.files[0], setImage)
+        }
+    }
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
@@ -94,11 +114,7 @@ const SkillForm = ({ isFormOpen, setIsFormOpen }) => {
                         </Select>
                     </FormControl>
                     <label className="formInput imageInput">
-                        <FileBase
-                            type="file"
-                            multiple={false}
-                            onDone={({ base64 }) => setImage(base64)}
-                        />
+                        <input type="file" onChange={handleImageSelect} />
                         {image ? 'Image Selected' : 'Choose an Image'}
                     </label>
                 </div>

@@ -3,6 +3,7 @@ const express = require('express')
 const chalk = require('chalk')
 const cors = require('cors')
 const morgan = require('morgan')
+const compression = require('compression')
 
 const connectDB = require('./config/db')
 const authRoutes = require('./routes/auth')
@@ -16,6 +17,7 @@ const { notFoundHandler, errorHandler } = require('./middleware/error')
 connectDB()
 
 const app = express()
+app.use(compression({ level: 7 }))
 
 // adding morgan as middleware to log http requests in the console
 if ((process.env.NODE_ENV = 'development')) {

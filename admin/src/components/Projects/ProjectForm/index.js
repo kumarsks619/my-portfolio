@@ -10,7 +10,6 @@ import {
 } from '@material-ui/core'
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
-import FileBase from 'react-file-base64'
 import AddCircleIcon from '@material-ui/icons/AddCircle'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -18,7 +17,9 @@ import ModalComp from '../../../utils/Comp/ModalComp'
 import { useForm } from '../../../utils/Hooks/useForm'
 import { useDynamicInputs } from '../../../utils/Hooks/useDynamicInputs'
 import { projectAdd } from '../../../store/actions/project'
+import { alertAdd } from '../../../store/actions/alert'
 import Loading from '../../../utils/Comp/Loading'
+import { handleImageCompress } from '../../../utils/imageCompressor'
 import './ProjectForm.css'
 
 const initialInputVals = {
@@ -42,6 +43,25 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
         createInputs: createTechnologiesInputAdd,
         handleInputAdd: handleTechnologyInputAdd,
     } = useDynamicInputs('Technology')
+
+    const handleImageSelect = (e) => {
+        if (e.target.files[0]) {
+            // validating the file extension
+            const allowedExt = ['jpeg', 'jpg', 'png']
+            const fileExt = e.target.files[0].name.split('.').pop().toLowerCase()
+            if (!allowedExt.includes(fileExt)) {
+                dispatch(
+                    alertAdd(
+                        'Invalid Image Chosen! Only JPEG, JPG & PNG allowed.',
+                        'error'
+                    )
+                )
+                return
+            }
+
+            handleImageCompress(e.target.files[0], setImage)
+        }
+    }
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
@@ -176,11 +196,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                         </Select>
                     </FormControl>
                     <label className="formInput imageInput">
-                        <FileBase
-                            type="file"
-                            multiple={false}
-                            onDone={({ base64 }) => setImage(base64)}
-                        />
+                        <input type="file" onChange={handleImageSelect} />
                         {image ? 'Image Selected' : 'Choose an Image'}
                     </label>
                 </div>
