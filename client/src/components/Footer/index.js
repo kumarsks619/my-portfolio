@@ -88,7 +88,7 @@ const Footer = () => {
                 <p>
                     Copyright &copy; 2021 | Made with <i className="fas fa-heart"></i> by
                     <a
-                        href="https://kumarsks619.netlify.app"
+                        href="https://www.shubhamm.in/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
