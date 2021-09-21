@@ -96,3 +96,7 @@
     color: var(--dark);
     border-color: var(--dark);
 }
+
+.home__resume.disabled {
+    cursor: not-allowed;
+}
