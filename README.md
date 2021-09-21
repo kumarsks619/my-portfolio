@@ -1,4 +1,4 @@
-# my-portfolio
+# VeNoM's Portfolio
 Contains code of my main portfolio website, its backend API, and admin UI.
 
 # Copyright 2021. All rights reserved.
