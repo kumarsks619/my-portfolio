@@ -44,14 +44,16 @@ const Home = () => {
                     <span>or</span>
                     <HashLink to="/about#top">Know Me</HashLink>
                 </div>
-                {!loading && (
+                {loading ? (
+                    <span className="home__resume disabled">Resume Loading...</span>
+                ) : (
                     <a
                         href={link}
                         className="home__resume"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        My Resume
+                        View My Resume
                     </a>
                 )}
             </div>
