@@ -106,7 +106,7 @@ const skillAdd = asyncHandler(async (req, res) => {
 
 // to delete an existing Skill
 const skillRemove = asyncHandler(async (req, res) => {
-    const skillID = req.params.skillID
+    const { skillID } = req.params
 
     const foundSkill = await Skill.findById(skillID)
 
@@ -114,7 +114,7 @@ const skillRemove = asyncHandler(async (req, res) => {
         await foundSkill.remove()
         res.status(200).json({
             message: 'Skill Removed!',
-            skillID,
+            data: { skillID },
         })
     } else {
         res.status(404)
@@ -129,6 +129,27 @@ const skillGetAll = asyncHandler(async (req, res) => {
     res.status(200).json(foundSkills)
 })
 
+// to edit an existing Skill
+const skillEdit = asyncHandler(async (req, res) => {
+    const { skillID } = req.params
+    const { name, image, stars } = req.body
+
+    const foundSkill = await Skill.findById(skillID)
+
+    if (foundSkill) {
+        foundSkill.name = name ? name : foundSkill.name
+        foundSkill.image = image ? image : foundSkill.image
+        foundSkill.stars = stars ? stars : foundSkill.stars
+
+        await foundSkill.save()
+
+        res.status(200).json(foundSkill)
+    } else {
+        res.status(404)
+        throw new Error('No skill found with this skillID!')
+    }
+})
+
 module.exports = {
     experienceAdd,
     experienceRemove,
@@ -137,4 +158,5 @@ module.exports = {
     skillAdd,
     skillRemove,
     skillGetAll,
+    skillEdit,
 }

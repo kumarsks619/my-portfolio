@@ -8,6 +8,7 @@ const {
     skillAdd,
     skillRemove,
     skillGetAll,
+    skillEdit
 } = require('../controllers/expertise')
 const protect = require('../middleware/protect')
 
@@ -47,5 +48,10 @@ router.delete('/skill/:skillID', protect, skillRemove)
 // @route   GET /api/expertise/skill
 // @access  Public
 router.get('/skill', skillGetAll)
+
+// @desc    To edit an existing Skill
+// @route   PUT /api/expertise/skill/:skillID
+// @access  Private
+router.put('/skill/:skillID', protect, skillEdit)
 
 module.exports = router
