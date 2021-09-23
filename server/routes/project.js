@@ -1,6 +1,6 @@
 const express = require('express')
 
-const { projectAdd, projectRemove, projectGetAll } = require('../controllers/project')
+const { projectAdd, projectRemove, projectGetAll, projectEdit } = require('../controllers/project')
 const protect = require('../middleware/protect')
 
 const router = express.Router()
@@ -19,5 +19,10 @@ router.delete('/:projectID', protect, projectRemove)
 // @route   GET /api/project
 // @access  Public
 router.get('/', projectGetAll)
+
+// @desc    To edit an existing project
+// @route   PUT /api/project
+// @access  Private
+router.put('/:projectID', protect, projectEdit)
 
 module.exports = router
