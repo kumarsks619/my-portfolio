@@ -4,6 +4,7 @@ const {
     experienceAdd,
     experienceRemove,
     experienceGetAll,
+    experienceEdit,
     skillAdd,
     skillRemove,
     skillGetAll,
@@ -26,6 +27,11 @@ router.delete('/experience/:experienceID', protect, experienceRemove)
 // @route   GET /api/expertise/experience
 // @access  Public
 router.get('/experience', experienceGetAll)
+
+// @desc    To edit an existing Experience
+// @route   PUT /api/expertise/experience/:experienceID
+// @access  Private
+router.put('/experience/:experienceID', protect, experienceEdit)
 
 // @desc    To add a new Skill
 // @route   POST /api/expertise/skill
