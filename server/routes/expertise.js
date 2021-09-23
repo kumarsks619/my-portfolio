@@ -4,9 +4,11 @@ const {
     experienceAdd,
     experienceRemove,
     experienceGetAll,
+    experienceEdit,
     skillAdd,
     skillRemove,
     skillGetAll,
+    skillEdit
 } = require('../controllers/expertise')
 const protect = require('../middleware/protect')
 
@@ -27,6 +29,11 @@ router.delete('/experience/:experienceID', protect, experienceRemove)
 // @access  Public
 router.get('/experience', experienceGetAll)
 
+// @desc    To edit an existing Experience
+// @route   PUT /api/expertise/experience/:experienceID
+// @access  Private
+router.put('/experience/:experienceID', protect, experienceEdit)
+
 // @desc    To add a new Skill
 // @route   POST /api/expertise/skill
 // @access  Private
@@ -41,5 +48,10 @@ router.delete('/skill/:skillID', protect, skillRemove)
 // @route   GET /api/expertise/skill
 // @access  Public
 router.get('/skill', skillGetAll)
+
+// @desc    To edit an existing Skill
+// @route   PUT /api/expertise/skill/:skillID
+// @access  Private
+router.put('/skill/:skillID', protect, skillEdit)
 
 module.exports = router
