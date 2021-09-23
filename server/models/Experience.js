@@ -39,6 +39,9 @@ const experienceSchema = new Schema(
             required: true,
         },
         tasks: [taskSchema],
+        certificate: {
+            type: String,
+        },
     },
     { timestamps: true }
 )

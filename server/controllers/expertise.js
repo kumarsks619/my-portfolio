@@ -5,7 +5,7 @@ const Skill = require('../models/Skill')
 
 // to add a new Experience
 const experienceAdd = asyncHandler(async (req, res) => {
-    const { position, company, start, end, description, tasks } = req.body
+    const { position, company, start, end, description, tasks, certificate } = req.body
 
     const newExperience = await Experience.create({
         position,
@@ -16,6 +16,7 @@ const experienceAdd = asyncHandler(async (req, res) => {
         },
         description,
         tasks,
+        certificate
     })
 
     if (newExperience) {
@@ -53,7 +54,7 @@ const experienceGetAll = asyncHandler(async (req, res) => {
 // to edit an existing Experience
 const experienceEdit = asyncHandler(async (req, res) => {
     const { experienceID } = req.params
-    const { position, company, start, end, description, tasks } = req.body
+    const { position, company, start, end, description, tasks, certificate } = req.body
 
     if (start && end) {
         if (start > end) {
@@ -71,6 +72,7 @@ const experienceEdit = asyncHandler(async (req, res) => {
             ? description
             : foundExperience.description
         foundExperience.tasks = tasks ? tasks : foundExperience.tasks
+        foundExperience.certificate = certificate ? certificate : foundExperience.certificate
 
         if (start && end) {
             foundExperience.duration.start = start ? start : foundExperience.start
