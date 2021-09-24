@@ -87,3 +87,34 @@ export const projectRemoveReducer = (
             return state
     }
 }
+
+export const projectEditReducer = (
+    state = { loading: false, project: {}, error: null, success: false },
+    action
+) => {
+    switch (action.type) {
+        case actionTypes.PROJECT_EDIT_INIT:
+            return { ...state, project: action.payload }
+
+        case actionTypes.PROJECT_EDIT_REQUEST:
+            return { ...state, loading: true, error: null, success: false }
+
+        case actionTypes.PROJECT_EDIT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                success: true,
+                project: {},
+            }
+
+        case actionTypes.PROJECT_EDIT_FAIL:
+            return { ...state, loading: false, error: action.payload, project: {} }
+
+        case actionTypes.PROJECT_EDIT_CLEANUP:
+            return { ...state, project: {}, success: false }
+
+        default:
+            return state
+    }
+}

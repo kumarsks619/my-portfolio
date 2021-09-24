@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Typography, IconButton, Link } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import Chip from '@material-ui/core/Chip'
 import { useDispatch, useSelector } from 'react-redux'
 import Moment from 'react-moment'
 
 import './ProjectItem.css'
 import ConfirmModal from '../../../utils/Comp/ConfirmModal'
-import { projectRemove } from '../../../store/actions/project'
+import { projectRemove, projectEditInit } from '../../../store/actions/project'
 import Loading from '../../../utils/Comp/Loading'
 
 const ProjectItem = ({
@@ -19,6 +20,7 @@ const ProjectItem = ({
     duration: { start, end },
     type,
     link,
+    setIsFormOpen,
 }) => {
     const dispatch = useDispatch()
     const { loading } = useSelector((state) => state.projectRemove)
@@ -32,6 +34,11 @@ const ProjectItem = ({
         }
     }, [isConfirm, dispatch, _id])
 
+    const handleProjectEdit = () => {
+        dispatch(projectEditInit(_id))
+        setIsFormOpen(true)
+    }
+
     return (
         <>
             {loading && <Loading />}
@@ -41,9 +48,14 @@ const ProjectItem = ({
                     <Typography variant="h5" color="textSecondary">
                         {name}
                     </Typography>
-                    <IconButton color="secondary" onClick={() => setIsOpen(true)}>
-                        <DeleteOutlineIcon />
-                    </IconButton>
+                    <div>
+                        <IconButton color="primary" onClick={handleProjectEdit}>
+                            <EditOutlinedIcon />
+                        </IconButton>
+                        <IconButton color="secondary" onClick={() => setIsOpen(true)}>
+                            <DeleteOutlineIcon />
+                        </IconButton>
+                    </div>
                 </div>
                 <div className="main">
                     <div className="imageWrapper">
@@ -79,7 +91,7 @@ const ProjectItem = ({
                             className="contentEntity"
                         >
                             <Moment format="MMM YYYY">{start}</Moment> -{' '}
-                            <Moment format="MMM YYYY">{end}</Moment>
+                            {end ? <Moment format="MMM YYYY">{end}</Moment> : 'Current'}
                         </Typography>
 
                         <Typography variant="h6" color="textSecondary">

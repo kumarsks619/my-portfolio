@@ -99,3 +99,55 @@ export const projectRemove = (projectID) => async (dispatch) => {
         dispatch(alertAdd(errorMsg, 'error'))
     }
 }
+
+// to initialize a project edit
+export const projectEditInit = (projectID) => (dispatch, getState) => {
+    const { projects } = getState().projectGetAll
+
+    const foundProject = projects.find(
+        (project) => String(project._id) === String(projectID)
+    )
+
+    dispatch({
+        type: actionTypes.PROJECT_EDIT_INIT,
+        payload: foundProject,
+    })
+}
+
+// to edit an existing Project
+export const projectEdit = (projectData) => async (dispatch) => {
+    try {
+        dispatch({
+            type: actionTypes.PROJECT_EDIT_REQUEST,
+        })
+
+        await axiosInstance.put(`/api/project/${projectData._id}`, projectData)
+
+        dispatch({
+            type: actionTypes.PROJECT_EDIT_SUCCESS,
+        })
+
+        dispatch(projectGetAll())
+
+        dispatch(alertAdd('Project Updated!', 'success'))
+    } catch (err) {
+        const errorMsg =
+            err.response && err.response.data.message
+                ? err.response.data.message
+                : err.message
+
+        dispatch({
+            type: actionTypes.PROJECT_EDIT_FAIL,
+            payload: errorMsg,
+        })
+
+        dispatch(alertAdd(errorMsg, 'error'))
+    }
+}
+
+// to cleanup a project edit
+export const projectEditCleanup = () => (dispatch) => {
+    dispatch({
+        type: actionTypes.PROJECT_EDIT_CLEANUP,
+    })
+}
