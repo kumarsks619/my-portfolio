@@ -72,15 +72,14 @@ const projectEdit = asyncHandler(async (req, res) => {
     if (foundProject) {
         foundProject.name = name ? name : foundProject.name
         foundProject.description = description ? description : foundProject.description
-        foundProject.technologies = technologies ? technologies : foundProject.technologies
+        foundProject.technologies = technologies
+            ? technologies
+            : foundProject.technologies
         foundProject.type = type ? type : foundProject.type
         foundProject.image = image ? image : foundProject.image
         foundProject.link = link ? link : foundProject.link
-
-        if (start && end) {
-            foundProject.duration.start = start ? start : foundProject.start
-            foundProject.duration.end = end ? end : foundProject.end
-        }
+        foundProject.duration.start = start ? start : foundProject.start
+        foundProject.duration.end = end
 
         await foundProject.save()
 
