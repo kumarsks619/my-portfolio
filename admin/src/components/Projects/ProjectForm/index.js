@@ -16,7 +16,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import ModalComp from '../../../utils/Comp/ModalComp'
 import { useForm } from '../../../utils/Hooks/useForm'
 import { useDynamicInputs } from '../../../utils/Hooks/useDynamicInputs'
-import { projectAdd } from '../../../store/actions/project'
+import {
+    projectAdd,
+    projectEdit,
+    projectEditCleanup,
+} from '../../../store/actions/project'
 import { alertAdd } from '../../../store/actions/alert'
 import Loading from '../../../utils/Comp/Loading'
 import { handleImageCompress } from '../../../utils/imageCompressor'
@@ -32,8 +36,14 @@ const initialInputVals = {
 const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.projectAdd)
+    const {
+        loading: loadingProjectEdit,
+        project,
+        success: successProjectEdit,
+    } = useSelector((state) => state.projectEdit)
 
-    const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
+    const { inputVals, setInputVals, handleOnChange, handleReset } =
+        useForm(initialInputVals)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
     const [image, setImage] = useState('')
@@ -66,15 +76,31 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
     const handleOnSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(
-            projectAdd({
-                ...inputVals,
-                start: startDate,
-                end: endDate,
-                image,
-                technologies,
-            })
-        )
+        const isEdit = project._id ? true : false
+
+        const projectData = {
+            ...inputVals,
+            start: startDate,
+            end: endDate,
+            technologies,
+        }
+
+        if (isEdit) {
+            dispatch(
+                projectEdit({
+                    ...projectData,
+                    image: image ? image : null,
+                    _id: project._id,
+                })
+            )
+        } else {
+            dispatch(
+                projectAdd({
+                    ...projectData,
+                    image,
+                })
+            )
+        }
     }
 
     const handleModalClose = useCallback(() => {
@@ -84,17 +110,36 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
         setEndDate(null)
         setImage('')
         setTechnologies([])
-    }, [handleReset, setIsFormOpen, setTechnologies])
+        dispatch(projectEditCleanup())
+    }, [handleReset, setIsFormOpen, setTechnologies, dispatch])
 
     useEffect(() => {
-        if (success) {
+        if (success || successProjectEdit) {
             handleModalClose()
         }
-    }, [success, handleModalClose])
+    }, [success, successProjectEdit, handleModalClose])
+
+    useEffect(() => {
+        if (Object.keys(project).length > 0) {
+            setInputVals({
+                name: project.name,
+                description: project.description,
+                type: project.type,
+                link: project.link,
+            })
+
+            setTechnologies(project.technologies)
+            setStartDate(project.duration.start)
+
+            if (project.duration.end) {
+                setEndDate(project.duration.end)
+            }
+        }
+    }, [project, setInputVals, setTechnologies])
 
     return (
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>
-            {loading && <Loading />}
+            {(loading || loadingProjectEdit) && <Loading />}
 
             <form className="projectForm" onSubmit={handleOnSubmit}>
                 <Typography variant="h5" color="textSecondary" className="formHeading">

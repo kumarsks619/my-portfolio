@@ -3,7 +3,12 @@ import { combineReducers } from 'redux'
 import { alertReducer } from '../reducers/alert'
 import { adminChangePassword, adminLoginReducer } from './auth'
 import { expAddReducer, expGetAllReducer, expRemoveReducer } from './experience'
-import { projectAddReducer, projectGetAllReducer, projectRemoveReducer } from './project'
+import {
+    projectAddReducer,
+    projectGetAllReducer,
+    projectRemoveReducer,
+    projectEditReducer,
+} from './project'
 import { skillAddReducer, skillGetAllReducer, skillRemoveReducer } from './skill'
 import {
     messageGetAllReducer,
@@ -19,6 +24,7 @@ export default combineReducers({
     projectAdd: projectAddReducer,
     projectGetAll: projectGetAllReducer,
     projectRemove: projectRemoveReducer,
+    projectEdit: projectEditReducer,
     expAdd: expAddReducer,
     expGetAll: expGetAllReducer,
     expRemove: expRemoveReducer,
