@@ -8,6 +8,7 @@
     padding: 15px;
     box-shadow: 1px 1px 3px #ddd;
     border-radius: 5px;
+    position: relative;
 }
 
 .expItem .header {
@@ -41,4 +42,16 @@
 
 .expItem .main li.withLinkWrapper::before {
     content: '✔';
+}
+
+.expItem__viewCertificate {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    padding: 10px 25px !important;
+}
+
+.expItem__viewCertificate > a {
+    font-size: 1.2rem;
+    color: #3f51b5;
 }
