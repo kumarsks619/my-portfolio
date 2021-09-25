@@ -32,7 +32,13 @@ const Skills = () => {
                 <div className="skillsWrapper">
                     {skills &&
                         skills.length > 0 &&
-                        skills.map((skill) => <SkillItem key={skill._id} {...skill} />)}
+                        skills.map((skill) => (
+                            <SkillItem
+                                key={skill._id}
+                                {...skill}
+                                setIsFormOpen={setIsFormOpen}
+                            />
+                        ))}
                 </div>
             </div>
 

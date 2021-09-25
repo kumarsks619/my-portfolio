@@ -69,6 +69,12 @@ export const SKILL_REMOVE_REQUEST = 'SKILL_REMOVE_REQUEST'
 export const SKILL_REMOVE_SUCCESS = 'SKILL_REMOVE_SUCCESS'
 export const SKILL_REMOVE_FAIL = 'SKILL_REMOVE_FAIL'
 
+export const SKILL_EDIT_INIT = 'SKILL_EDIT_INIT'
+export const SKILL_EDIT_REQUEST = 'SKILL_EDIT_REQUEST'
+export const SKILL_EDIT_SUCCESS = 'SKILL_EDIT_SUCCESS'
+export const SKILL_EDIT_FAIL = 'SKILL_EDIT_FAIL'
+export const SKILL_EDIT_CLEANUP = 'SKILL_EDIT_CLEANUP'
+
 // MESSAGES ********************************************************************************
 export const MESSAGE_GET_ALL_REQUEST = 'MESSAGE_GET_ALL_REQUEST'
 export const MESSAGE_GET_ALL_SUCCESS = 'MESSAGE_GET_ALL_SUCCESS'

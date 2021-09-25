@@ -14,7 +14,12 @@ import {
     projectRemoveReducer,
     projectEditReducer,
 } from './project'
-import { skillAddReducer, skillGetAllReducer, skillRemoveReducer } from './skill'
+import {
+    skillAddReducer,
+    skillGetAllReducer,
+    skillRemoveReducer,
+    skillEditReducer,
+} from './skill'
 import {
     messageGetAllReducer,
     messageRemoveAllReducer,
@@ -37,6 +42,7 @@ export default combineReducers({
     skillAdd: skillAddReducer,
     skillGetAll: skillGetAllReducer,
     skillRemove: skillRemoveReducer,
+    skillEdit: skillEditReducer,
     messageGetAll: messageGetAllReducer,
     messageRemove: messageRemoveReducer,
     messageRemoveAll: messageRemoveAllReducer,

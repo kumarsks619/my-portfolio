@@ -85,3 +85,34 @@ export const skillRemoveReducer = (
             return state
     }
 }
+
+export const skillEditReducer = (
+    state = { loading: false, skill: {}, error: null, success: false },
+    action
+) => {
+    switch (action.type) {
+        case actionTypes.SKILL_EDIT_INIT:
+            return { ...state, skill: action.payload }
+
+        case actionTypes.SKILL_EDIT_REQUEST:
+            return { ...state, loading: true, error: null, success: false }
+
+        case actionTypes.SKILL_EDIT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                success: true,
+                skill: {},
+            }
+
+        case actionTypes.SKILL_EDIT_FAIL:
+            return { ...state, loading: false, error: action.payload }
+
+        case actionTypes.SKILL_EDIT_CLEANUP:
+            return { ...state, skill: {}, success: false }
+
+        default:
+            return state
+    }
+}

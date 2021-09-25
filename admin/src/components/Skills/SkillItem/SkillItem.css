@@ -18,7 +18,7 @@
     margin-bottom: -30px;
 }
 
-.skillItem .header .MuiIconButton-root {
+.skillItem .header > div {
     margin-left: auto;
 }
 
