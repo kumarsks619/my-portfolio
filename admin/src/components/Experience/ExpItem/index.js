@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, IconButton, Link } from '@material-ui/core'
+import { Typography, IconButton, Link, ButtonBase } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,7 +19,8 @@ const ProjectItem = ({
     description,
     duration: { start, end },
     tasks,
-    setIsFormOpen
+    certificate,
+    setIsFormOpen,
 }) => {
     const dispatch = useDispatch()
     const { loading } = useSelector((state) => state.expRemove)
@@ -133,6 +134,19 @@ const ProjectItem = ({
                         </ul>
                     </div>
                 </div>
+
+                {certificate && (
+                    <ButtonBase className="expItem__viewCertificate">
+                        <Link
+                            href={certificate}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="body1"
+                        >
+                            View Certificate
+                        </Link>
+                    </ButtonBase>
+                )}
             </div>
 
             <ConfirmModal

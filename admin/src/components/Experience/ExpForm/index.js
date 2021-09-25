@@ -25,6 +25,7 @@ const initialInputVals = {
     companyName: '',
     companyLink: '',
     description: '',
+    certificate: '',
 }
 
 const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
@@ -61,6 +62,7 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
             start: startDate,
             end: endDate,
             description: inputVals.description,
+            certificate: inputVals.certificate,
             tasks,
         }
 
@@ -93,6 +95,7 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
                 companyName: experience.company.name,
                 companyLink: experience.company.link,
                 description: experience.description,
+                certificate: experience.certificate,
             })
 
             setTasks(experience.tasks)
@@ -218,6 +221,17 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
                         />
                     </MuiPickersUtilsProvider>
                 </div>
+
+                <TextField
+                    type="text"
+                    variant="outlined"
+                    label="Certificate Link"
+                    name="certificate"
+                    className="formInput"
+                    value={inputVals.certificate}
+                    onChange={handleOnChange}
+                    rows={5}
+                />
 
                 <div className="btnsWrapper">
                     <Button
