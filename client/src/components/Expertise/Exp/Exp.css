@@ -59,3 +59,20 @@
     border-left: 3px solid var(---dark);
     border-left: 4px solid var(--dark);
 }
+
+
+.exp__viewCertificate {
+    letter-spacing: 2px;
+    color: var(--dark);
+    font-weight: 700;
+    margin-top: 10px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    width: fit-content;
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.exp__viewCertificate:hover {
+    border-color: var(--dark);
+}

@@ -9,6 +9,7 @@ const Exp = ({
     duration: { start, end },
     description,
     tasks,
+    certificate,
 }) => {
     return (
         <div className="exp">
@@ -39,6 +40,16 @@ const Exp = ({
                     </li>
                 ))}
             </ul>
+            {certificate && (
+                <a
+                    href={certificate}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="exp__viewCertificate"
+                >
+                    View Certificate <i className="fas fa-external-link-alt"></i>
+                </a>
+            )}
 
             <span className="line"></span>
         </div>
