@@ -32,7 +32,11 @@ const Project = () => {
                     {projects &&
                         projects.length > 0 &&
                         projects.map((project) => (
-                            <ProjectItem key={project._id} {...project} setIsFormOpen={setIsFormOpen} />
+                            <ProjectItem
+                                key={project._id}
+                                {...project}
+                                setIsFormOpen={setIsFormOpen}
+                            />
                         ))}
                 </div>
             </div>

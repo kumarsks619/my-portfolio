@@ -99,3 +99,53 @@ export const expRemove = (expID) => async (dispatch) => {
         dispatch(alertAdd(errorMsg, 'error'))
     }
 }
+
+// to initialize a experience edit
+export const expEditInit = (expID) => (dispatch, getState) => {
+    const { experiences } = getState().expGetAll
+
+    const foundExp = experiences.find((exp) => String(exp._id) === String(expID))
+
+    dispatch({
+        type: actionTypes.EXPERIENCE_EDIT_INIT,
+        payload: foundExp,
+    })
+}
+
+// to edit an existing Experience
+export const expEdit = (expData) => async (dispatch) => {
+    try {
+        dispatch({
+            type: actionTypes.EXPERIENCE_EDIT_REQUEST,
+        })
+
+        await axiosInstance.put(`/api/expertise/experience/${expData._id}`, expData)
+
+        dispatch({
+            type: actionTypes.EXPERIENCE_EDIT_SUCCESS,
+        })
+
+        dispatch(expGetAll())
+
+        dispatch(alertAdd('Experience Updated!', 'success'))
+    } catch (err) {
+        const errorMsg =
+            err.response && err.response.data.message
+                ? err.response.data.message
+                : err.message
+
+        dispatch({
+            type: actionTypes.EXPERIENCE_EDIT_FAIL,
+            payload: errorMsg,
+        })
+
+        dispatch(alertAdd(errorMsg, 'error'))
+    }
+}
+
+// to cleanup a experience edit
+export const expEditCleanup = () => (dispatch) => {
+    dispatch({
+        type: actionTypes.EXPERIENCE_EDIT_CLEANUP,
+    })
+}

@@ -99,3 +99,53 @@ export const skillRemove = (skillID) => async (dispatch) => {
         dispatch(alertAdd(errorMsg, 'error'))
     }
 }
+
+// to initialize a skill edit
+export const skillEditInit = (skillID) => (dispatch, getState) => {
+    const { skills } = getState().skillGetAll
+
+    const foundSkill = skills.find((skill) => String(skill._id) === String(skillID))
+
+    dispatch({
+        type: actionTypes.SKILL_EDIT_INIT,
+        payload: foundSkill,
+    })
+}
+
+// to edit an existing skill
+export const skillEdit = (skillData) => async (dispatch) => {
+    try {
+        dispatch({
+            type: actionTypes.SKILL_EDIT_REQUEST,
+        })
+
+        await axiosInstance.put(`/api/expertise/skill/${skillData._id}`, skillData)
+
+        dispatch({
+            type: actionTypes.SKILL_EDIT_SUCCESS,
+        })
+
+        dispatch(skillGetAll())
+
+        dispatch(alertAdd('Skill Updated!', 'success'))
+    } catch (err) {
+        const errorMsg =
+            err.response && err.response.data.message
+                ? err.response.data.message
+                : err.message
+
+        dispatch({
+            type: actionTypes.SKILL_EDIT_FAIL,
+            payload: errorMsg,
+        })
+
+        dispatch(alertAdd(errorMsg, 'error'))
+    }
+}
+
+// to cleanup a skill edit
+export const skillEditCleanup = () => (dispatch) => {
+    dispatch({
+        type: actionTypes.SKILL_EDIT_CLEANUP,
+    })
+}

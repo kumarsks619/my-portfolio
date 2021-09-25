@@ -31,7 +31,13 @@ const Experience = () => {
                 <div className="experienceWrapper">
                     {experiences &&
                         experiences.length > 0 &&
-                        experiences.map((exp) => <ExpItem key={exp._id} {...exp} />)}
+                        experiences.map((exp) => (
+                            <ExpItem
+                                key={exp._id}
+                                {...exp}
+                                setIsFormOpen={setIsFormOpen}
+                            />
+                        ))}
                 </div>
             </div>
 

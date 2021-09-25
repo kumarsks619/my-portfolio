@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { Typography, IconButton } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import { useDispatch, useSelector } from 'react-redux'
 import StarIcon from '@material-ui/icons/Star'
 
 import ConfirmModal from '../../../utils/Comp/ConfirmModal'
 import Loading from '../../../utils/Comp/Loading'
-import { skillRemove } from '../../../store/actions/skill'
+import { skillRemove, skillEditInit } from '../../../store/actions/skill'
 import './SkillItem.css'
 
-const SkillItem = ({ _id, name, image, stars }) => {
+const SkillItem = ({ _id, name, image, stars, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading } = useSelector((state) => state.skillRemove)
 
@@ -22,15 +23,25 @@ const SkillItem = ({ _id, name, image, stars }) => {
         }
     }, [isConfirm, dispatch, _id])
 
+    const handleSkillEdit = () => {
+        dispatch(skillEditInit(_id))
+        setIsFormOpen(true)
+    }
+
     return (
         <>
             {loading && <Loading />}
 
             <div className="skillItem">
                 <div className="header">
-                    <IconButton color="secondary" onClick={() => setIsOpen(true)}>
-                        <DeleteOutlineIcon />
-                    </IconButton>
+                    <div>
+                        <IconButton color="primary" onClick={handleSkillEdit}>
+                            <EditOutlinedIcon />
+                        </IconButton>
+                        <IconButton color="secondary" onClick={() => setIsOpen(true)}>
+                            <DeleteOutlineIcon />
+                        </IconButton>
+                    </div>
                 </div>
                 <div className="main">
                     <div className="imageWrapper">

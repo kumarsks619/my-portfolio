@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ModalComp from '../../../utils/Comp/ModalComp'
 import { useForm } from '../../../utils/Hooks/useForm'
 import Loading from '../../../utils/Comp/Loading'
-import { skillAdd } from '../../../store/actions/skill'
+import { skillAdd, skillEdit, skillEditCleanup } from '../../../store/actions/skill'
 import { alertAdd } from '../../../store/actions/alert'
 import { handleImageCompress } from '../../../utils/imageCompressor'
 import './SkillForm.css'
@@ -26,8 +26,16 @@ const initialInputVals = {
 const SkillForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.skillAdd)
+    const {
+        loading: loadingSkillEdit,
+        skill,
+        success: successSkillEdit,
+    } = useSelector((state) => state.skillEdit)
 
-    const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
+    const isEdit = skill._id ? true : false
+
+    const { inputVals, setInputVals, handleOnChange, handleReset } =
+        useForm(initialInputVals)
     const [image, setImage] = useState('')
 
     const handleImageSelect = (e) => {
@@ -52,33 +60,53 @@ const SkillForm = ({ isFormOpen, setIsFormOpen }) => {
     const handleOnSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(
-            skillAdd({
-                ...inputVals,
-                image,
-            })
-        )
+        if (isEdit) {
+            dispatch(
+                skillEdit({
+                    ...inputVals,
+                    image: image ? image : null,
+                    _id: skill._id,
+                })
+            )
+        } else {
+            dispatch(
+                skillAdd({
+                    ...inputVals,
+                    image,
+                })
+            )
+        }
     }
 
     const handleModalClose = useCallback(() => {
         setIsFormOpen(false)
         handleReset()
         setImage('')
-    }, [handleReset, setIsFormOpen])
+        dispatch(skillEditCleanup())
+    }, [handleReset, setIsFormOpen, dispatch])
 
     useEffect(() => {
-        if (success) {
+        if (success || successSkillEdit) {
             handleModalClose()
         }
-    }, [success, handleModalClose])
+    }, [success, successSkillEdit, handleModalClose])
+
+    useEffect(() => {
+        if (Object.keys(skill).length > 0) {
+            setInputVals({
+                name: skill.name,
+                stars: skill.stars,
+            })
+        }
+    }, [skill, setInputVals])
 
     return (
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>
-            {loading && <Loading />}
+            {(loading || loadingSkillEdit) && <Loading />}
 
             <form className="skillForm" onSubmit={handleOnSubmit}>
                 <Typography variant="h5" color="textSecondary" className="formHeading">
-                    Add Skill
+                    {isEdit ? 'Update' : 'Add'} Skill
                 </Typography>
 
                 <TextField
@@ -134,7 +162,7 @@ const SkillForm = ({ isFormOpen, setIsFormOpen }) => {
                         color="primary"
                         className="formBtn"
                     >
-                        Add Skill
+                        {isEdit ? 'Update' : 'Add'} Skill
                     </Button>
                 </div>
             </form>

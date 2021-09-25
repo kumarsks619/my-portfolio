@@ -87,3 +87,34 @@ export const expRemoveReducer = (
             return state
     }
 }
+
+export const expEditReducer = (
+    state = { loading: false, experience: {}, error: null, success: false },
+    action
+) => {
+    switch (action.type) {
+        case actionTypes.EXPERIENCE_EDIT_INIT:
+            return { ...state, experience: action.payload }
+
+        case actionTypes.EXPERIENCE_EDIT_REQUEST:
+            return { ...state, loading: true, error: null, success: false }
+
+        case actionTypes.EXPERIENCE_EDIT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                success: true,
+                experience: {},
+            }
+
+        case actionTypes.EXPERIENCE_EDIT_FAIL:
+            return { ...state, loading: false, error: action.payload }
+
+        case actionTypes.EXPERIENCE_EDIT_CLEANUP:
+            return { ...state, experience: {}, success: false }
+
+        default:
+            return state
+    }
+}

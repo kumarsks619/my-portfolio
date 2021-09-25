@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Typography, IconButton, Link } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import { useDispatch, useSelector } from 'react-redux'
 import Moment from 'react-moment'
 import Tooltip from '@material-ui/core/Tooltip'
@@ -9,7 +10,7 @@ import LaunchIcon from '@material-ui/icons/Launch'
 import './ExpItem.css'
 import ConfirmModal from '../../../utils/Comp/ConfirmModal'
 import Loading from '../../../utils/Comp/Loading'
-import { expRemove } from '../../../store/actions/experience'
+import { expRemove, expEditInit } from '../../../store/actions/experience'
 
 const ProjectItem = ({
     _id,
@@ -18,6 +19,7 @@ const ProjectItem = ({
     description,
     duration: { start, end },
     tasks,
+    setIsFormOpen
 }) => {
     const dispatch = useDispatch()
     const { loading } = useSelector((state) => state.expRemove)
@@ -31,6 +33,11 @@ const ProjectItem = ({
         }
     }, [isConfirm, dispatch, _id])
 
+    const handleExpEdit = () => {
+        dispatch(expEditInit(_id))
+        setIsFormOpen(true)
+    }
+
     return (
         <>
             {loading && <Loading />}
@@ -40,9 +47,14 @@ const ProjectItem = ({
                     <Typography variant="h5" color="textSecondary">
                         {position}
                     </Typography>
-                    <IconButton color="secondary" onClick={() => setIsOpen(true)}>
-                        <DeleteOutlineIcon />
-                    </IconButton>
+                    <div>
+                        <IconButton color="primary" onClick={handleExpEdit}>
+                            <EditOutlinedIcon />
+                        </IconButton>
+                        <IconButton color="secondary" onClick={() => setIsOpen(true)}>
+                            <DeleteOutlineIcon />
+                        </IconButton>
+                    </div>
                 </div>
                 <div className="main">
                     <div className="mainContent">
