@@ -43,7 +43,7 @@ const Expertise = () => {
                     ) : (
                         skills &&
                         skills.length > 0 &&
-                        skills.map((skill) => <Skill id={skill._id} {...skill} />)
+                        skills.map((skill) => <Skill key={skill._id} {...skill} />)
                     )}
                 </div>
             </div>
