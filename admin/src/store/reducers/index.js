@@ -2,7 +2,12 @@ import { combineReducers } from 'redux'
 
 import { alertReducer } from '../reducers/alert'
 import { adminChangePassword, adminLoginReducer } from './auth'
-import { expAddReducer, expGetAllReducer, expRemoveReducer } from './experience'
+import {
+    expAddReducer,
+    expGetAllReducer,
+    expRemoveReducer,
+    expEditReducer,
+} from './experience'
 import {
     projectAddReducer,
     projectGetAllReducer,
@@ -28,6 +33,7 @@ export default combineReducers({
     expAdd: expAddReducer,
     expGetAll: expGetAllReducer,
     expRemove: expRemoveReducer,
+    expEdit: expEditReducer,
     skillAdd: skillAddReducer,
     skillGetAll: skillGetAllReducer,
     skillRemove: skillRemoveReducer,

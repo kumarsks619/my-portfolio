@@ -109,7 +109,7 @@ export const projectEditReducer = (
             }
 
         case actionTypes.PROJECT_EDIT_FAIL:
-            return { ...state, loading: false, error: action.payload, project: {} }
+            return { ...state, loading: false, error: action.payload }
 
         case actionTypes.PROJECT_EDIT_CLEANUP:
             return { ...state, project: {}, success: false }

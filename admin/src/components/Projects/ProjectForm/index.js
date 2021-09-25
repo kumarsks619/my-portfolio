@@ -42,6 +42,8 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
         success: successProjectEdit,
     } = useSelector((state) => state.projectEdit)
 
+    const isEdit = project._id ? true : false
+
     const { inputVals, setInputVals, handleOnChange, handleReset } =
         useForm(initialInputVals)
     const [startDate, setStartDate] = useState(null)
@@ -75,8 +77,6 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-
-        const isEdit = project._id ? true : false
 
         const projectData = {
             ...inputVals,
@@ -143,7 +143,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
 
             <form className="projectForm" onSubmit={handleOnSubmit}>
                 <Typography variant="h5" color="textSecondary" className="formHeading">
-                    Add Project
+                    {isEdit ? 'Update' : 'Add'} Project
                 </Typography>
 
                 <TextField
@@ -272,7 +272,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                         color="primary"
                         className="formBtn"
                     >
-                        Add Project
+                        {isEdit ? 'Update' : 'Add'} Project
                     </Button>
                 </div>
             </form>

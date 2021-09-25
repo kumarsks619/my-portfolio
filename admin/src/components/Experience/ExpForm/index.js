@@ -17,7 +17,7 @@ import ModalComp from '../../../utils/Comp/ModalComp'
 import { useForm } from '../../../utils/Hooks/useForm'
 import Loading from '../../../utils/Comp/Loading'
 import { useDoubleDynamicInputs } from '../../../utils/Hooks/useDoubleDynamicInputs'
-import { expAdd } from '../../../store/actions/experience'
+import { expAdd, expEdit, expEditCleanup } from '../../../store/actions/experience'
 import './ExpForm.css'
 
 const initialInputVals = {
@@ -30,8 +30,16 @@ const initialInputVals = {
 const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
     const dispatch = useDispatch()
     const { loading, success } = useSelector((state) => state.expAdd)
+    const {
+        loading: loadingExpEdit,
+        experience,
+        success: successExpEdit,
+    } = useSelector((state) => state.expEdit)
 
-    const { inputVals, handleOnChange, handleReset } = useForm(initialInputVals)
+    const isEdit = experience._id ? true : false
+
+    const { inputVals, setInputVals, handleOnChange, handleReset } =
+        useForm(initialInputVals)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
     const {
@@ -44,19 +52,23 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
     const handleOnSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(
-            expAdd({
-                position: inputVals.position,
-                company: {
-                    name: inputVals.companyName,
-                    link: inputVals.companyLink,
-                },
-                start: startDate,
-                end: endDate,
-                description: inputVals.description,
-                tasks,
-            })
-        )
+        const expData = {
+            position: inputVals.position,
+            company: {
+                name: inputVals.companyName,
+                link: inputVals.companyLink,
+            },
+            start: startDate,
+            end: endDate,
+            description: inputVals.description,
+            tasks,
+        }
+
+        if (isEdit) {
+            dispatch(expEdit({ ...expData, _id: experience._id }))
+        } else {
+            dispatch(expAdd(expData))
+        }
     }
 
     const handleModalClose = useCallback(() => {
@@ -65,21 +77,40 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
         setStartDate(null)
         setEndDate(null)
         setTasks([])
-    }, [handleReset, setIsFormOpen, setTasks])
+        dispatch(expEditCleanup())
+    }, [handleReset, setIsFormOpen, setTasks, dispatch])
 
     useEffect(() => {
-        if (success) {
+        if (success || successExpEdit) {
             handleModalClose()
         }
-    }, [success, handleModalClose])
+    }, [success, successExpEdit, handleModalClose])
+
+    useEffect(() => {
+        if (Object.keys(experience).length > 0) {
+            setInputVals({
+                position: experience.position,
+                companyName: experience.company.name,
+                companyLink: experience.company.link,
+                description: experience.description,
+            })
+
+            setTasks(experience.tasks)
+            setStartDate(experience.duration.start)
+
+            if (experience.duration.end) {
+                setEndDate(experience.duration.end)
+            }
+        }
+    }, [experience, setInputVals, setTasks])
 
     return (
         <ModalComp isModalOpen={isFormOpen} setIsModalOpen={setIsFormOpen}>
-            {loading && <Loading />}
+            {(loading || loadingExpEdit) && <Loading />}
 
             <form className="expForm" onSubmit={handleOnSubmit}>
                 <Typography variant="h5" color="textSecondary" className="formHeading">
-                    Add Experience
+                    {isEdit ? 'Update' : 'Add'} Experience
                 </Typography>
 
                 <FormControl variant="outlined" className="formInput">
@@ -203,7 +234,7 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
                         color="primary"
                         className="formBtn"
                     >
-                        Add Experience
+                        {isEdit ? 'Update' : 'Add'} Experience
                     </Button>
                 </div>
             </form>
