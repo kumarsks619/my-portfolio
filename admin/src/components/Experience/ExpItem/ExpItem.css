@@ -33,7 +33,7 @@
 
 .expItem .main .withLinkWrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .expItem .main .withLinkWrapper .MuiSvgIcon-root {
