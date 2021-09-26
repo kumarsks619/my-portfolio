@@ -313,4 +313,8 @@
     .footer__section p {
         padding: 0;
     }
+
+    .footer__creditsWrapper {
+        margin-top: 0;
+    }
 }

@@ -1,9 +1,17 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import './Footer.css'
 
 const Footer = () => {
+    const history = useHistory()
+
     const handleGotoTop = () => {
+        document.documentElement.scrollTop = 0
+    }
+
+    const handleOnClick = (pageName) => {
+        history.push(`/${pageName}`)
         document.documentElement.scrollTop = 0
     }
 
@@ -33,15 +41,18 @@ const Footer = () => {
 
                 <div className="footer__section">
                     <div className="footer__sectionHeader">
-                        <span>Current</span>
+                        <span>Portfolio</span>
                         <span></span>
                         <span></span>
-                        <span>Availability</span>
+                        <span>Menu Links</span>
                     </div>
-                    <p>
-                        I usually work on several projects but I’ll be happy to discuss
-                        new opportunities. Let’s get in touch!
-                    </p>
+                    <div className="footer__menuLinks">
+                        <p onClick={() => handleOnClick('')}>Home</p>
+                        <p onClick={() => handleOnClick('projects')}>Projects</p>
+                        <p onClick={() => handleOnClick('expertise')}>Expertise</p>
+                        <p onClick={() => handleOnClick('about')}>About Me</p>
+                        <p onClick={() => handleOnClick('contact')}>Contact Me</p>
+                    </div>
                 </div>
 
                 <div className="footer__section">
