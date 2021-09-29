@@ -1,6 +1,12 @@
 const express = require('express')
 
-const { projectAdd, projectRemove, projectGetAll, projectEdit } = require('../controllers/project')
+const {
+    projectAdd,
+    projectRemove,
+    projectGetAll,
+    projectEdit,
+    projectReorder,
+} = require('../controllers/project')
 const protect = require('../middleware/protect')
 
 const router = express.Router()
@@ -24,5 +30,10 @@ router.get('/', projectGetAll)
 // @route   PUT /api/project
 // @access  Private
 router.put('/:projectID', protect, projectEdit)
+
+// @desc    To reorder projects
+// @route   PATCH /api/project
+// @access  Private
+router.patch('/', protect, projectReorder)
 
 module.exports = router
