@@ -97,9 +97,38 @@ const projectEdit = asyncHandler(async (req, res) => {
     }
 })
 
+// to reorder projects
+const projectReorder = asyncHandler(async (req, res) => {
+    const { srcSerialNo, destSerialNo } = req.body
+
+    if (srcSerialNo === destSerialNo) {
+        res.status(400)
+        throw new Error('Source and destination same, so no need to reorder!')
+    }
+
+    const foundSrcProject = await Project.findOne({ sNo: srcSerialNo })
+    const foundDestProject = await Project.findOne({ sNo: destSerialNo })
+
+    if (foundSrcProject && foundDestProject) {
+        foundSrcProject.sNo = destSerialNo
+        foundDestProject.sNo = srcSerialNo
+
+        await foundSrcProject.save()
+        await foundDestProject.save()
+
+        res.status(200).json({
+            message: 'Projects list re-ordered!',
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid serial numbers!')
+    }
+})
+
 module.exports = {
     projectAdd,
     projectRemove,
     projectGetAll,
     projectEdit,
+    projectReorder,
 }
