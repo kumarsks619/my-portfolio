@@ -5,10 +5,11 @@ const {
     experienceRemove,
     experienceGetAll,
     experienceEdit,
+    experienceReorder,
     skillAdd,
     skillRemove,
     skillGetAll,
-    skillEdit
+    skillEdit,
 } = require('../controllers/expertise')
 const protect = require('../middleware/protect')
 
@@ -33,6 +34,11 @@ router.get('/experience', experienceGetAll)
 // @route   PUT /api/expertise/experience/:experienceID
 // @access  Private
 router.put('/experience/:experienceID', protect, experienceEdit)
+
+// @desc    To reorder experiences list
+// @route   PATCH /api/expertise/experience
+// @access  Private
+router.put('/experience', protect, experienceReorder)
 
 // @desc    To add a new Skill
 // @route   POST /api/expertise/skill
