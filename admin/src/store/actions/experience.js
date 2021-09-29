@@ -149,3 +149,47 @@ export const expEditCleanup = () => (dispatch) => {
         type: actionTypes.EXPERIENCE_EDIT_CLEANUP,
     })
 }
+
+// to reorder experiences
+export const expReorder =
+    ({ srcIndex, destIndex }) =>
+    async (dispatch, getState) => {
+        const { experiences } = getState().expGetAll
+
+        const srcSerialNo = experiences[srcIndex].sNo
+        const destSerialNo = experiences[destIndex].sNo
+
+        try {
+            dispatch({
+                type: actionTypes.EXPERIENCE_REORDER_REQUEST,
+            })
+
+            await axiosInstance.patch('/api/expertise/experience', {
+                srcSerialNo,
+                destSerialNo,
+            })
+
+            dispatch({
+                type: actionTypes.EXPERIENCE_REORDER_UPDATE,
+                payload: { srcIndex, destIndex },
+            })
+
+            dispatch({
+                type: actionTypes.EXPERIENCE_REORDER_SUCCESS,
+            })
+
+            dispatch(alertAdd('Experience Reordered!', 'success'))
+        } catch (err) {
+            const errorMsg =
+                err.response && err.response.data.message
+                    ? err.response.data.message
+                    : err.message
+
+            dispatch({
+                type: actionTypes.EXPERIENCE_REORDER_FAIL,
+                payload: errorMsg,
+            })
+
+            dispatch(alertAdd(errorMsg, 'error'))
+        }
+    }

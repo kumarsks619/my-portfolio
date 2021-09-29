@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Typography, IconButton, Link, ButtonBase } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
+import PanToolOutlinedIcon from '@material-ui/icons/PanToolOutlined'
 import { useDispatch, useSelector } from 'react-redux'
 import Moment from 'react-moment'
 import Tooltip from '@material-ui/core/Tooltip'
@@ -21,6 +22,8 @@ const ProjectItem = ({
     tasks,
     certificate,
     setIsFormOpen,
+    provided,
+    snapshot,
 }) => {
     const dispatch = useDispatch()
     const { loading } = useSelector((state) => state.expRemove)
@@ -43,7 +46,15 @@ const ProjectItem = ({
         <>
             {loading && <Loading />}
 
-            <div className="expItem">
+            <div
+                className="expItem"
+                {...provided.draggableProps}
+                ref={provided.innerRef}
+                style={{
+                    ...provided.draggableProps.style,
+                    boxShadow: snapshot.isDragging ? '0 0 0.4rem #666' : 'none',
+                }}
+            >
                 <div className="header">
                     <Typography variant="h5" color="textSecondary">
                         {position}
@@ -54,6 +65,9 @@ const ProjectItem = ({
                         </IconButton>
                         <IconButton color="secondary" onClick={() => setIsOpen(true)}>
                             <DeleteOutlineIcon />
+                        </IconButton>
+                        <IconButton {...provided.dragHandleProps}>
+                            <PanToolOutlinedIcon />
                         </IconButton>
                     </div>
                 </div>

@@ -118,3 +118,27 @@ export const expEditReducer = (
             return state
     }
 }
+
+export const expReorderReducer = (
+    state = { loading: false, error: null, success: false },
+    action
+) => {
+    switch (action.type) {
+        case actionTypes.EXPERIENCE_REORDER_REQUEST:
+            return { ...state, loading: true, error: null, success: false }
+
+        case actionTypes.EXPERIENCE_REORDER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                success: true,
+            }
+
+        case actionTypes.EXPERIENCE_REORDER_FAIL:
+            return { ...state, loading: false, error: action.payload }
+
+        default:
+            return state
+    }
+}
