@@ -52,7 +52,7 @@ const experienceRemove = asyncHandler(async (req, res) => {
 })
 
 // to get all the Experiences
-const experienceGetAll = asyncHandler(async (req, res) => {
+const experienceGetAll = asyncHandler(async (_, res) => {
     const foundExperiences = await Experience.find({}).sort({ sNo: -1 })
 
     res.status(200).json(foundExperiences)
@@ -94,6 +94,34 @@ const experienceEdit = asyncHandler(async (req, res) => {
     } else {
         res.status(404)
         throw new Error('No experience found with this experienceID!')
+    }
+})
+
+// to reorder experiences
+const experienceReorder = asyncHandler(async (req, res) => {
+    const { srcSerialNo, destSerialNo } = req.body
+
+    if (srcSerialNo === destSerialNo) {
+        res.status(400)
+        throw new Error('Source and destination same, so no need to reorder!')
+    }
+
+    const foundSrcExperience = await Experience.findOne({ sNo: srcSerialNo })
+    const foundDestExperience = await Experience.findOne({ sNo: destSerialNo })
+
+    if (foundSrcExperience && foundDestExperience) {
+        foundSrcExperience.sNo = destSerialNo
+        foundDestExperience.sNo = srcSerialNo
+
+        await foundSrcExperience.save()
+        await foundDestExperience.save()
+
+        res.status(200).json({
+            message: 'Experiences list re-ordered!',
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid serial numbers!')
     }
 })
 
@@ -166,6 +194,7 @@ module.exports = {
     experienceRemove,
     experienceGetAll,
     experienceEdit,
+    experienceReorder,
     skillAdd,
     skillRemove,
     skillGetAll,
