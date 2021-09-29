@@ -127,12 +127,18 @@ const experienceReorder = asyncHandler(async (req, res) => {
 
 // to add a new Skill
 const skillAdd = asyncHandler(async (req, res) => {
-    const { name, image, stars } = req.body
+    const { name, image, stars, sNo } = req.body
+
+    if (sNo < 1) {
+        res.status(400)
+        throw new Error("Serial number can't be a negative value!")
+    }
 
     const newSkill = await Skill.create({
         name,
         image,
         stars,
+        sNo,
     })
 
     if (newSkill) {
@@ -162,8 +168,8 @@ const skillRemove = asyncHandler(async (req, res) => {
 })
 
 // to get all the Skills
-const skillGetAll = asyncHandler(async (req, res) => {
-    const foundSkills = await Skill.find({}).sort({ stars: -1 })
+const skillGetAll = asyncHandler(async (_, res) => {
+    const foundSkills = await Skill.find({}).sort({ sNo: -1 })
 
     res.status(200).json(foundSkills)
 })
@@ -189,6 +195,34 @@ const skillEdit = asyncHandler(async (req, res) => {
     }
 })
 
+// to reorder skills
+const skillReorder = asyncHandler(async (req, res) => {
+    const { srcSerialNo, destSerialNo } = req.body
+
+    if (srcSerialNo === destSerialNo) {
+        res.status(400)
+        throw new Error('Source and destination same, so no need to reorder!')
+    }
+
+    const foundSrcSkill = await Skill.findOne({ sNo: srcSerialNo })
+    const foundDestSkill = await Skill.findOne({ sNo: destSerialNo })
+
+    if (foundSrcSkill && foundDestSkill) {
+        foundSrcSkill.sNo = destSerialNo
+        foundDestSkill.sNo = srcSerialNo
+
+        await foundSrcSkill.save()
+        await foundDestSkill.save()
+
+        res.status(200).json({
+            message: 'Skills list re-ordered!',
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid serial numbers!')
+    }
+})
+
 module.exports = {
     experienceAdd,
     experienceRemove,
@@ -199,4 +233,5 @@ module.exports = {
     skillRemove,
     skillGetAll,
     skillEdit,
+    skillReorder,
 }
