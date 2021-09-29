@@ -3,13 +3,16 @@ import axiosInstance from '../../utils/axiosInstance'
 import { alertAdd } from './alert'
 
 // to add a Project
-export const projectAdd = (projectData) => async (dispatch) => {
+export const projectAdd = (projectData) => async (dispatch, getState) => {
+    const { projects } = getState().projectGetAll
+    const sNo = projects[0].sNo + 1
+
     try {
         dispatch({
             type: actionTypes.PROJECT_ADD_REQUEST,
         })
 
-        const { data } = await axiosInstance.post('/api/project', projectData)
+        const { data } = await axiosInstance.post('/api/project', { ...projectData, sNo })
 
         dispatch({
             type: actionTypes.PROJECT_ADD_SUCCESS,
@@ -166,7 +169,7 @@ export const projectReorder =
                 type: actionTypes.PROJECT_REORDER_REQUEST,
             })
 
-            await axiosInstance.patch("/api/project", {srcSerialNo, destSerialNo})
+            await axiosInstance.patch('/api/project', { srcSerialNo, destSerialNo })
 
             dispatch({
                 type: actionTypes.PROJECT_REORDER_UPDATE,

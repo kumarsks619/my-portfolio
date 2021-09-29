@@ -3,13 +3,19 @@ import axiosInstance from '../../utils/axiosInstance'
 import { alertAdd } from './alert'
 
 // to add an Experience
-export const expAdd = (expData) => async (dispatch) => {
+export const expAdd = (expData) => async (dispatch, getState) => {
+    const { experiences } = getState().expGetAll
+    const sNo = experiences[0].sNo + 1
+
     try {
         dispatch({
             type: actionTypes.EXPERIENCE_ADD_REQUEST,
         })
 
-        const { data } = await axiosInstance.post('/api/expertise/experience', expData)
+        const { data } = await axiosInstance.post('/api/expertise/experience', {
+            ...expData,
+            sNo,
+        })
 
         dispatch({
             type: actionTypes.EXPERIENCE_ADD_SUCCESS,
