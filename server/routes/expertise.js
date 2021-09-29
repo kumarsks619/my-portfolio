@@ -38,7 +38,7 @@ router.put('/experience/:experienceID', protect, experienceEdit)
 // @desc    To reorder experiences list
 // @route   PATCH /api/expertise/experience
 // @access  Private
-router.put('/experience', protect, experienceReorder)
+router.patch('/experience', protect, experienceReorder)
 
 // @desc    To add a new Skill
 // @route   POST /api/expertise/skill
