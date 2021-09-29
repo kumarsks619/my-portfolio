@@ -5,7 +5,13 @@ const Skill = require('../models/Skill')
 
 // to add a new Experience
 const experienceAdd = asyncHandler(async (req, res) => {
-    const { position, company, start, end, description, tasks, certificate } = req.body
+    const { position, company, start, end, description, tasks, certificate, sNo } =
+        req.body
+
+    if (sNo < 1) {
+        res.status(400)
+        throw new Error("Serial number can't be a negative value!")
+    }
 
     const newExperience = await Experience.create({
         position,
@@ -16,7 +22,8 @@ const experienceAdd = asyncHandler(async (req, res) => {
         },
         description,
         tasks,
-        certificate
+        certificate,
+        sNo,
     })
 
     if (newExperience) {
@@ -46,7 +53,7 @@ const experienceRemove = asyncHandler(async (req, res) => {
 
 // to get all the Experiences
 const experienceGetAll = asyncHandler(async (req, res) => {
-    const foundExperiences = await Experience.find({}).sort({ createdAt: -1 })
+    const foundExperiences = await Experience.find({}).sort({ sNo: -1 })
 
     res.status(200).json(foundExperiences)
 })
@@ -72,7 +79,9 @@ const experienceEdit = asyncHandler(async (req, res) => {
             ? description
             : foundExperience.description
         foundExperience.tasks = tasks ? tasks : foundExperience.tasks
-        foundExperience.certificate = certificate ? certificate : foundExperience.certificate
+        foundExperience.certificate = certificate
+            ? certificate
+            : foundExperience.certificate
 
         if (start && end) {
             foundExperience.duration.start = start ? start : foundExperience.start

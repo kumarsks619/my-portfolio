@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import Heading from '../../utils/Comp/Heading'
 import ProjectForm from './ProjectForm'
-import { projectGetAll } from '../../store/actions/project'
+import { projectGetAll, projectReorder } from '../../store/actions/project'
 import ProjectItem from './ProjectItem'
 import Loading from '../../utils/Comp/Loading'
 
@@ -17,6 +18,15 @@ const Project = () => {
         dispatch(projectGetAll())
     }, [dispatch])
 
+    const handleProjectReorder = ({ source, destination }) => {
+        const srcIndex = source.index
+        const destIndex = destination.index
+
+        if (srcIndex !== destIndex) {
+            dispatch(projectReorder({ srcIndex, destIndex }))
+        }
+    }
+
     return (
         <>
             {loading && <Loading />}
@@ -28,17 +38,37 @@ const Project = () => {
                     onClickHandler={() => setIsFormOpen(true)}
                 />
 
-                <div className="projectsWrapper">
-                    {projects &&
-                        projects.length > 0 &&
-                        projects.map((project) => (
-                            <ProjectItem
-                                key={project._id}
-                                {...project}
-                                setIsFormOpen={setIsFormOpen}
-                            />
-                        ))}
-                </div>
+                <DragDropContext onDragEnd={(param) => handleProjectReorder(param)}>
+                    <Droppable droppableId="projects-list-ID">
+                        {(provided, _) => (
+                            <div
+                                className="projectsWrapper"
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                            >
+                                {projects &&
+                                    projects.length > 0 &&
+                                    projects.map((project, index) => (
+                                        <Draggable
+                                            key={project._id}
+                                            draggableId={`draggable-${project._id}`}
+                                            index={index}
+                                        >
+                                            {(provided, snapshot) => (
+                                                <ProjectItem
+                                                    {...project}
+                                                    setIsFormOpen={setIsFormOpen}
+                                                    provided={provided}
+                                                    snapshot={snapshot}
+                                                />
+                                            )}
+                                        </Draggable>
+                                    ))}
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
+                </DragDropContext>
             </div>
 
             <ProjectForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
