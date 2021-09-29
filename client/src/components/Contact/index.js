@@ -1,8 +1,9 @@
 import React from 'react'
 
-import './Contact.css'
+import { SOCIAL } from '../../utils/constants'
 import ContactForm from './ContactForm'
 import TreeItem from './TreeItem'
+import './Contact.css'
 
 const Contact = () => {
     return (
@@ -17,12 +18,12 @@ const Contact = () => {
                     <TreeItem
                         name={'Linkedin'}
                         iconClass={'fab fa-linkedin'}
-                        link="https://www.linkedin.com/in/kumarsks619"
+                        link={SOCIAL.LINKEDIN}
                     />
                     <TreeItem
                         name={'GitHub'}
                         iconClass={'fab fa-github'}
-                        link="https://github.com/kumarsks619"
+                        link={SOCIAL.GITHUB}
                     />
                 </div>
                 <div className="contact__treeStem"></div>
@@ -30,19 +31,19 @@ const Contact = () => {
                     <TreeItem
                         name={'Instagram'}
                         iconClass={'fab fa-instagram'}
-                        link="https://www.instagram.com/blck_tie"
+                        link={SOCIAL.INSTAGRAM}
                         right
                     />
                     <TreeItem
                         name={'Facebook'}
                         iconClass={'fab fa-facebook-square'}
-                        link="https://www.facebook.com/kumarsks619"
+                        link={SOCIAL.FACEBOOK}
                         right
                     />
                     <TreeItem
                         name={'Twitter'}
                         iconClass={'fab fa-twitter'}
-                        link="https://twitter.com/kumarsks619"
+                        link={SOCIAL.TWITTER}
                         right
                     />
                 </div>
