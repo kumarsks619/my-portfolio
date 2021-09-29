@@ -13,6 +13,7 @@ import {
     projectGetAllReducer,
     projectRemoveReducer,
     projectEditReducer,
+    projectReorderReducer,
 } from './project'
 import {
     skillAddReducer,
@@ -35,6 +36,7 @@ export default combineReducers({
     projectGetAll: projectGetAllReducer,
     projectRemove: projectRemoveReducer,
     projectEdit: projectEditReducer,
+    projectReorder: projectReorderReducer,
     expAdd: expAddReducer,
     expGetAll: expGetAllReducer,
     expRemove: expRemoveReducer,

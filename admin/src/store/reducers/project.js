@@ -58,6 +58,25 @@ export const projectGetAllReducer = (
                 ),
             }
 
+        case actionTypes.PROJECT_REORDER_UPDATE: {
+            const { srcIndex, destIndex } = action.payload
+
+            let projectsReorder = [...state.projects]
+
+            const srcSerialNo = projectsReorder[srcIndex].sNo
+            const destSerialNo = projectsReorder[destIndex].sNo
+
+            projectsReorder[srcIndex].sNo = destSerialNo
+            projectsReorder[destIndex].sNo = srcSerialNo
+
+            projectsReorder.sort((a, b) => b.sNo - a.sNo)
+
+            return {
+                ...state,
+                projects: projectsReorder,
+            }
+        }
+
         default:
             return state
     }
@@ -113,6 +132,30 @@ export const projectEditReducer = (
 
         case actionTypes.PROJECT_EDIT_CLEANUP:
             return { ...state, project: {}, success: false }
+
+        default:
+            return state
+    }
+}
+
+export const projectReorderReducer = (
+    state = { loading: false, error: null, success: false },
+    action
+) => {
+    switch (action.type) {
+        case actionTypes.PROJECT_REORDER_REQUEST:
+            return { ...state, loading: true, error: null, success: false }
+
+        case actionTypes.PROJECT_REORDER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                success: true,
+            }
+
+        case actionTypes.PROJECT_REORDER_FAIL:
+            return { ...state, loading: false, error: action.payload }
 
         default:
             return state

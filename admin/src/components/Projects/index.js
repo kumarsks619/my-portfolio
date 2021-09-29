@@ -4,7 +4,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import Heading from '../../utils/Comp/Heading'
 import ProjectForm from './ProjectForm'
-import { projectGetAll } from '../../store/actions/project'
+import { projectGetAll, projectReorder } from '../../store/actions/project'
 import ProjectItem from './ProjectItem'
 import Loading from '../../utils/Comp/Loading'
 
@@ -18,6 +18,15 @@ const Project = () => {
         dispatch(projectGetAll())
     }, [dispatch])
 
+    const handleProjectReorder = ({ source, destination }) => {
+        const srcIndex = source.index
+        const destIndex = destination.index
+
+        if (srcIndex !== destIndex) {
+            dispatch(projectReorder({ srcIndex, destIndex }))
+        }
+    }
+
     return (
         <>
             {loading && <Loading />}
@@ -29,7 +38,7 @@ const Project = () => {
                     onClickHandler={() => setIsFormOpen(true)}
                 />
 
-                <DragDropContext onDragEnd={(param) => console.log(param)}>
+                <DragDropContext onDragEnd={(param) => handleProjectReorder(param)}>
                     <Droppable droppableId="projects-list-ID">
                         {(provided, _) => (
                             <div
