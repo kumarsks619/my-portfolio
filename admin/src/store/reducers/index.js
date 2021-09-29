@@ -7,6 +7,7 @@ import {
     expGetAllReducer,
     expRemoveReducer,
     expEditReducer,
+    expReorderReducer,
 } from './experience'
 import {
     projectAddReducer,
@@ -41,6 +42,7 @@ export default combineReducers({
     expGetAll: expGetAllReducer,
     expRemove: expRemoveReducer,
     expEdit: expEditReducer,
+    expReorder: expReorderReducer,
     skillAdd: skillAddReducer,
     skillGetAll: skillGetAllReducer,
     skillRemove: skillRemoveReducer,
