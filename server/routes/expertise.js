@@ -64,6 +64,6 @@ router.put('/skill/:skillID', protect, skillEdit)
 // @desc    To reorder skills list
 // @route   PATCH /api/skill
 // @access  Private
-router.patch('/', protect, skillReorder)
+router.patch('/skill', protect, skillReorder)
 
 module.exports = router
