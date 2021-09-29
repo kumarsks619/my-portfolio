@@ -3,13 +3,19 @@ import axiosInstance from '../../utils/axiosInstance'
 import { alertAdd } from './alert'
 
 // to add a Skill
-export const skillAdd = (skillData) => async (dispatch) => {
+export const skillAdd = (skillData) => async (dispatch, getState) => {
+    const { skills } = getState().skillGetAll
+    const sNo = skills[0].sNo + 1
+
     try {
         dispatch({
             type: actionTypes.SKILL_ADD_REQUEST,
         })
 
-        const { data } = await axiosInstance.post('/api/expertise/skill', skillData)
+        const { data } = await axiosInstance.post('/api/expertise/skill', {
+            ...skillData,
+            sNo,
+        })
 
         dispatch({
             type: actionTypes.SKILL_ADD_SUCCESS,
