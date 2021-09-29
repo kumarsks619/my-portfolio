@@ -5,7 +5,13 @@ const Skill = require('../models/Skill')
 
 // to add a new Experience
 const experienceAdd = asyncHandler(async (req, res) => {
-    const { position, company, start, end, description, tasks, certificate } = req.body
+    const { position, company, start, end, description, tasks, certificate, sNo } =
+        req.body
+
+    if (sNo < 1) {
+        res.status(400)
+        throw new Error("Serial number can't be a negative value!")
+    }
 
     const newExperience = await Experience.create({
         position,
@@ -17,6 +23,7 @@ const experienceAdd = asyncHandler(async (req, res) => {
         description,
         tasks,
         certificate,
+        sNo,
     })
 
     if (newExperience) {

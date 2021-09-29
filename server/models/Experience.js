@@ -42,6 +42,11 @@ const experienceSchema = new Schema(
         certificate: {
             type: String,
         },
+        sNo: {
+            type: Number,
+            required: true,
+            min: 1,
+        },
     },
     { timestamps: true }
 )
