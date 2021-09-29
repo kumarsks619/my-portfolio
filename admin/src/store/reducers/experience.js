@@ -58,6 +58,25 @@ export const expGetAllReducer = (
                 ),
             }
 
+        case actionTypes.EXPERIENCE_REORDER_UPDATE: {
+            const { srcIndex, destIndex } = action.payload
+
+            let experiencesReorder = [...state.experiences]
+
+            const srcSerialNo = experiencesReorder[srcIndex].sNo
+            const destSerialNo = experiencesReorder[destIndex].sNo
+
+            experiencesReorder[srcIndex].sNo = destSerialNo
+            experiencesReorder[destIndex].sNo = srcSerialNo
+
+            experiencesReorder.sort((a, b) => b.sNo - a.sNo)
+
+            return {
+                ...state,
+                experiences: experiencesReorder,
+            }
+        }
+
         default:
             return state
     }
