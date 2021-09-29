@@ -4,11 +4,17 @@ const Project = require('../models/Project')
 
 // to add a new Project
 const projectAdd = asyncHandler(async (req, res) => {
-    const { name, description, technologies, start, end, type, image, link } = req.body
+    const { name, description, technologies, start, end, type, image, link, sNo } =
+        req.body
 
     if (start > end) {
         res.status(400)
         throw new Error("End date of project can't be ahead of it's start date!")
+    }
+
+    if (sNo < 1) {
+        res.status(400)
+        throw new Error("Serial number can't be a negative value!")
     }
 
     const newProject = await Project.create({
@@ -22,6 +28,7 @@ const projectAdd = asyncHandler(async (req, res) => {
         type,
         image,
         link,
+        sNo,
     })
 
     if (newProject) {
@@ -50,8 +57,8 @@ const projectRemove = asyncHandler(async (req, res) => {
 })
 
 // to get all the Projects
-const projectGetAll = asyncHandler(async (req, res) => {
-    const foundProjects = await Project.find({}).sort({ createdAt: -1 })
+const projectGetAll = asyncHandler(async (_, res) => {
+    const foundProjects = await Project.find({}).sort({ sNo: -1 })
     res.status(200).json(foundProjects)
 })
 

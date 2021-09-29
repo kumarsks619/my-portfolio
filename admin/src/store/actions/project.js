@@ -151,3 +151,44 @@ export const projectEditCleanup = () => (dispatch) => {
         type: actionTypes.PROJECT_EDIT_CLEANUP,
     })
 }
+
+// to reorder projects
+export const projectReorder =
+    ({ srcIndex, destIndex }) =>
+    async (dispatch, getState) => {
+        const { projects } = getState().projectGetAll
+
+        const srcSerialNo = projects[srcIndex].sNo
+        const destSerialNo = projects[destIndex].sNo
+
+        try {
+            dispatch({
+                type: actionTypes.PROJECT_REORDER_REQUEST,
+            })
+
+            await axiosInstance.patch("/api/project", {srcSerialNo, destSerialNo})
+
+            dispatch({
+                type: actionTypes.PROJECT_REORDER_UPDATE,
+                payload: { srcIndex, destIndex },
+            })
+
+            dispatch({
+                type: actionTypes.PROJECT_REORDER_SUCCESS,
+            })
+
+            dispatch(alertAdd('Project Reordered!', 'success'))
+        } catch (err) {
+            const errorMsg =
+                err.response && err.response.data.message
+                    ? err.response.data.message
+                    : err.message
+
+            dispatch({
+                type: actionTypes.PROJECT_REORDER_FAIL,
+                payload: errorMsg,
+            })
+
+            dispatch(alertAdd(errorMsg, 'error'))
+        }
+    }

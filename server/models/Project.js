@@ -34,6 +34,11 @@ const projectSchema = new Schema(
         link: {
             type: String,
         },
+        sNo: {
+            type: Number,
+            required: true,
+            min: 1,
+        },
     },
     { timestamps: true }
 )
