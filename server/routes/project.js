@@ -31,7 +31,7 @@ router.get('/', projectGetAll)
 // @access  Private
 router.put('/:projectID', protect, projectEdit)
 
-// @desc    To reorder projects
+// @desc    To reorder projects list
 // @route   PATCH /api/project
 // @access  Private
 router.patch('/', protect, projectReorder)

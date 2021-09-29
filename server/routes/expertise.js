@@ -10,6 +10,7 @@ const {
     skillRemove,
     skillGetAll,
     skillEdit,
+    skillReorder,
 } = require('../controllers/expertise')
 const protect = require('../middleware/protect')
 
@@ -59,5 +60,10 @@ router.get('/skill', skillGetAll)
 // @route   PUT /api/expertise/skill/:skillID
 // @access  Private
 router.put('/skill/:skillID', protect, skillEdit)
+
+// @desc    To reorder skills list
+// @route   PATCH /api/skill
+// @access  Private
+router.patch('/', protect, skillReorder)
 
 module.exports = router

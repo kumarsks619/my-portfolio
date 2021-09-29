@@ -155,7 +155,7 @@ export const projectEditCleanup = () => (dispatch) => {
     })
 }
 
-// to reorder projects
+// to reorder projects list
 export const projectReorder =
     ({ srcIndex, destIndex }) =>
     async (dispatch, getState) => {

@@ -56,6 +56,25 @@ export const skillGetAllReducer = (
                 skills: state.skills.filter((skill) => skill._id !== action.payload),
             }
 
+        case actionTypes.SKILL_REORDER_UPDATE: {
+            const { srcIndex, destIndex } = action.payload
+
+            let skillsReorder = [...state.skills]
+
+            const srcSerialNo = skillsReorder[srcIndex].sNo
+            const destSerialNo = skillsReorder[destIndex].sNo
+
+            skillsReorder[srcIndex].sNo = destSerialNo
+            skillsReorder[destIndex].sNo = srcSerialNo
+
+            skillsReorder.sort((a, b) => b.sNo - a.sNo)
+
+            return {
+                ...state,
+                skills: skillsReorder,
+            }
+        }
+
         default:
             return state
     }
@@ -111,6 +130,30 @@ export const skillEditReducer = (
 
         case actionTypes.SKILL_EDIT_CLEANUP:
             return { ...state, skill: {}, success: false }
+
+        default:
+            return state
+    }
+}
+
+export const skillReorderReducer = (
+    state = { loading: false, error: null, success: false },
+    action
+) => {
+    switch (action.type) {
+        case actionTypes.SKILL_REORDER_REQUEST:
+            return { ...state, loading: true, error: null, success: false }
+
+        case actionTypes.SKILL_REORDER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                success: true,
+            }
+
+        case actionTypes.SKILL_REORDER_FAIL:
+            return { ...state, loading: false, error: action.payload }
 
         default:
             return state

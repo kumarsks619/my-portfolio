@@ -14,6 +14,11 @@ const skillSchema = new Schema(
             type: Number,
             required: true,
         },
+        sNo: {
+            type: Number,
+            required: true,
+            min: 1,
+        },
     },
     { timestamps: true }
 )

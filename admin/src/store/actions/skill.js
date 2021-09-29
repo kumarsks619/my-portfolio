@@ -149,3 +149,47 @@ export const skillEditCleanup = () => (dispatch) => {
         type: actionTypes.SKILL_EDIT_CLEANUP,
     })
 }
+
+// to reorder skills list
+export const skillReorder =
+    ({ srcIndex, destIndex }) =>
+    async (dispatch, getState) => {
+        const { skills } = getState().skillGetAll
+
+        const srcSerialNo = skills[srcIndex].sNo
+        const destSerialNo = skills[destIndex].sNo
+
+        try {
+            dispatch({
+                type: actionTypes.SKILL_REORDER_REQUEST,
+            })
+
+            await axiosInstance.patch('/api/expertise/skill', {
+                srcSerialNo,
+                destSerialNo,
+            })
+
+            dispatch({
+                type: actionTypes.SKILL_REORDER_UPDATE,
+                payload: { srcIndex, destIndex },
+            })
+
+            dispatch({
+                type: actionTypes.SKILL_REORDER_SUCCESS,
+            })
+
+            dispatch(alertAdd('Skill Reordered!', 'success'))
+        } catch (err) {
+            const errorMsg =
+                err.response && err.response.data.message
+                    ? err.response.data.message
+                    : err.message
+
+            dispatch({
+                type: actionTypes.SKILL_REORDER_FAIL,
+                payload: errorMsg,
+            })
+
+            dispatch(alertAdd(errorMsg, 'error'))
+        }
+    }

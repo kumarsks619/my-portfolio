@@ -21,6 +21,7 @@ import {
     skillGetAllReducer,
     skillRemoveReducer,
     skillEditReducer,
+    skillReorderReducer,
 } from './skill'
 import {
     messageGetAllReducer,
@@ -47,6 +48,7 @@ export default combineReducers({
     skillGetAll: skillGetAllReducer,
     skillRemove: skillRemoveReducer,
     skillEdit: skillEditReducer,
+    skillReorder: skillReorderReducer,
     messageGetAll: messageGetAllReducer,
     messageRemove: messageRemoveReducer,
     messageRemoveAll: messageRemoveAllReducer,
