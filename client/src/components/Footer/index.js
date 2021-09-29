@@ -6,10 +6,6 @@ import './Footer.css'
 const Footer = () => {
     const history = useHistory()
 
-    const handleGotoTop = () => {
-        document.documentElement.scrollTop = 0
-    }
-
     const handleOnClick = (pageName) => {
         history.push(`/${pageName}`)
         document.documentElement.scrollTop = 0
@@ -108,10 +104,6 @@ const Footer = () => {
                     </a>
                 </p>
             </div>
-
-            <span className="footer__topBtn" onClick={handleGotoTop}>
-                <i className="fas fa-arrow-circle-up"></i>
-            </span>
         </footer>
     )
 }

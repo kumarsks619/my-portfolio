@@ -12,6 +12,7 @@ import NotFound from './components/NotFound'
 import Home from './components/Home'
 import Projects from './components/Projects'
 import Alerts from './utils/Comp/Alerts'
+import ScrollToTop from './utils/Comp/ScrollToTop'
 import './responsive.css'
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <div className="app">
             <Router>
                 <Alerts />
+                <ScrollToTop />
                 <Route component={Header} />
                 <Switch>
                     <Route exact path="/" component={Home} />
