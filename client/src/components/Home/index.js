@@ -34,7 +34,7 @@ const Home = () => {
                     <span>r</span>
                 </p>
                 <p className="home__intro">
-                    I'm a pre-final year student involved in Full Stack Web Development
+                    I'm a final year student involved in Full Stack Web Development
                     with specialization in MERN stack. Currently doing Freelancing stuffs
                     and collaborating with small businesses and startups. Always welcoming
                     new opportunities !

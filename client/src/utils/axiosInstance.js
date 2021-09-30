@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-// const SERVER_URL = 'http://localhost:5000'
-const SERVER_URL = 'https://portfolio-venom.herokuapp.com'
+import { SERVER_URL } from './constants'
 
 const axiosInstance = axios.create({
     baseURL: SERVER_URL,

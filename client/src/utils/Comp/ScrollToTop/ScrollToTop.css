@@ -1,0 +1,31 @@
+.scrollToTop {
+    position: fixed;
+    bottom: 3vh;
+    right: 1vw;
+    z-index: 20;
+    border-radius: 50%;
+    font-size: 2rem;
+    border: none;
+    padding: 1px 4px;
+    opacity: 1;
+    color: var(--text-light);
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.scrollToTop.hide {
+    transform: translateX(100px);
+}
+
+.scrollToTop:hover {
+    color: var(--dark);
+    transform: scale(1.1);
+}
+
+@media (max-width: 1000px) {
+    .scrollToTop {
+        right: 3vw;
+        bottom: 2vh;
+    }
+}

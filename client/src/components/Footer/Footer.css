@@ -138,19 +138,3 @@
 .footer__creditsWrapper:hover i {
     color: var(--dark);
 }
-
-.footer__topBtn {
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    text-decoration: none;
-    color: var(--text-light);
-    font-size: 2.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.footer__topBtn:hover {
-    color: var(--dark);
-    transform: scale(1.1);
-}

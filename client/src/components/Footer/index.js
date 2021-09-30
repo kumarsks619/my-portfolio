@@ -1,14 +1,11 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { SOCIAL, CLIENT_URL } from '../../utils/constants'
 import './Footer.css'
 
 const Footer = () => {
     const history = useHistory()
-
-    const handleGotoTop = () => {
-        document.documentElement.scrollTop = 0
-    }
 
     const handleOnClick = (pageName) => {
         history.push(`/${pageName}`)
@@ -64,28 +61,24 @@ const Footer = () => {
                     </div>
                     <div className="footer__socialLinks">
                         <a
-                            href="https://www.linkedin.com/in/kumarsks619"
+                            href={SOCIAL.LINKEDIN}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <i className="fab fa-linkedin"></i> Linkedin
                         </a>
-                        <a
-                            href="https://github.com/kumarsks619"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-github"></i> GitHub
                         </a>
                         <a
-                            href="https://www.instagram.com/blck_tie"
+                            href={SOCIAL.INSTAGRAM}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <i className="fab fa-instagram"></i> Instagram
                         </a>
                         <a
-                            href="https://www.facebook.com/kumarsks619"
+                            href={SOCIAL.FACEBOOK}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -98,20 +91,12 @@ const Footer = () => {
             <div className="footer__creditsWrapper">
                 <p>
                     Copyright &copy; 2021 | Made with <i className="fas fa-heart"></i> by
-                    <a
-                        href="https://www.shubhamm.in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer">
                         <span>VeNoM</span>
                         <span>Shubham</span>
                     </a>
                 </p>
             </div>
-
-            <span className="footer__topBtn" onClick={handleGotoTop}>
-                <i className="fas fa-arrow-circle-up"></i>
-            </span>
         </footer>
     )
 }

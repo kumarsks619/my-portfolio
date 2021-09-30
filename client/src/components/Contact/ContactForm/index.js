@@ -111,10 +111,10 @@ const ContactForm = () => {
                                 onChange={handleOnChange}
                             >
                                 <option value="0">What's your budget?</option>
-                                <option value="Rs 4k - 6k">Rs 4k - 6k</option>
-                                <option value="Rs 6k - 8k">Rs 6k - 8k</option>
-                                <option value="Rs 8k - 15k">Rs 8k - 15k</option>
-                                <option value="More than 15k">More than 15k</option>
+                                <option value="Rs 10k - 15k">Rs 10k - 15k</option>
+                                <option value="Rs 15k - 25k">Rs 15k - 25k</option>
+                                <option value="Rs 25k - 50k">Rs 25k - 50k</option>
+                                <option value="More than 50k">More than 50k</option>
                             </select>
                         </div>
                     </div>

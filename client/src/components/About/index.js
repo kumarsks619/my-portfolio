@@ -20,7 +20,7 @@ const About = () => {
                 <p>
                     I'm Shubham, a Mechanical Engineer by degree but like to explore
                     coding stuffs, so tried my hands in the field of web development and
-                    now I'm enjoying doing this. I like to be called "VeNoM", as this is
+                    now I'm enjoying doing it. I like to be called "VeNoM", as this is
                     my Gaming name.
                 </p>
             </div>

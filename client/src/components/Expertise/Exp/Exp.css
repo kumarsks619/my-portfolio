@@ -8,7 +8,7 @@
 .exp h2,
 .exp h3,
 .exp h4 {
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 
 .exp a {
@@ -33,14 +33,14 @@
 .exp p {
     margin: 15px 0;
     color: var(--text-light);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .exp ul li {
     margin: 5px 0;
     color: var(--dark);
     color: var(--text-light);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .exp > span.line {
@@ -62,7 +62,7 @@
 
 
 .exp__viewCertificate {
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: var(--dark);
     font-weight: 700;
     margin-top: 10px;

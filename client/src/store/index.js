@@ -3,6 +3,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
+import { NODE_ENV } from '../utils/constants'
 import {
     alertReducer,
     projectGetAllReducer,
@@ -25,10 +26,14 @@ const initialState = {}
 
 const middleware = [thunk]
 
-const store = createStore(
-    reducers,
-    initialState,
-    composeWithDevTools(applyMiddleware(...middleware))
-)
+let middlewareWrapper
+
+if (NODE_ENV === 'DEV') {
+    middlewareWrapper = composeWithDevTools(applyMiddleware(...middleware))
+} else {
+    middlewareWrapper = applyMiddleware(...middleware)
+}
+
+const store = createStore(reducers, initialState, middlewareWrapper)
 
 export default store
