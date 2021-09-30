@@ -70,6 +70,7 @@
     .projectCard {
         width: 100%;
         margin-bottom: 50px;
+        height: 35vh;
     }
 
     .projectCard__overlay h2 {
@@ -87,7 +88,7 @@
         width: 100%;
         border: none;
         padding-left: 20px;
-        padding-right: 20px;
+        padding-right: 0px;
     }
 
     .expertise__skillsSection {
@@ -189,7 +190,7 @@
     }
 
     .about__closingTag h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 
     .about__closingTag span {

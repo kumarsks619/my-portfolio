@@ -49,8 +49,8 @@
 .home__intro {
     font-weight: 700;
     color: var(--text-light);
-    letter-spacing: 1px;
-    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    font-size: 1.05rem;
 }
 
 .home__btns {
