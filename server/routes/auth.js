@@ -7,7 +7,9 @@ const router = express.Router()
 // @desc    To Register a new Admin
 // @route   POST /api/auth
 // @access  Public
-router.post('/', adminRegister)
+if (process.env.NODE_ENV === 'DEV') {
+    router.post('/', adminRegister)
+}
 
 // @desc    To Login an existing Admin
 // @route   POST /api/auth/login
