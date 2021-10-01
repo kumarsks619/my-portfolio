@@ -8,7 +8,11 @@ import footballVideo from '../../assets/vid/me-stage.mp4'
 const About = () => {
     return (
         <div className="about">
-            <div className="about__section about__intro">
+            <div
+                className="about__section about__intro"
+                data-aos="slide-right"
+                data-aos-duration="800"
+            >
                 <div className="about__introGreet">
                     <h3>Hello Visitors!</h3>
                     <LottieComp lotteData={waveData} height={100} width={100} />
@@ -20,14 +24,18 @@ const About = () => {
                 <p>
                     I'm Shubham, a Mechanical Engineer by degree but like to explore
                     coding stuffs, so tried my hands in the field of web development and
-                    now I'm enjoying doing it. I like to be called "VeNoM", as this is
-                    my Gaming name.
+                    now I'm enjoying doing it. I like to be called "VeNoM", as this is my
+                    Gaming name.
                 </p>
             </div>
 
             <span className="line"></span>
 
-            <div className="about__section about__edu">
+            <div
+                className="about__section about__edu"
+                data-aos="slide-left"
+                data-aos-duration="800"
+            >
                 <h4>I studied</h4>
                 <h3>Senior Secondary</h3>
                 <p>from</p>
@@ -51,7 +59,10 @@ const About = () => {
                 </div>
             </div>
 
-            <div className="about__section about__edu about__interests">
+            <div
+                className="about__section about__edu about__interests"
+                data-aos="slide-up"
+            >
                 <h4>Now I would like to tell you about my interests & hobbies</h4>
                 <div className="about__interest">
                     <h3>Playing Football</h3>
@@ -81,7 +92,7 @@ const About = () => {
                 </div>
             </div>
 
-            <div className="about__closingTag">
+            <div className="about__closingTag" data-aos="zoom-in">
                 <span></span>
                 <h1>This is NOT all about me.</h1>
                 <span></span>

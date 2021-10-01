@@ -7,9 +7,9 @@ const CallToAction = () => {
     return (
         <div className="callToAction">
             <span></span>
-            <p>Need A Web Developer ?</p>
+            <p data-aos="zoom-in">Need A Web Developer ?</p>
             <HashLink to="/contact/#formID">
-                <h1>
+                <h1 data-aos="zoom-in">
                     <i className="fas fa-long-arrow-alt-right"></i>
                     Let's work together
                     <i className="fas fa-long-arrow-alt-left"></i>

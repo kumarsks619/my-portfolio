@@ -13,7 +13,7 @@ const Footer = () => {
     }
 
     return (
-        <footer className="footer">
+        <footer className="footer" data-aos="slide-up">
             <div className="footer__sections">
                 <div className="footer__section">
                     <div className="footer__sectionHeader">

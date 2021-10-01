@@ -12,7 +12,7 @@ const Exp = ({
     certificate,
 }) => {
     return (
-        <div className="exp">
+        <div className="exp" data-aos="slide-up">
             <h2>{position}</h2>
             <div className="at">@</div>
             <h3>

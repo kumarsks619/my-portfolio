@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-import './App.css'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import CallToAction from './components/CallToAction'
@@ -13,9 +14,14 @@ import Home from './components/Home'
 import Projects from './components/Projects'
 import Alerts from './utils/Comp/Alerts'
 import ScrollToTop from './utils/Comp/ScrollToTop'
+import './App.css'
 import './responsive.css'
 
 const App = () => {
+    useEffect(() => {
+        AOS.init()
+    }, [])
+
     return (
         <div className="app">
             <Router>

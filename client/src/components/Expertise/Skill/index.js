@@ -4,7 +4,7 @@ import './Skill.css'
 
 const Skill = ({ name, image, stars }) => {
     return (
-        <div className="skill">
+        <div className="skill" data-aos="slide-left">
             <div className="skill__content">
                 <p>{name}</p>
                 <img src={image} alt={name} />
