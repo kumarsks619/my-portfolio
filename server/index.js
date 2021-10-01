@@ -2,7 +2,6 @@ require('dotenv').config()
 const express = require('express')
 const chalk = require('chalk')
 const cors = require('cors')
-const morgan = require('morgan')
 const compression = require('compression')
 
 const connectDB = require('./config/db')
@@ -20,7 +19,8 @@ const app = express()
 app.use(compression({ level: 7 }))
 
 // adding morgan as middleware to log http requests in the console
-if ((process.env.NODE_ENV = 'development')) {
+if ((process.env.NODE_ENV === 'DEV')) {
+    const morgan = require('morgan')
     app.use(morgan('dev'))
 }
 
@@ -29,7 +29,7 @@ app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(express.json({ limit: '30mb', extended: true }))
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     res.send("<h1>Shubham's Portfolio's backend is up and running...</h1>")
 })
 
