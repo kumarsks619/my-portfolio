@@ -4,7 +4,7 @@ import './TreeItem.css'
 
 const TreeItem = ({ right, iconClass, name, link }) => {
     return (
-        <div className={right ? 'treeItem right' : 'treeItem'}>
+        <div className={right ? 'treeItem right' : 'treeItem'} data-aos="slide-up">
             <a
                 className={right ? 'treeItem__leaf right' : 'treeItem__leaf'}
                 href={link}

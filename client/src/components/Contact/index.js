@@ -49,12 +49,12 @@ const Contact = () => {
                 </div>
             </div>
 
-            <div className="contact__header" id="formID">
+            <div className="contact__header" id="formID" data-aos="zoom-in">
                 <span></span>
                 <h1>Drop a message here!</h1>
                 <span></span>
             </div>
-            <p className="contact__headerDesc">
+            <p className="contact__headerDesc" data-aos="zoom-in">
                 Got a project? Drop me a line if you want to work together on something
                 exciting.
             </p>

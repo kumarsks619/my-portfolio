@@ -33,7 +33,7 @@ const ProjectCarousel = ({ projects = [] }) => {
     }, [index])
 
     return (
-        <div className="projectCarousel">
+        <div className="projectCarousel" data-aos="zoom-in">
             <div className="projectCarousel__slidesWrapper">
                 {slides.map((projectData, slideIndex) => {
                     let position = 'slide'

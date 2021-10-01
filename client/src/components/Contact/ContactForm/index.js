@@ -40,7 +40,7 @@ const ContactForm = () => {
     }, [success])
 
     return (
-        <div className="contactForm">
+        <div className="contactForm" data-aos="zoom-in" data-aos-duration="800">
             {loading ? (
                 <LottieComp lotteData={loaderLottie} height={200} width={200} />
             ) : (

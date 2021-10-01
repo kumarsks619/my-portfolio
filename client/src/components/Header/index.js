@@ -17,7 +17,7 @@ const Header = ({ history, location }) => {
     }
 
     const headerBackgroundAddListener = useCallback(() => {
-        if (window.scrollY > 150) {
+        if (window.scrollY > 100) {
             setIsScrolled(true)
         } else {
             setIsScrolled(false)
