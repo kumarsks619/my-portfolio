@@ -14,6 +14,7 @@ import Home from './components/Home'
 import Projects from './components/Projects'
 import Alerts from './utils/Comp/Alerts'
 import ScrollToTop from './utils/Comp/ScrollToTop'
+import Cursor from './utils/Comp/Cursor'
 import './App.css'
 import './responsive.css'
 
@@ -25,6 +26,7 @@ const App = () => {
     return (
         <div className="app">
             <Router>
+                <Cursor />
                 <Alerts />
                 <ScrollToTop />
                 <Route component={Header} />

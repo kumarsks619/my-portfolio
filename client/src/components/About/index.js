@@ -10,8 +10,7 @@ const About = () => {
         <div className="about">
             <div
                 className="about__section about__intro"
-                data-aos="slide-right"
-                data-aos-duration="800"
+                data-aos="fade-up"
             >
                 <div className="about__introGreet">
                     <h3>Hello Visitors!</h3>
@@ -33,8 +32,7 @@ const About = () => {
 
             <div
                 className="about__section about__edu"
-                data-aos="slide-left"
-                data-aos-duration="800"
+                data-aos="fade-up"
             >
                 <h4>I studied</h4>
                 <h3>Senior Secondary</h3>
@@ -59,10 +57,7 @@ const About = () => {
                 </div>
             </div>
 
-            <div
-                className="about__section about__edu about__interests"
-                data-aos="slide-up"
-            >
+            <div className="about__section about__edu about__interests">
                 <h4>Now I would like to tell you about my interests & hobbies</h4>
                 <div className="about__interest">
                     <h3>Playing Football</h3>

@@ -1,0 +1,32 @@
+html,
+body {
+    cursor: none;
+}
+
+.cursor {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--dark);
+    border-radius: 100%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: all 150ms ease;
+    transition-property: opacity, background-color, transform, mix-blend-mode;
+}
+
+.cursor--hidden {
+    opacity: 0;
+}
+
+.cursor--clicked {
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: var(--dark);
+}
+
+.cursor--link-hovered {
+    transform: translate(-50%, -50%) scale(1.25);
+    background-color: var(--dark);
+}
