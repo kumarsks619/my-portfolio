@@ -46,6 +46,7 @@
     border-bottom: 1px solid var(--text-light);
     color: var(--dark);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .contactForm input:focus,
