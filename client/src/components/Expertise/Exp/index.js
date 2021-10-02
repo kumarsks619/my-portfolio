@@ -17,7 +17,12 @@ const Exp = ({
             <div className="at">@</div>
             <h3>
                 {name}
-                <a href={link} target="_blank" rel="noreferrer noopener">
+                <a
+                    href={link}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    title={`Shubham Kumar Singh - ${name}`}
+                >
                     <i className="fas fa-external-link-alt"></i>
                 </a>
             </h3>
@@ -33,7 +38,12 @@ const Exp = ({
                     <li key={task._id}>
                         {task.text}
                         {task.link && (
-                            <a href={task.link} target="_blank" rel="noreferrer noopener">
+                            <a
+                                href={task.link}
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title={`Shubham Kumar Singh - Task`}
+                            >
                                 <i className="fas fa-external-link-alt"></i>
                             </a>
                         )}
@@ -46,6 +56,7 @@ const Exp = ({
                     target="_blank"
                     rel="noreferrer noopener"
                     className="exp__viewCertificate"
+                    title={`Shubham Kumar Singh - Certificate`}
                 >
                     View Certificate <i className="fas fa-external-link-alt"></i>
                 </a>

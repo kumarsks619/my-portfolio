@@ -7,7 +7,7 @@ const ProjectCard = ({ name, image, link, duration: { start, end } }) => {
     return (
         <div className="projectCard" data-aos="slide-up">
             <div className="projectCard__img">
-                <img src={image} alt={name} />
+                <img src={image} alt={`Shubham Kumar Singh - ${name}`} />
             </div>
             <div className="projectCard__overlay">
                 <h2>{name}</h2>
@@ -21,7 +21,12 @@ const ProjectCard = ({ name, image, link, duration: { start, end } }) => {
             </div>
 
             <div className="projectCard__shutter">
-                <a href={link} target="_blank" rel="noreferrer noopener">
+                <a
+                    href={link}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    title={`Shubham Kumar Singh - ${name}`}
+                >
                     <p>View Project</p>
                 </a>
             </div>

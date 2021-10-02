@@ -64,16 +64,23 @@ const Footer = () => {
                             href={SOCIAL.LINKEDIN}
                             target="_blank"
                             rel="noopener noreferrer"
+                            title={`Shubham Kumar Singh - Linkedin`}
                         >
                             <i className="fab fa-linkedin"></i> Linkedin
                         </a>
-                        <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">
+                        <a
+                            href={SOCIAL.GITHUB}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`Shubham Kumar Singh - Github`}
+                        >
                             <i className="fab fa-github"></i> GitHub
                         </a>
                         <a
                             href={SOCIAL.INSTAGRAM}
                             target="_blank"
                             rel="noopener noreferrer"
+                            title={`Shubham Kumar Singh - Instagram`}
                         >
                             <i className="fab fa-instagram"></i> Instagram
                         </a>
@@ -81,6 +88,7 @@ const Footer = () => {
                             href={SOCIAL.FACEBOOK}
                             target="_blank"
                             rel="noopener noreferrer"
+                            title={`Shubham Kumar Singh - Facebook`}
                         >
                             <i className="fab fa-facebook-square"></i> Facebook
                         </a>
@@ -91,7 +99,12 @@ const Footer = () => {
             <div className="footer__creditsWrapper">
                 <p>
                     Copyright &copy; 2021 | Made with <i className="fas fa-heart"></i> by
-                    <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer">
+                    <a
+                        href={CLIENT_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`Shubham Kumar Singh - ${CLIENT_URL}`}
+                    >
                         <span>VeNoM</span>
                         <span>Shubham</span>
                     </a>

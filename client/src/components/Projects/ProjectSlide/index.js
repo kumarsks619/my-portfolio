@@ -15,9 +15,14 @@ const ProjectSlide = ({
     return (
         <div className="projectSlide">
             <div className="projectSlide__imgWrapper">
-                <img src={image} alt={name} />
+                <img src={image} alt={`Shubham Kumar Singh - ${name}`} />
                 <div className="projectSlide__imgOverlay">
-                    <a href={link} target="_blank" rel="noopener noreferrer">
+                    <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`Shubham Kumar Singh - ${name}`}
+                    >
                         View Project
                     </a>
                 </div>
