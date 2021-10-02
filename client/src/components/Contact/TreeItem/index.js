@@ -8,6 +8,7 @@ const TreeItem = ({ right, iconClass, name, link }) => {
             <a
                 className={right ? 'treeItem__leaf right' : 'treeItem__leaf'}
                 href={link}
+                title={`Shubham Kumar Singh - ${name}`}
                 target="_blank"
                 rel="noopener noreferrer"
             >

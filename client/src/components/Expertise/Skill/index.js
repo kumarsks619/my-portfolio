@@ -7,7 +7,7 @@ const Skill = ({ name, image, stars }) => {
         <div className="skill" data-aos="fade-left">
             <div className="skill__content">
                 <p>{name}</p>
-                <img src={image} alt={name} />
+                <img src={image} alt={`Shubham Kumar Singh - ${name}`} />
             </div>
 
             <div className="skill__overlay">

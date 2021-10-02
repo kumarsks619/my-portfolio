@@ -25,3 +25,10 @@
     color: #0f141e;
     font-size: 1.1rem;
 }
+
+.seo-only {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
