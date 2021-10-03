@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import ProjectSlide from '../ProjectSlide'
 import { SLIDESHOW_AUTO_INTERVAL_IN_MILLISECONDS } from '../../../utils/constants'
@@ -22,15 +22,42 @@ const ProjectCarousel = ({ projects = [] }) => {
         }
     }, [index, slides])
 
+    const handleAutoSlideshow = useCallback(
+        () =>
+            setInterval(() => {
+                setIndex((prevIndex) => prevIndex + 1)
+            }, SLIDESHOW_AUTO_INTERVAL_IN_MILLISECONDS),
+        []
+    )
+
     useEffect(() => {
-        let slider = setInterval(() => {
-            setIndex(index + 1)
-        }, SLIDESHOW_AUTO_INTERVAL_IN_MILLISECONDS)
+        let slider = handleAutoSlideshow()
+
+        const imgWrapperElements = [
+            ...document.querySelectorAll('.projectSlide__imgWrapper'),
+        ]
+
+        const pauseCarouselListener = () => {
+            clearInterval(slider)
+        }
+
+        const startCarouselListener = () => {
+            slider = handleAutoSlideshow()
+        }
+
+        imgWrapperElements.forEach((element) => {
+            element.addEventListener('mouseenter', pauseCarouselListener)
+            element.addEventListener('mouseleave', startCarouselListener)
+        })
 
         return () => {
             clearInterval(slider)
+            imgWrapperElements.forEach((element) => {
+                element.removeEventListener('mouseenter', pauseCarouselListener)
+                element.removeEventListener('mouseleave', startCarouselListener)
+            })
         }
-    }, [index])
+    }, [handleAutoSlideshow])
 
     return (
         <div className="projectCarousel" data-aos="zoom-in">
