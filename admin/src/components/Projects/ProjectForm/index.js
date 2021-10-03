@@ -8,8 +8,6 @@ import {
     TextField,
     Button,
 } from '@material-ui/core'
-import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
-import DateFnsUtils from '@date-io/date-fns'
 import AddCircleIcon from '@material-ui/icons/AddCircle'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -31,6 +29,7 @@ const initialInputVals = {
     description: '',
     type: '',
     link: '',
+    github: '',
 }
 
 const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
@@ -46,8 +45,6 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
 
     const { inputVals, setInputVals, handleOnChange, handleReset } =
         useForm(initialInputVals)
-    const [startDate, setStartDate] = useState(null)
-    const [endDate, setEndDate] = useState(null)
     const [image, setImage] = useState('')
     const {
         values: technologies,
@@ -80,8 +77,6 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
 
         const projectData = {
             ...inputVals,
-            start: startDate,
-            end: endDate,
             technologies,
         }
 
@@ -106,8 +101,6 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
     const handleModalClose = useCallback(() => {
         setIsFormOpen(false)
         handleReset()
-        setStartDate(null)
-        setEndDate(null)
         setImage('')
         setTechnologies([])
         dispatch(projectEditCleanup())
@@ -126,14 +119,10 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                 description: project.description,
                 type: project.type,
                 link: project.link,
+                github: project.github ? project.github : '',
             })
 
             setTechnologies(project.technologies)
-            setStartDate(project.duration.start)
-
-            if (project.duration.end) {
-                setEndDate(project.duration.end)
-            }
         }
     }, [project, setInputVals, setTechnologies])
 
@@ -191,37 +180,6 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                 </div>
 
                 <div className="formGroup">
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                        <DatePicker
-                            required
-                            autoOk
-                            disableFuture
-                            views={['year', 'month']}
-                            variant="inline"
-                            inputVariant="outlined"
-                            label="Start Date"
-                            value={startDate}
-                            onChange={setStartDate}
-                            className="formInput"
-                        />
-                    </MuiPickersUtilsProvider>
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                        <DatePicker
-                            autoOk
-                            disableFuture
-                            views={['year', 'month']}
-                            variant="inline"
-                            inputVariant="outlined"
-                            label="End Date"
-                            value={endDate}
-                            onChange={setEndDate}
-                            helperText='Leave this blank if it is "Current"'
-                            className="formInput"
-                        />
-                    </MuiPickersUtilsProvider>
-                </div>
-
-                <div className="formGroup">
                     <FormControl variant="outlined" className="formInput">
                         <InputLabel id="project-type">Project Type</InputLabel>
                         <Select
@@ -250,10 +208,21 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                     required
                     type="text"
                     variant="outlined"
-                    label="Project Link"
+                    label="Live Link"
                     className="formInput"
                     name="link"
                     value={inputVals.link}
+                    onChange={handleOnChange}
+                />
+
+                <TextField
+                    required
+                    type="text"
+                    variant="outlined"
+                    label="Github Link"
+                    className="formInput"
+                    name="link"
+                    value={inputVals.github}
                     onChange={handleOnChange}
                 />
 
