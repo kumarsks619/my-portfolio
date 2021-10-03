@@ -221,7 +221,7 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                     variant="outlined"
                     label="Github Link"
                     className="formInput"
-                    name="link"
+                    name="github"
                     value={inputVals.github}
                     onChange={handleOnChange}
                 />
