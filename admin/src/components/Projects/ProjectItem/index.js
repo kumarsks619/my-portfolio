@@ -114,6 +114,7 @@ const ProjectItem = ({
                             target="_blank"
                             rel="noopener noreferrer"
                             variant="body1"
+                            className="contentEntity"
                         >
                             {link}
                         </Link>

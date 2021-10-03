@@ -34,7 +34,7 @@ const ProjectSlide = ({ image, name, description, technologies, github, type, li
                     <a href={link} target="_blank" rel="noopener noreferrer">
                         See Live
                     </a>
-                    {!github && (
+                    {github && (
                         <>
                             <span>or</span>
                             <a href={github} target="_blank" rel="noopener noreferrer">
