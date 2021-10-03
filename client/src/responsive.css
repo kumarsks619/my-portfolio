@@ -283,7 +283,7 @@
 @media (max-width: 1100px) {
     /* ProjectCarousel **********************************************************************/
     .projectCarousel__slidesWrapper {
-        max-height: 100vh;
+        min-height: 100vh;
     }
 
     .projectCarousel__slidesWrapper button {
@@ -296,7 +296,7 @@
     }
 
     .projectSlide__imgWrapper {
-        flex: 1;
+        flex: 0;
         max-height: 40vh;
     }
 
@@ -313,6 +313,7 @@
         padding-left: 10px;
         padding-right: 10px;
         margin-top: 20px;
+        flex: 1;
     }
 
     .projectSlide__descWrapper h2 {

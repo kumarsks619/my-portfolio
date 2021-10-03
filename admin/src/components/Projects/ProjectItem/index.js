@@ -5,7 +5,6 @@ import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import PanToolOutlinedIcon from '@material-ui/icons/PanToolOutlined'
 import Chip from '@material-ui/core/Chip'
 import { useDispatch, useSelector } from 'react-redux'
-import Moment from 'react-moment'
 
 import './ProjectItem.css'
 import ConfirmModal from '../../../utils/Comp/ConfirmModal'
@@ -18,9 +17,9 @@ const ProjectItem = ({
     image,
     description,
     technologies,
-    duration: { start, end },
     type,
     link,
+    github,
     setIsFormOpen,
     provided,
     snapshot,
@@ -97,18 +96,6 @@ const ProjectItem = ({
                         </div>
 
                         <Typography variant="h6" color="textSecondary">
-                            Duration
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                            color="textSecondary"
-                            className="contentEntity"
-                        >
-                            <Moment format="MMM YYYY">{start}</Moment> -{' '}
-                            {end ? <Moment format="MMM YYYY">{end}</Moment> : 'Current'}
-                        </Typography>
-
-                        <Typography variant="h6" color="textSecondary">
                             Type
                         </Typography>
                         <Typography
@@ -120,7 +107,7 @@ const ProjectItem = ({
                         </Typography>
 
                         <Typography variant="h6" color="textSecondary">
-                            Link
+                            Live Link
                         </Typography>
                         <Link
                             href={link}
@@ -130,6 +117,22 @@ const ProjectItem = ({
                         >
                             {link}
                         </Link>
+
+                        {github && (
+                            <>
+                                <Typography variant="h6" color="textSecondary">
+                                    Github Link
+                                </Typography>
+                                <Link
+                                    href={github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    variant="body1"
+                                >
+                                    {github}
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

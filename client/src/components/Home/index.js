@@ -52,7 +52,7 @@ const Home = () => {
                         className="home__resume"
                         target="_blank"
                         rel="noopener noreferrer"
-                        title={`Shubham Kumar Singh - Resume`}
+                        title={`kumarsks619 Resume`}
                     >
                         View My Resume
                     </a>

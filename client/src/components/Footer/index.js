@@ -64,7 +64,7 @@ const Footer = () => {
                             href={SOCIAL.LINKEDIN}
                             target="_blank"
                             rel="noopener noreferrer"
-                            title={`Shubham Kumar Singh - Linkedin`}
+                            title={`kumarsks619 Linkedin`}
                         >
                             <i className="fab fa-linkedin"></i> Linkedin
                         </a>
@@ -72,7 +72,7 @@ const Footer = () => {
                             href={SOCIAL.GITHUB}
                             target="_blank"
                             rel="noopener noreferrer"
-                            title={`Shubham Kumar Singh - Github`}
+                            title={`kumarsks619 Github`}
                         >
                             <i className="fab fa-github"></i> GitHub
                         </a>
@@ -80,7 +80,7 @@ const Footer = () => {
                             href={SOCIAL.INSTAGRAM}
                             target="_blank"
                             rel="noopener noreferrer"
-                            title={`Shubham Kumar Singh - Instagram`}
+                            title={`kumarsks619 Instagram`}
                         >
                             <i className="fab fa-instagram"></i> Instagram
                         </a>
@@ -88,7 +88,7 @@ const Footer = () => {
                             href={SOCIAL.FACEBOOK}
                             target="_blank"
                             rel="noopener noreferrer"
-                            title={`Shubham Kumar Singh - Facebook`}
+                            title={`kumarsks619 Facebook`}
                         >
                             <i className="fab fa-facebook-square"></i> Facebook
                         </a>
@@ -103,7 +103,7 @@ const Footer = () => {
                         href={CLIENT_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        title={`Shubham Kumar Singh - ${CLIENT_URL}`}
+                        title={`kumarsks619 ${CLIENT_URL}`}
                     >
                         <span>VeNoM</span>
                         <span>Shubham</span>
