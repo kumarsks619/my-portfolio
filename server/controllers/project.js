@@ -4,13 +4,7 @@ const Project = require('../models/Project')
 
 // to add a new Project
 const projectAdd = asyncHandler(async (req, res) => {
-    const { name, description, technologies, start, end, type, image, link, sNo } =
-        req.body
-
-    if (start > end) {
-        res.status(400)
-        throw new Error("End date of project can't be ahead of it's start date!")
-    }
+    const { name, description, technologies, type, image, link, github, sNo } = req.body
 
     if (sNo < 1) {
         res.status(400)
@@ -21,13 +15,10 @@ const projectAdd = asyncHandler(async (req, res) => {
         name,
         description,
         technologies,
-        duration: {
-            start,
-            end,
-        },
         type,
         image,
         link,
+        github,
         sNo,
     })
 
@@ -65,14 +56,7 @@ const projectGetAll = asyncHandler(async (_, res) => {
 // to edit an existing Project
 const projectEdit = asyncHandler(async (req, res) => {
     const { projectID } = req.params
-    const { name, description, technologies, start, end, type, image, link } = req.body
-
-    if (start && end) {
-        if (start > end) {
-            res.status(400)
-            throw new Error("End date of project can't be ahead of it's start date!")
-        }
-    }
+    const { name, description, technologies, type, image, link, github } = req.body
 
     const foundProject = await Project.findById(projectID)
 
@@ -85,8 +69,7 @@ const projectEdit = asyncHandler(async (req, res) => {
         foundProject.type = type ? type : foundProject.type
         foundProject.image = image ? image : foundProject.image
         foundProject.link = link ? link : foundProject.link
-        foundProject.duration.start = start ? start : foundProject.start
-        foundProject.duration.end = end
+        foundProject.github = github ? github : foundProject.github
 
         await foundProject.save()
 
