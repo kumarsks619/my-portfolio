@@ -31,21 +31,9 @@
 }
 
 .projectCard__overlay h2 {
-    color: var(--text-white);
+    color: var(--white);
     font-size: 1.5rem;
     letter-spacing: 2px;
-}
-
-.projectCard__date {
-    color: var(--text-white);
-    display: flex;
-    align-items: center;
-}
-
-.projectCard__date span:nth-child(2) {
-    width: 50px;
-    border-top: 3px solid var(--text-white);
-    margin: 0 10px;
 }
 
 .projectCard__shutter {
@@ -65,7 +53,11 @@
     height: 70%;
 }
 
-.projectCard__shutter > a {
+.projectCard__viewLinks {
+    display: flex;
+}
+
+.projectCard__viewLinks > a {
     background-color: var(--dark);
     color: var(--text-white);
     font-weight: 700;
@@ -73,9 +65,16 @@
     letter-spacing: 5px;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.2s ease;
     border-bottom: 2px solid transparent;
 }
 
-.projectCard__shutter > a:hover {
+.projectCard__viewLinks > a:hover {
     border-color: var(--text-white);
+}
+
+.projectCard__viewLinks > span {
+    margin: 0 25px;
+    color: var(--white);
+    font-weight: 700;
 }

@@ -21,7 +21,7 @@ const Exp = ({
                     href={link}
                     target="_blank"
                     rel="noreferrer noopener"
-                    title={`Shubham Kumar Singh - ${name}`}
+                    title={`Company Website - ${name}`}
                 >
                     <i className="fas fa-external-link-alt"></i>
                 </a>
@@ -42,7 +42,7 @@ const Exp = ({
                                 href={task.link}
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                title={`Shubham Kumar Singh - Task`}
+                                title={`kumarsks619 Task`}
                             >
                                 <i className="fas fa-external-link-alt"></i>
                             </a>
@@ -56,7 +56,7 @@ const Exp = ({
                     target="_blank"
                     rel="noreferrer noopener"
                     className="exp__viewCertificate"
-                    title={`Shubham Kumar Singh - Certificate`}
+                    title={`kumarsks619 Certificate`}
                 >
                     View Certificate <i className="fas fa-external-link-alt"></i>
                 </a>
