@@ -7,13 +7,14 @@ const {
     messageRemoveAll,
 } = require('../controllers/contact')
 const protect = require('../middleware/protect')
+const { validateContactBody } = require('../utils/validators')
 
 const router = express.Router()
 
 // @desc    To send a new Message
 // @route   POST /api/contact/message
 // @access  Public
-router.post('/message', messageSend)
+router.post('/message', validateContactBody, messageSend)
 
 // @desc    To delete ALL the Messages
 // @route   DELETE /api/contact/message

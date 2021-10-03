@@ -14,15 +14,6 @@ const projectSchema = new Schema(
             type: [String],
             required: true,
         },
-        duration: {
-            start: {
-                type: String,
-                required: true,
-            },
-            end: {
-                type: String,
-            },
-        },
         type: {
             type: String,
             required: true,
@@ -32,6 +23,9 @@ const projectSchema = new Schema(
             required: true,
         },
         link: {
+            type: String,
+        },
+        github: {
             type: String,
         },
         sNo: {
