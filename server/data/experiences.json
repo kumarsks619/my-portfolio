@@ -1,55 +1,104 @@
-[{
-  
-  "position": "Freelancer",
-  "company": {
-    "name": "Purple Marketing",
-    "link": "http://demo.marketinghooters.com/"
-  },
-  "duration": {
-    "start": "2020-07-04T17:51:19.080Z",
-    "end": "2020-07-04T17:51:19.081Z"
-  },
-  "description": "The Purple Marketing supports startups in various ways.",
-  "tasks": [
+[
     {
-      
-      "text": "Completed the Website Frontend.",
-      "link": ""
+        "position": "Freelancer",
+        "company": {
+            "name": "Purple Marketing",
+            "link": "http://demo.marketinghooters.com/"
+        },
+        "duration": {
+            "start": "2020-07-04T17:51:19.080Z",
+            "end": "2020-07-04T17:51:19.081Z"
+        },
+        "description": "The Purple Marketing supports startups in various ways.",
+        "tasks": [
+            {
+                "text": "Completed the Website Frontend.",
+                "link": "http://demo.marketinghooters.com/"
+            },
+            {
+                "text": "Fixed bugs.",
+                "link": ""
+            }
+        ],
+        "sNo": 1
     },
     {
-     
-      "text": "Fixed bugs.",
-      "link": ""
+        "position": "Intern",
+        "company": {
+            "name": "The YoungMinds",
+            "link": "http://theyoungminds.org/"
+        },
+        "duration": {
+            "start": "2020-11-04T17:53:59.135Z",
+            "end": "2021-03-04T17:53:59.138Z"
+        },
+        "description": "Worked as full-stack developer on the main product (an educational platform) of the company.",
+        "tasks": [
+            {
+                "text": "Built a Dashboard controlled Chatbot for the company's website.",
+                "link": "https://chatbot-619.web.app/"
+            },
+            {
+                "text": "The dashboard also collects statistical data that is used to plot graphs (number of queries Vs time interval) which can be used further to improve the bot's response.",
+                "link": "https://ym-admin-panel.web.app/chatbot-dashboard"
+            },
+            {
+                "text": "The project was purely based on React.js along with Firebase, which I used for storage and fast read operation purposes.",
+                "link": ""
+            }
+        ],
+        "certificate": "https://drive.google.com/file/d/1egVql2HqOInsyDn3z_2CbP4ajPCjhM8i/view",
+        "sNo": 2
+    },
+    {
+        "position": "Intern",
+        "company": {
+            "name": "Algodrive Solutions",
+            "link": "https://www.algodrive.in/"
+        },
+        "duration": {
+            "start": "2021-07-18T05:47:35.771Z",
+            "end": "2021-09-25T11:23:24.934Z"
+        },
+        "description": "Worked as a full stack developer on various projects mainly based on the MERN stack for a number of clients.",
+        "tasks": [
+            {
+                "text": "Contributed to building backend APIs using Node.js and also built UI using React.js (implemented with Redux for state management).",
+                "link": ""
+            },
+            {
+                "text": "VidyaHub: Developed this full-stack application in a team of 3 people. Built the UI based on provided Figma designs and developed the required backend APIs. Also built a separate admin panel from where the whole content of the main website can be altered/managed.",
+                "link": "https://vidyahub.net/"
+            },
+            {
+                "text": "PrepSkul: Built the frontend UI using React.js of this internal project of the company.",
+                "link": ""
+            }
+        ],
+        "sNo": 3
+    },
+    {
+        "position": "Intern",
+        "company": {
+            "name": "Axis Bank - Freecharge",
+            "link": "https://www.axisbank.com/"
+        },
+        "duration": {
+            "start": "2021-05-18T05:50:07.552Z",
+            "end": "2021-07-18T05:50:07.557Z"
+        },
+        "description": "Worked as a React Developer on production-ready apps under the mentorship of senior developers at Axis Bank. Learnt a lot of good and sanitary practices that are essential for a React developer from my mentor.",
+        "tasks": [
+            {
+                "text": "Atlas Credit Cards - built frontend components.",
+                "link": ""
+            },
+            {
+                "text": "AnimaStore: Built an internal project from scratch called AnimaStore to store and share lotties internally among developers and designers of the company. The project was based on React with Redux for global state management. Also integrated APIs along with file upload system on AWS S3 bucket.",
+                "link": ""
+            }
+        ],
+        "certificate": "https://drive.google.com/file/d/1R0C1OznH3vvCF9DOHjwmEBX3T2rqQ3I9/view",
+        "sNo": 6
     }
-  ]
-  
-},{
-  
-  "position": "Intern",
-  "company": {
-    "name": "The YoungMinds",
-    "link": "http://theyoungminds.org/"
-  },
-  "duration": {
-    "start": "2020-11-04T17:53:59.135Z",
-    "end": "2021-03-04T17:53:59.138Z"
-  },
-  "description": "The Young Minds Education is aimed to promote and provide accessible and equitable education to all.",
-  "tasks": [
-    {
-      
-      "text": "Dashboard controlled Chatbot.",
-      "link": "https://chatbot-619.web.app/"
-    },
-    {
-      
-      "text": "Built the Dashboard to control the bot.",
-      "link": "https://ym-admin-panel.web.app/"
-    },
-    {
-     
-      "text": "Dashboard also collects the data and plots graph.",
-      "link": ""
-    }
-  ]
-}]
+]

@@ -1,7 +1,6 @@
 require('dotenv').config()
 const chalk = require('chalk')
 
-const adminsData = require('./data/admins.json')
 const expData = require('./data/experiences.json')
 const skillsData = require('./data/skills.json')
 const projectsData = require('./data/projects.json')
@@ -24,7 +23,6 @@ const fullReset = async () => {
 
         console.log(chalk.bgWhite.black('Database cleared!'))
 
-        await Admin.insertMany(adminsData)
         await Experience.insertMany(expData)
         await Skill.insertMany(skillsData)
         await Project.insertMany(projectsData)
