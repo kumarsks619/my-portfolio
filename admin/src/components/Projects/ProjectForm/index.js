@@ -216,7 +216,6 @@ const ProjectForm = ({ isFormOpen, setIsFormOpen }) => {
                 />
 
                 <TextField
-                    required
                     type="text"
                     variant="outlined"
                     label="Github Link"
