@@ -11,7 +11,6 @@ import ScrollToTop from './utils/Comp/ScrollToTop'
 import Cursor from './utils/Comp/Cursor'
 import Routes from './Routes'
 import './App.css'
-import './responsive.css'
 
 const App = () => {
     useEffect(() => {
@@ -26,7 +25,7 @@ const App = () => {
                 <ScrollToTop />
                 <Route component={Header} />
                 <Routes />
-                <Route component={CallToAction} />
+                <Route component={CallToAction}></Route>
                 <Route component={Footer} />
             </Router>
         </div>

@@ -23,10 +23,13 @@
 .callToAction a {
     text-decoration: none;
     transition: all 0.3s ease;
+    background-color: transparent;
+    border: none;
+    border-bottom: 5px solid transparent;
 }
 
 .callToAction a:hover {
-    border-bottom: 5px solid var(--dark);
+    border-color: var(--dark);
 }
 
 .callToAction h1 {
@@ -45,4 +48,24 @@
 
 .callToAction a:hover i:last-child {
     transform: rotateZ(180deg);
+}
+
+@media (max-width: 700px) {
+    .callToAction {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .callToAction p {
+        font-size: 0.8rem;
+    }
+
+    .callToAction h1 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+
+    .callToAction a {
+        border-width: 3px;
+    }
 }

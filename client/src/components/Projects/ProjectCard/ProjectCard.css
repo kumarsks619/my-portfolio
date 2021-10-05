@@ -78,3 +78,16 @@
     color: var(--white);
     font-weight: 700;
 }
+
+@media (max-width: 700px) {
+    .projectCard {
+        width: 100%;
+        margin-bottom: 50px;
+        height: 35vh;
+    }
+
+    .projectCard__overlay h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+}

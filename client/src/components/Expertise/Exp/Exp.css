@@ -60,7 +60,6 @@
     border-left: 4px solid var(--dark);
 }
 
-
 .exp__viewCertificate {
     letter-spacing: 1px;
     color: var(--dark);
@@ -75,4 +74,10 @@
 
 .exp__viewCertificate:hover {
     border-color: var(--dark);
+}
+
+@media (max-width: 700px) {
+    .exp > span.line {
+        width: 80%;
+    }
 }

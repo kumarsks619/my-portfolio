@@ -1,20 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Header.css'
 import logo from '../../assets/img/sks-logo.png'
 import Menu from './Menu'
 
-const Header = ({ history, location }) => {
+const Header = ({ location }) => {
     const page = location.pathname.split('/')[1]
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
-
-    const handleGotoHome = () => {
-        history.push('/')
-        document.documentElement.scrollTop = 0
-        setIsMenuOpen(false)
-    }
 
     const headerBackgroundAddListener = useCallback(() => {
         if (window.scrollY > 100) {
@@ -38,9 +33,13 @@ const Header = ({ history, location }) => {
                 className={!isMenuOpen && isScrolled ? 'header scrolled' : 'header'}
                 id="headerID"
             >
-                <div className="header__logoWrapper" onClick={handleGotoHome}>
+                <Link
+                    to="/"
+                    className="header__logoWrapper"
+                    onClick={() => setIsMenuOpen(false)}
+                >
                     <img src={logo} alt="Shubham Kumar Singh" />
-                </div>
+                </Link>
                 <div className="header__nameWrapper">
                     <p className="header__name">
                         {page ? (
@@ -62,6 +61,7 @@ const Header = ({ history, location }) => {
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className={isMenuOpen ? 'close' : ''}
+                        title="Menu"
                     >
                         {isMenuOpen ? (
                             <>
@@ -86,11 +86,7 @@ const Header = ({ history, location }) => {
                 </div>
             </header>
 
-            <Menu
-                isMenuOpen={isMenuOpen}
-                setIsMenuOpen={setIsMenuOpen}
-                history={history}
-            />
+            <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         </>
     )
 }

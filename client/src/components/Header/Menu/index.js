@@ -1,11 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Menu.css'
 
-const Menu = ({ isMenuOpen, setIsMenuOpen, history }) => {
-    const handleOnClick = (pageName) => {
-        history.push(`/${pageName}`)
-        document.documentElement.scrollTop = 0
+const Menu = ({ isMenuOpen, setIsMenuOpen }) => {
+    const handleMenuClose = () => {
         setIsMenuOpen(false)
     }
 
@@ -13,11 +12,21 @@ const Menu = ({ isMenuOpen, setIsMenuOpen, history }) => {
         <div className={isMenuOpen ? 'menu menu__open' : 'menu'}>
             <div className="menuWrapper">
                 <h1>Menu</h1>
-                <p onClick={() => handleOnClick('')}>Home</p>
-                <p onClick={() => handleOnClick('projects')}>Projects</p>
-                <p onClick={() => handleOnClick('expertise')}>Expertise</p>
-                <p onClick={() => handleOnClick('about')}>About Me</p>
-                <p onClick={() => handleOnClick('contact')}>Contact Me</p>
+                <Link to="/" onClick={handleMenuClose}>
+                    Home
+                </Link>
+                <Link to="/projects" onClick={handleMenuClose}>
+                    Projects
+                </Link>
+                <Link to="/expertise" onClick={handleMenuClose}>
+                    Expertise
+                </Link>
+                <Link to="/about" onClick={handleMenuClose}>
+                    About Me
+                </Link>
+                <Link to="/contact" onClick={handleMenuClose}>
+                    Contact Me
+                </Link>
             </div>
         </div>
     )

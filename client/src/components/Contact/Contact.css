@@ -40,3 +40,24 @@
     margin-top: 15px;
     padding: 0 300px;
 }
+
+@media (max-width: 700px) {
+    .contact {
+        margin-top: 50px;
+    }
+
+    .contact__header h1 {
+        font-size: 2rem;
+        margin: 0 10px;
+    }
+
+    .contact__header span {
+        width: 100px;
+    }
+
+    .contact__headerDesc {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 1rem;
+    }
+}
