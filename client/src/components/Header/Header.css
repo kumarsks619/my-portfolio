@@ -16,7 +16,7 @@
 }
 
 .header__logoWrapper {
-    width: 120px;
+    width: 110px;
     cursor: pointer;
 }
 
@@ -147,4 +147,19 @@
 
 .header__menuBtnWrapper:hover .header__menuBtnBars.close span {
     border-color: #fff;
+}
+
+@media (max-width: 700px) {
+    .header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .header__logoWrapper {
+        width: 90px;
+    }
+
+    .header__name span.pageName {
+        font-size: 1.8rem;
+    }
 }

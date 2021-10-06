@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { HashLink } from 'react-router-hash-link'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { resumeGetLink } from '../../store/actions'
@@ -40,9 +40,9 @@ const Home = () => {
                     Always welcoming new opportunities !
                 </p>
                 <div className="home__btns">
-                    <HashLink to="/projects#top">View Projects</HashLink>
+                    <Link to="/projects">View Projects</Link>
                     <span>or</span>
-                    <HashLink to="/about#top">Know Me</HashLink>
+                    <Link to="/about">Know Me</Link>
                 </div>
                 {loading ? (
                     <span className="home__resume disabled">Resume Loading...</span>

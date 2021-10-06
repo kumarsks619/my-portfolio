@@ -84,3 +84,13 @@
     border-right: none;
     border-left: 25px solid var(--dark);
 }
+
+@media (max-width: 1100px) {
+    .projectCarousel__slidesWrapper {
+        min-height: 100vh;
+    }
+
+    .projectCarousel__slidesWrapper button {
+        display: none;
+    }
+}
