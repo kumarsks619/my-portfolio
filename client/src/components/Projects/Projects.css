@@ -5,11 +5,11 @@
     margin-top: 50px;
 }
 
-.projects__viewAll a {
+.projects__viewAll button {
     background-color: var(--dark);
     border: none;
     color: var(--text-white);
-    padding: 20px 100px;
+    padding: 20px 80px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -19,7 +19,7 @@
     border: 1px solid transparent;
 }
 
-.projects__viewAll a:hover {
+.projects__viewAll button:hover {
     background-color: var(--text-white);
     color: var(--dark);
     border-color: var(--dark);

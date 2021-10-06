@@ -206,7 +206,8 @@
     }
 
     .about__section h1 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
+        letter-spacing: 1px;
     }
 
     .about__section h3 {
@@ -223,6 +224,18 @@
 
     .about__intro h4 {
         margin-left: 20px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        margin-bottom: 0;
+    }
+
+    .about__introGreet {
+        margin-top: 20px;
+    }
+
+    .about__introGreet > h3 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
     }
 
     .about__edu {
@@ -280,5 +293,9 @@
 
     .about .verticalLine {
         height: 50px;
+    }
+
+    .about span.line {
+        margin: 30px 0;
     }
 }

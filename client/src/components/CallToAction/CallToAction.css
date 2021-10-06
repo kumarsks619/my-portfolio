@@ -52,8 +52,8 @@
 
 @media (max-width: 700px) {
     .callToAction {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin: 20px 0;
+        height: fit-content;
     }
 
     .callToAction p {

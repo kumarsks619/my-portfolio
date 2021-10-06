@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { HashLink } from 'react-router-hash-link'
 import { useDispatch, useSelector } from 'react-redux'
 
 import ProjectCarousel from './ProjectCarousel'
@@ -18,6 +17,16 @@ const Projects = () => {
         dispatch(projectGetAll())
     }, [dispatch])
 
+    const scrollToAllProjects = () => {
+        const allProjectsElement = document.getElementById("allProjectsID")
+
+        if (allProjectsElement) {
+            window.scrollTo({
+                top: allProjectsElement.offsetTop
+            })
+        }
+    }
+
     return (
         <div className="projects">
             {loading ? (
@@ -27,9 +36,7 @@ const Projects = () => {
             )}
 
             <div className="projects__viewAll">
-                <HashLink smooth to="/projects#allProjectsID">
-                    View All
-                </HashLink>
+                <button onClick={scrollToAllProjects}>View All</button>
             </div>
 
             <div className="projects__allProjectsHeader" id="allProjectsID">
