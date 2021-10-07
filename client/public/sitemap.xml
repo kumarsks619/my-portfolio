@@ -4,11 +4,14 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
 <url>
   <loc>https://www.shubhamm.in/</loc>
+  <loc>https://www.shubhamm.in/projects</loc>
+  <loc>https://www.shubhamm.in/expertise</loc>
+  <loc>https://www.shubhamm.in/about</loc>
+  <loc>https://www.shubhamm.in/contact</loc>
   <lastmod>2021-10-02T17:39:22+00:00</lastmod>
 </url>
 
