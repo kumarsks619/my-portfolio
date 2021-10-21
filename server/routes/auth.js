@@ -1,6 +1,7 @@
 const express = require('express')
 
 const { adminRegister, adminLogin, adminChangePassword } = require('../controllers/auth')
+const { adminPasswordResetLimit } = require('../middleware/rateLimiter')
 
 const router = express.Router()
 
@@ -19,6 +20,6 @@ router.post('/login', adminLogin)
 // @desc    To change an Admin password
 // @route   PUT /api/auth
 // @access  Public
-router.put('/', adminChangePassword)
+router.put('/', adminPasswordResetLimit, adminChangePassword)
 
 module.exports = router
