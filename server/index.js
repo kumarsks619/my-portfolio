@@ -16,10 +16,11 @@ const { notFoundHandler, errorHandler } = require('./middleware/error')
 connectDB()
 
 const app = express()
+app.set('trust proxy', 1) // for express-rate-limit
 app.use(compression({ level: 7 }))
 
 // adding morgan as middleware to log http requests in the console
-if ((process.env.NODE_ENV === 'DEV')) {
+if (process.env.NODE_ENV === 'DEV') {
     const morgan = require('morgan')
     app.use(morgan('dev'))
 }
