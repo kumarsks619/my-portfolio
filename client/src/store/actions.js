@@ -122,8 +122,8 @@ export const skillGetAll = () => async (dispatch, getState) => {
 
 // to send a message
 export const messageSend = (messageData) => async (dispatch) => {
-    if (localStorage.getItem('messageToken')) {
-        const token = localStorage.getItem('messageToken')
+    if (localStorage.getItem('VeNoM__messageToken')) {
+        const token = localStorage.getItem('VeNoM__messageToken')
 
         // checking if the already present message token is expired or not
         const decodedToken = jwtDecode(token)
@@ -131,7 +131,7 @@ export const messageSend = (messageData) => async (dispatch) => {
             dispatch(alertAdd("You've already pinged me in a while.", 'error'))
             return
         } else {
-            localStorage.removeItem('messageToken')
+            localStorage.removeItem('VeNoM__messageToken')
         }
     }
 
@@ -146,7 +146,7 @@ export const messageSend = (messageData) => async (dispatch) => {
             type: actionTypes.MESSAGE_SEND_SUCCESS,
         })
 
-        localStorage.setItem('messageToken', data.token)
+        localStorage.setItem('VeNoM__messageToken', data.token)
 
         dispatch(alertAdd('Message Sent! Expect a response ASAP.', 'success', 10000))
     } catch (err) {

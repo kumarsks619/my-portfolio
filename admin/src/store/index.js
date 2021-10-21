@@ -5,8 +5,8 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers'
 
 // persisting the already logged in state of a user
-const adminFromStorage = localStorage.getItem('admin')
-    ? JSON.parse(localStorage.getItem('admin'))
+const adminFromStorage = localStorage.getItem('VeNoM__admin')
+    ? JSON.parse(localStorage.getItem('VeNoM__admin'))
     : null
 
 const initialState = {
