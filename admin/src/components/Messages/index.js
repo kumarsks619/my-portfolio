@@ -9,6 +9,8 @@ import { messageGetAll, messageRemoveAll } from '../../store/actions/message'
 
 const Project = () => {
     const dispatch = useDispatch()
+
+    const { admin } = useSelector((state) => state.adminLogin)
     const { loading, messages } = useSelector((state) => state.messageGetAll)
     const { loading: loadingRemove } = useSelector((state) => state.messageRemoveAll)
 
@@ -22,8 +24,10 @@ const Project = () => {
     }, [isConfirm, dispatch])
 
     useEffect(() => {
-        dispatch(messageGetAll())
-    }, [dispatch])
+        if (admin) {
+            dispatch(messageGetAll())
+        }
+    }, [dispatch, admin])
 
     return (
         <>
