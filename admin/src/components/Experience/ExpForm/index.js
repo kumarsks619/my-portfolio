@@ -7,6 +7,8 @@ import {
     MenuItem,
     TextField,
     Button,
+    Checkbox,
+    FormControlLabel,
 } from '@material-ui/core'
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
@@ -43,6 +45,7 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
         useForm(initialInputVals)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
+    const [isCurrent, setIsCurrent] = useState(false)
     const {
         values: tasks,
         setValues: setTasks,
@@ -60,7 +63,7 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
                 link: inputVals.companyLink,
             },
             start: startDate,
-            end: endDate,
+            end: isCurrent ? null : endDate,
             description: inputVals.description,
             certificate: inputVals.certificate,
             tasks,
@@ -78,6 +81,7 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
         handleReset()
         setStartDate(null)
         setEndDate(null)
+        setIsCurrent(false)
         setTasks([])
         dispatch(expEditCleanup())
     }, [handleReset, setIsFormOpen, setTasks, dispatch])
@@ -103,6 +107,8 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
 
             if (experience.duration.end) {
                 setEndDate(experience.duration.end)
+            } else {
+                setIsCurrent(true)
             }
         }
     }, [experience, setInputVals, setTasks])
@@ -216,10 +222,20 @@ const ExpForm = ({ isFormOpen, setIsFormOpen }) => {
                             label="End Date"
                             value={endDate}
                             onChange={setEndDate}
-                            helperText='Leave this blank if it is "Current"'
                             className="formInput"
+                            disabled={isCurrent}
                         />
                     </MuiPickersUtilsProvider>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={isCurrent}
+                                onChange={(e) => setIsCurrent(e.target.checked)}
+                                color="primary"
+                            />
+                        }
+                        label="Present"
+                    />
                 </div>
 
                 <TextField

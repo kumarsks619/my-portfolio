@@ -2,7 +2,7 @@ const express = require('express')
 
 const { resumeAddNew, resumeGetLink } = require('../controllers/resume')
 const protect = require('../middleware/protect')
-const cache = require('../middleware/cache')
+const { cacheMiddleware } = require('../middleware/cache')
 
 const router = express.Router()
 
@@ -14,6 +14,6 @@ router.post('/', protect, resumeAddNew)
 // @desc    To get the Resume link
 // @route   GET /api/resume
 // @access  Public
-router.get('/', cache, resumeGetLink)
+router.get('/', cacheMiddleware, resumeGetLink)
 
 module.exports = router

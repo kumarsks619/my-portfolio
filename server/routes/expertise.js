@@ -13,7 +13,7 @@ const {
     skillReorder,
 } = require('../controllers/expertise')
 const protect = require('../middleware/protect')
-const cache = require('../middleware/cache')
+const { cacheMiddleware } = require('../middleware/cache')
 
 const router = express.Router()
 
@@ -30,7 +30,7 @@ router.delete('/experience/:experienceID', protect, experienceRemove)
 // @desc    To get all the Experiences
 // @route   GET /api/expertise/experience
 // @access  Public
-router.get('/experience', cache, experienceGetAll)
+router.get('/experience', cacheMiddleware, experienceGetAll)
 
 // @desc    To edit an existing Experience
 // @route   PUT /api/expertise/experience/:experienceID
@@ -55,7 +55,7 @@ router.delete('/skill/:skillID', protect, skillRemove)
 // @desc    To get all the Skills
 // @route   GET /api/expertise/skill
 // @access  Public
-router.get('/skill', cache, skillGetAll)
+router.get('/skill', cacheMiddleware, skillGetAll)
 
 // @desc    To edit an existing Skill
 // @route   PUT /api/expertise/skill/:skillID
