@@ -15,6 +15,7 @@
 .expForm .formGroup {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .expForm .formGroup .formInput {

@@ -8,7 +8,7 @@ const {
     projectReorder,
 } = require('../controllers/project')
 const protect = require('../middleware/protect')
-const cache = require('../middleware/cache')
+const { cacheMiddleware } = require('../middleware/cache')
 
 const router = express.Router()
 
@@ -25,7 +25,7 @@ router.delete('/:projectID', protect, projectRemove)
 // @desc    To get all the projects
 // @route   GET /api/project
 // @access  Public
-router.get('/', cache, projectGetAll)
+router.get('/', cacheMiddleware, projectGetAll)
 
 // @desc    To edit an existing project
 // @route   PUT /api/project

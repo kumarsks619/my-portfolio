@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 
 const Resume = require('../models/Resume')
+const { clearCache } = require('../middleware/cache')
 
 const resumeAddNew = asyncHandler(async (req, res) => {
     const { link } = req.body
@@ -13,6 +14,7 @@ const resumeAddNew = asyncHandler(async (req, res) => {
     })
 
     if (newResume) {
+        clearCache()
         res.status(200).json(newResume)
     } else {
         res.status(400)
@@ -20,7 +22,7 @@ const resumeAddNew = asyncHandler(async (req, res) => {
     }
 })
 
-const resumeGetLink = asyncHandler(async (req, res) => {
+const resumeGetLink = asyncHandler(async (_, res) => {
     const foundResume = await Resume.findOne()
 
     if (foundResume && foundResume.link) {

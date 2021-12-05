@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 
 const Project = require('../models/Project')
+const { clearCache } = require('../middleware/cache')
 
 // to add a new Project
 const projectAdd = asyncHandler(async (req, res) => {
@@ -23,6 +24,7 @@ const projectAdd = asyncHandler(async (req, res) => {
     })
 
     if (newProject) {
+        clearCache()
         res.status(200).json(newProject)
     } else {
         res.status(400)
@@ -37,6 +39,7 @@ const projectRemove = asyncHandler(async (req, res) => {
     const foundProject = await Project.findById(projectID)
 
     if (foundProject) {
+        clearCache()
         await foundProject.remove()
         res.status(200).json({
             message: 'Project Removed!',
@@ -72,6 +75,7 @@ const projectEdit = asyncHandler(async (req, res) => {
         foundProject.github = github ? github : foundProject.github
 
         await foundProject.save()
+        clearCache()
 
         res.status(200).json(foundProject)
     } else {
@@ -99,6 +103,7 @@ const projectReorder = asyncHandler(async (req, res) => {
         await foundSrcProject.save()
         await foundDestProject.save()
 
+        clearCache()
         res.status(200).json({
             message: 'Projects list re-ordered!',
         })

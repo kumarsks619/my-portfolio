@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler')
 
 const Experience = require('../models/Experience')
 const Skill = require('../models/Skill')
+const { clearCache } = require('../middleware/cache')
 
 // to add a new Experience
 const experienceAdd = asyncHandler(async (req, res) => {
@@ -27,6 +28,7 @@ const experienceAdd = asyncHandler(async (req, res) => {
     })
 
     if (newExperience) {
+        clearCache()
         res.status(200).json(newExperience)
     } else {
         res.status(400)
@@ -42,6 +44,7 @@ const experienceRemove = asyncHandler(async (req, res) => {
 
     if (foundExperience) {
         await foundExperience.remove()
+        clearCache()
         res.status(200).json({
             message: 'Experience Removed!',
         })
@@ -83,12 +86,11 @@ const experienceEdit = asyncHandler(async (req, res) => {
             ? certificate
             : foundExperience.certificate
 
-        if (start && end) {
-            foundExperience.duration.start = start ? start : foundExperience.start
-            foundExperience.duration.end = end ? end : foundExperience.end
-        }
+        foundExperience.duration.start = start ? start : foundExperience.start
+        foundExperience.duration.end = end ? end : ''
 
         await foundExperience.save()
+        clearCache()
 
         res.status(200).json(foundExperience)
     } else {
@@ -116,6 +118,8 @@ const experienceReorder = asyncHandler(async (req, res) => {
         await foundSrcExperience.save()
         await foundDestExperience.save()
 
+        clearCache()
+
         res.status(200).json({
             message: 'Experiences list re-ordered!',
         })
@@ -142,6 +146,7 @@ const skillAdd = asyncHandler(async (req, res) => {
     })
 
     if (newSkill) {
+        clearCache()
         res.status(200).json(newSkill)
     } else {
         res.status(400)
@@ -157,6 +162,8 @@ const skillRemove = asyncHandler(async (req, res) => {
 
     if (foundSkill) {
         await foundSkill.remove()
+        clearCache()
+
         res.status(200).json({
             message: 'Skill Removed!',
             data: { skillID },
@@ -187,6 +194,7 @@ const skillEdit = asyncHandler(async (req, res) => {
         foundSkill.stars = stars ? stars : foundSkill.stars
 
         await foundSkill.save()
+        clearCache()
 
         res.status(200).json(foundSkill)
     } else {
@@ -214,6 +222,7 @@ const skillReorder = asyncHandler(async (req, res) => {
         await foundSrcSkill.save()
         await foundDestSkill.save()
 
+        clearCache()
         res.status(200).json({
             message: 'Skills list re-ordered!',
         })
