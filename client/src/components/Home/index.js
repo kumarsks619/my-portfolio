@@ -19,25 +19,30 @@ const Home = () => {
             <div className="home__contentWrapper" data-aos="slide-right">
                 <p className="home__name">Shubham Kumar Singh</p>
                 <p className="home__profession">
-                    <span>w</span>
-                    <span>e</span>
-                    <span>b</span>
-                    <br />
-                    <span>d</span>
-                    <span>e</span>
-                    <span>v</span>
-                    <span>e</span>
-                    <span>l</span>
+                    <span>F</span>
+                    <span>r</span>
                     <span>o</span>
-                    <span>p</span>
+                    <span>n</span>
+                    <span>t</span>
+                    <span>e</span>
+                    <span>n</span>
+                    <span>d</span>
+                    <br />
+                    <span>E</span>
+                    <span>n</span>
+                    <span>g</span>
+                    <span>i</span>
+                    <span>n</span>
+                    <span>e</span>
                     <span>e</span>
                     <span>r</span>
                 </p>
                 <p className="home__intro">
-                    I'm a final year student who loves to built alive websites that feels
+                    I'm a Frontend Engineer who loves to built alive websites that feels
                     like a person sitting beside and narrating a story to you. Currently
-                    doing Full Stack Web Development with specialization in MERN stack.
-                    Always welcoming new opportunities !
+                    working with JavaScript based frameworks like VueJS & ReactJS.
+                    <br />
+                    And, Yes! I love to write CSS.
                 </p>
                 <div className="home__btns">
                     <Link to="/projects">View Projects</Link>
