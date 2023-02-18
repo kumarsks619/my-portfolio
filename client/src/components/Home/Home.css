@@ -18,7 +18,7 @@
 .home__contentWrapper {
     margin-top: auto;
     width: 50%;
-    padding: 20px;
+    padding: 0 0 20px 0;
 }
 
 .home__name {
