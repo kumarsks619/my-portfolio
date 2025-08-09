@@ -3,7 +3,6 @@ import React from "react"
 import "./About.css"
 import waveData from "../../assets/lotties/wave.json"
 import LottieComp from "../../utils/Comp/LottieComp"
-import footballVideo from "../../assets/vid/me-stage.mp4"
 
 const About = () => {
 	return (
