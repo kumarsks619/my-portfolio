@@ -1,63 +1,64 @@
 .contact__treeWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-decoration: none;
-    color: var(--dark);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	text-decoration: none;
+	color: var(--dark);
 }
 
 .contact__treeSection {
-    flex: 0.5;
+	flex: 0.5;
 }
 
 .contact__treeStem {
-    border-left: 10px solid var(--dark);
+	border-left: 10px solid var(--dark);
 }
 
 .contact__header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 100px;
 }
 
 .contact__header h1 {
-    font-size: 3rem;
-    color: var(--dark);
-    text-align: center;
+	font-size: 3rem;
+	color: var(--dark);
+	text-align: center;
 }
 
 .contact__header span {
-    width: 300px;
-    border-bottom: 5px solid var(--dark);
+	width: 300px;
+	border-bottom: 5px solid var(--dark);
 }
 
 .contact__headerDesc {
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--text-light);
-    font-weight: 700;
-    margin-top: 15px;
-    padding: 0 300px;
+	text-align: center;
+	font-size: 1.5rem;
+	color: var(--text-light);
+	font-weight: 700;
+	margin-top: 15px;
+	padding: 0 300px;
 }
 
 @media (max-width: 700px) {
-    .contact {
-        margin-top: 50px;
-    }
+	.contact {
+		margin-top: 50px;
+	}
 
-    .contact__header h1 {
-        font-size: 2rem;
-        margin: 0 10px;
-    }
+	.contact__header h1 {
+		font-size: 2rem;
+		margin: 0 10px;
+	}
 
-    .contact__header span {
-        width: 100px;
-    }
+	.contact__header span {
+		width: 100px;
+	}
 
-    .contact__headerDesc {
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: 1rem;
-    }
+	.contact__headerDesc {
+		padding-left: 20px;
+		padding-right: 20px;
+		font-size: 1rem;
+	}
 }

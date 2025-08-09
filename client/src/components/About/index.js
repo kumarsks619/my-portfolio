@@ -8,7 +8,7 @@ import footballVideo from "../../assets/vid/me-stage.mp4"
 const About = () => {
 	return (
 		<div className='about'>
-			<div className='about__section about__intro' data-aos='fade-up'>
+			<div className='about__section about__intro' data-aos='slide-up'>
 				<div className='about__introGreet'>
 					<h3>Hello Visitors!</h3>
 					<LottieComp lotteData={waveData} height={100} width={100} />
@@ -22,7 +22,7 @@ const About = () => {
 
 			<span className='line'></span>
 
-			<div className='about__section about__edu' data-aos='fade-up'>
+			<div className='about__section about__edu' data-aos='slide-up'>
 				<h4>I studied</h4>
 				<h3>Senior Secondary</h3>
 				<p>from</p>
@@ -76,9 +76,9 @@ const About = () => {
 				</div>
 			</div>
 
-			<div className='about__closingTag' data-aos='zoom-in'>
+			<div className='about__closingTag' data-aos='slide-up'>
 				<span></span>
-				<h1>This is NOT all about me.</h1>
+				<h1>There’s more to my story to discover.</h1>
 				<span></span>
 			</div>
 		</div>

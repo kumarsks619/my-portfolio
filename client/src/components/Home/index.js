@@ -16,7 +16,7 @@ const Home = () => {
 
 	return (
 		<main className='home' id='topID'>
-			<div className='home__contentWrapper' data-aos='zoom-in'>
+			<div className='home__contentWrapper' data-aos='slide-up'>
 				<p className='home__name'>Shubham Kumar Singh</p>
 				<p className='home__profession'>
 					<span>F</span>
