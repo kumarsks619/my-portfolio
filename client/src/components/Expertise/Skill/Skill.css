@@ -55,6 +55,10 @@
 }
 
 @media (max-width: 700px) {
+	.skill {
+		max-width: 90%;
+	}
+
 	.skill:last-child {
 		margin-bottom: 0;
 	}
