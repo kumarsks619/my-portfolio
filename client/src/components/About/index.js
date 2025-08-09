@@ -15,7 +15,7 @@ const About = () => {
 
 				<p>Myself,</p>
 				<h1>Shubham Kumar Singh</h1>
-				<h4>A Frontend Engineer</h4>
+				<h4>A Software Engineer</h4>
 				<p>I'm Shubham, a Mechanical Engineer by degree but a Software Engineer by passion as well as profession. Apart from this, I love to play football.</p>
 			</div>
 
@@ -34,14 +34,14 @@ const About = () => {
 
 				<div className='verticalLine'></div>
 
-				<h4>Then I'm pursuing</h4>
-				<h3>Bachelor's Of Technology</h3>
+				<h4>Then I completed my</h4>
+				<h3>Bachelor's Of Technology Degree</h3>
 				<p>from</p>
 				<h1>National Institute Of Technology Jalandhar</h1>
 				<div className='about__eduDate'>
 					<span>Jul 2018</span>
 					<span></span>
-					<span>Current</span>
+					<span>May 2022</span>
 				</div>
 			</div>
 
