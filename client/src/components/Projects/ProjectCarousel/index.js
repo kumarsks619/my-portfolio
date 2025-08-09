@@ -23,13 +23,13 @@ const ProjectCarousel = ({ projects = [] }) => {
 		}
 	}, [index, slides])
 
-	const handleAutoSlideshow = useCallback(
-		() =>
-			setInterval(() => {
-				setIndex((prevIndex) => prevIndex + 1)
-			}, SLIDESHOW_AUTO_INTERVAL_IN_MILLISECONDS),
-		[]
-	)
+	const handleAutoSlideshow = useCallback(() => {
+		const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+		if (prefersReducedMotion) return null
+		return setInterval(() => {
+			setIndex((prevIndex) => prevIndex + 1)
+		}, SLIDESHOW_AUTO_INTERVAL_IN_MILLISECONDS)
+	}, [])
 
 	useEffect(() => {
 		let slider = handleAutoSlideshow()
@@ -37,7 +37,7 @@ const ProjectCarousel = ({ projects = [] }) => {
 		const imgWrapperElements = [...document.querySelectorAll(".projectSlide__imgWrapper")]
 
 		const pauseCarouselListener = () => {
-			clearInterval(slider)
+			if (slider) clearInterval(slider)
 		}
 
 		const startCarouselListener = () => {
@@ -50,7 +50,7 @@ const ProjectCarousel = ({ projects = [] }) => {
 		})
 
 		return () => {
-			clearInterval(slider)
+			if (slider) clearInterval(slider)
 			imgWrapperElements.forEach((element) => {
 				element.removeEventListener("mouseenter", pauseCarouselListener)
 				element.removeEventListener("mouseleave", startCarouselListener)

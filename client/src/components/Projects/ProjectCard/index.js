@@ -6,7 +6,7 @@ const ProjectCard = ({ name, image, link, github }) => {
 	return (
 		<div className='projectCard'>
 			<div className='projectCard__img'>
-				<img src={image} alt={`kumarsks619 ${name}`} />
+				<img src={image} alt={`kumarsks619 ${name}`} loading='lazy' decoding='async' />
 			</div>
 			<div className='projectCard__overlay'>
 				<h2>{name}</h2>

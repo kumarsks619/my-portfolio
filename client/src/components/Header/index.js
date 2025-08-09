@@ -45,7 +45,7 @@ const Header = ({ location }) => {
 					</p>
 					{!page && (
 						<p className='header__profession'>
-							<span className='responsive__hide'>Frontend Engineer</span>
+							<span className='responsive__hide'>Software Engineer</span>
 						</p>
 					)}
 				</div>
