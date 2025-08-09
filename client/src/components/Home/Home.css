@@ -1,122 +1,135 @@
 .home {
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    background-image: url('../../assets/img/me-home.jpg');
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-    filter: grayscale(100%);
-    transition: all 2s ease;
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: contain;
+	filter: grayscale(100%);
+	transition: all 2s ease;
 }
 
 .home:hover {
-    filter: grayscale(0%);
+	filter: grayscale(0%);
 }
 
 .home__contentWrapper {
-    margin-top: auto;
-    width: 50%;
-    padding: 0 0 20px 0;
+	margin-top: auto;
+	width: 50%;
+	padding: 0 0 20px 0;
 }
 
 .home__name {
-    font-size: 1rem;
-    letter-spacing: 5px;
-    font-weight: 100;
-    text-transform: uppercase;
+	font-size: 1rem;
+	letter-spacing: 5px;
+	font-weight: 100;
+	text-transform: uppercase;
 }
 
 .home__profession {
-    font-size: 5.5rem;
-    line-height: 5rem;
-    font-weight: 700;
-    margin: 10px 0 25px;
-    letter-spacing: 5px;
+	font-size: 5.5rem;
+	line-height: 5rem;
+	font-weight: 700;
+	margin: 10px 0 25px;
+	letter-spacing: 5px;
 }
 
 .home__profession > span {
-    transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 .home__profession > span:hover {
-    text-transform: uppercase;
-    background-color: var(--dark);
-    color: #fff;
+	text-transform: uppercase;
+	background-color: var(--dark);
+	color: #fff;
 }
 
 .home__intro {
-    font-weight: 700;
-    color: var(--text-light);
-    letter-spacing: 0.5px;
-    font-size: 1.05rem;
+	font-weight: 700;
+	color: var(--text-light);
+	letter-spacing: 0.5px;
+	font-size: 1.05rem;
 }
 
 .home__btns {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 25px;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 25px;
 }
 
 .home__btns a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 700;
-    transition: all 0.3s ease;
+	text-decoration: none;
+	color: var(--dark);
+	font-weight: 700;
+	transition: all 0.3s ease;
+	position: relative;
 }
 
-.home__btns a:hover {
-    border-bottom: 3px solid var(--dark);
+.home__btns a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 2px;
+	width: 100%;
+	background: currentColor;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s ease;
+}
+
+.home__btns a:hover::after {
+	transform: scaleX(1);
 }
 
 .home__btns span {
-    margin: 0 10px;
-    color: var(--text-light);
-    font-weight: 700;
+	margin: 0 10px;
+	color: var(--text-light);
+	font-weight: 700;
 }
 
 .home__resume {
-    background-color: var(--dark);
-    border: none;
-    color: var(--text-white);
-    padding: 10px 30px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    border: 1px solid transparent;
+	background-color: var(--dark);
+	border: none;
+	color: var(--text-white);
+	padding: 10px 30px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	border: 1px solid transparent;
 }
 
 .home__resume:hover {
-    background-color: var(--text-white);
-    color: var(--dark);
-    border-color: var(--dark);
+	background-color: var(--text-white);
+	color: var(--dark);
+	border-color: var(--dark);
 }
 
 .home__resume.disabled {
-    cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 @media (max-width: 700px) {
-    .home {
-        background-position: top;
-        height: fit-content;
-    }
+	.home {
+		background-position: top;
+		height: fit-content;
+	}
 
-    .home__contentWrapper {
-        width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-        width: fit-content;
-        margin-top: 400px;
-    }
+	.home__contentWrapper {
+		width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+		width: fit-content;
+		margin-top: 400px;
+	}
 
-    .home__profession {
-        font-size: 3rem;
-        line-height: 3rem;
-    }
+	.home__profession {
+		font-size: 3rem;
+		line-height: 3rem;
+	}
 }

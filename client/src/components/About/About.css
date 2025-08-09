@@ -1,136 +1,136 @@
 .about {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .about span.line {
-    border-top: 3px solid var(--text-white);
-    width: 80%;
-    margin: 80px 0;
-    align-self: center;
+	border-top: 3px solid var(--text-white);
+	width: 80%;
+	margin: 80px 0;
+	align-self: center;
 }
 
 .about__section {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .about__section h3 {
-    font-size: 2rem;
-    color: var(--dark);
-    letter-spacing: 3px;
+	font-size: 2rem;
+	color: var(--dark);
+	letter-spacing: 3px;
 }
 
 .about__section p {
-    font-weight: 700;
-    color: var(--text-light);
-    width: 50%;
-    margin-top: 10px;
+	font-weight: 700;
+	color: var(--text-light);
+	width: 50%;
+	margin-top: 10px;
 }
 
 .about__section h1 {
-    color: var(--dark);
-    letter-spacing: 3px;
+	color: var(--dark);
+	letter-spacing: 3px;
 }
 
 .about__section h4 {
-    text-transform: uppercase;
-    letter-spacing: 3px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 }
 
 .about__intro {
-    padding-top: 200px;
-    background-image: url('../../assets/img/me-about.jpeg');
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: contain;
-    filter: grayscale(100%);
-    align-items: flex-start;
-    transition: all 2s ease;
+	padding-top: 200px;
+	/* background-image: url('../../assets/img/me-about.jpeg'); */
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-size: contain;
+	filter: grayscale(100%);
+	align-items: flex-start;
+	transition: all 2s ease;
 }
 
 .about__intro h4 {
-    background-color: var(--text-white);
-    width: fit-content;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    border: 3px solid var(--text-light);
-    border-right: none;
-    border-top: none;
-    margin-top: 10px;
+	background-color: var(--text-white);
+	width: fit-content;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+	border: 3px solid var(--text-light);
+	border-right: none;
+	border-top: none;
+	margin-top: 10px;
 }
 
 .about__intro:hover {
-    filter: grayscale(0%);
+	filter: grayscale(0%);
 }
 
 .about__introGreet {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .about__introGreet > div {
-    margin: 0 !important;
+	margin: 0 !important;
 }
 
 .about__intro p:last-child {
-    line-height: 1.8rem;
+	line-height: 1.8rem;
 }
 
 .about__edu {
-    background-image: url('../../assets/img/me-edu.jpg');
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: contain;
-    filter: grayscale(100%);
-    align-items: flex-end;
-    transition: all 2s ease;
+	background-image: url("../../assets/img/me-edu.jpg");
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: contain;
+	filter: grayscale(100%);
+	align-items: flex-end;
+	transition: all 2s ease;
 }
 
 .about__edu:hover {
-    filter: grayscale(0%);
+	filter: grayscale(0%);
 }
 
 .about__eduDate {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    color: var(--text-light);
+	display: flex;
+	align-items: center;
+	font-weight: 700;
+	color: var(--text-light);
 }
 
 .about__eduDate span:nth-child(2) {
-    width: 50px;
-    border-top: 3px solid var(--text-light);
-    margin: 0 10px;
+	width: 50px;
+	border-top: 3px solid var(--text-light);
+	margin: 0 10px;
 }
 
 .about__edu h4 {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .about__edu h3 {
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-weight: 500;
 }
 
 .about__edu p {
-    text-align: right;
+	text-align: right;
 }
 
 .about__edu .verticalLine {
-    height: 100px;
-    border-left: 5px solid var(--dark);
-    margin: 20px 0;
+	height: 100px;
+	border-left: 5px solid var(--dark);
+	margin: 20px 0;
 }
 
 .about__interests {
-    align-items: flex-start;
-    background-image: none;
-    filter: grayscale(100%);
-    position: relative;
-    padding: 30px 0;
-    margin-top: 150px;
+	align-items: flex-start;
+	background-image: none;
+	filter: grayscale(100%);
+	position: relative;
+	padding: 30px 0;
+	margin-top: 150px;
 }
 
 .about__interests,
@@ -141,161 +141,161 @@
 .about__interests p,
 .about__interests span,
 .about__interests .verticalLine {
-    color: var(--white) !important;
-    border-color: var(--white) !important;
+	color: var(--white) !important;
+	border-color: var(--white) !important;
 }
 
 .about__interests video {
-    position: absolute;
-    z-index: -1;
-    left: -88px;
-    top: 0;
-    width: 100vw;
-    height: 100%;
-    object-fit: cover;
+	position: absolute;
+	z-index: -1;
+	left: -88px;
+	top: 0;
+	width: 100vw;
+	height: 100%;
+	object-fit: cover;
 }
 
 .about__interests h4 {
-    margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
 .about__interests p {
-    text-align: left;
+	text-align: left;
 }
 
 .about__interests .verticalLine {
-    height: 150px;
+	height: 150px;
 }
 
 .about__closingTag {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 150px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 150px;
 }
 
 .about__closingTag h1 {
-    font-size: 3rem;
-    color: var(--dark);
-    text-align: center;
+	font-size: 3rem;
+	color: var(--dark);
+	text-align: center;
 }
 
 .about__closingTag span {
-    width: 300px;
-    border-bottom: 5px solid var(--dark);
+	width: 300px;
+	border-bottom: 5px solid var(--dark);
 }
 
 @media (max-width: 700px) {
-    .about__section {
-        width: 100%;
-    }
+	.about__section {
+		width: 100%;
+	}
 
-    .about__section h1,
-    .about__section h2,
-    .about__section h3,
-    .about__section h4 {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+	.about__section h1,
+	.about__section h2,
+	.about__section h3,
+	.about__section h4 {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 
-    .about__section p {
-        width: fit-content;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+	.about__section p {
+		width: fit-content;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 
-    .about__section h1 {
-        font-size: 1.4rem;
-        letter-spacing: 1px;
-    }
+	.about__section h1 {
+		font-size: 1.4rem;
+		letter-spacing: 1px;
+	}
 
-    .about__section h3 {
-        font-size: 1.5rem;
-    }
+	.about__section h3 {
+		font-size: 1.5rem;
+	}
 
-    .about__section h4 {
-        font-size: 1.2rem;
-    }
+	.about__section h4 {
+		font-size: 1.2rem;
+	}
 
-    .about__intro {
-        padding-top: 500px;
-    }
+	.about__intro {
+		padding-top: 500px;
+	}
 
-    .about__intro h4 {
-        margin-left: 20px;
-        font-size: 1rem;
-        letter-spacing: 1px;
-        margin-bottom: 0;
-    }
+	.about__intro h4 {
+		margin-left: 20px;
+		font-size: 1rem;
+		letter-spacing: 1px;
+		margin-bottom: 0;
+	}
 
-    .about__introGreet {
-        margin-top: 20px;
-    }
+	.about__introGreet {
+		margin-top: 20px;
+	}
 
-    .about__introGreet > h3 {
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-    }
+	.about__introGreet > h3 {
+		font-size: 1.2rem;
+		letter-spacing: 1px;
+	}
 
-    .about__edu {
-        padding-top: 300px;
-    }
+	.about__edu {
+		padding-top: 300px;
+	}
 
-    .about__eduDate {
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-top: 20px;
-    }
+	.about__eduDate {
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-top: 20px;
+	}
 
-    .about__edu .verticalLine {
-        padding-right: 20px;
-    }
+	.about__edu .verticalLine {
+		padding-right: 20px;
+	}
 
-    .about__edu h1,
-    .about__edu h2,
-    .about__edu h3,
-    .about__edu h4 {
-        text-align: right;
-    }
+	.about__edu h1,
+	.about__edu h2,
+	.about__edu h3,
+	.about__edu h4 {
+		text-align: right;
+	}
 
-    .about__interests {
-        padding: 50px 0;
-        margin-top: 50px;
-    }
+	.about__interests {
+		padding: 50px 0;
+		margin-top: 50px;
+	}
 
-    .about__interests video {
-        left: 0;
-    }
+	.about__interests video {
+		left: 0;
+	}
 
-    .about__interests h1,
-    .about__interests h2,
-    .about__interests h3,
-    .about__interests h4 {
-        text-align: left;
-    }
+	.about__interests h1,
+	.about__interests h2,
+	.about__interests h3,
+	.about__interests h4 {
+		text-align: left;
+	}
 
-    .about__interests .verticalLine {
-        margin-left: 20px;
-    }
+	.about__interests .verticalLine {
+		margin-left: 20px;
+	}
 
-    .about__closingTag {
-        margin-top: 100px;
-    }
+	.about__closingTag {
+		margin-top: 100px;
+	}
 
-    .about__closingTag h1 {
-        font-size: 1.8rem;
-    }
+	.about__closingTag h1 {
+		font-size: 1.8rem;
+	}
 
-    .about__closingTag span {
-        width: 150px;
-    }
+	.about__closingTag span {
+		width: 150px;
+	}
 
-    .about .verticalLine {
-        height: 50px;
-    }
+	.about .verticalLine {
+		height: 50px;
+	}
 
-    .about span.line {
-        margin: 30px 0;
-    }
+	.about span.line {
+		margin: 30px 0;
+	}
 }
