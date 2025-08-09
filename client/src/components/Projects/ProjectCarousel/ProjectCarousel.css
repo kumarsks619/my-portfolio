@@ -1,96 +1,130 @@
 .projectCarousel {
-    max-width: 100vw;
-    margin: 0 auto;
-    overflow: hidden;
-    margin-top: 2rem;
+	max-width: 100vw;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 2rem;
 }
 
 .projectCarousel__slidesWrapper {
-    margin: 0 auto;
-    width: 90vw;
-    min-height: 80vh;
-    position: relative;
-    display: flex;
+	margin: 0 auto;
+	width: 100%;
+	height: clamp(420px, 70vh, 720px);
+	position: relative;
+	display: flex;
 }
 
 .projectCarousel__slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    transition: all 0.4s linear;
-    display: grid;
-    justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	transition: all 0.4s linear;
+	display: grid;
+	justify-content: center;
 }
 
 .projectCarousel__slide.slide {
-    transition: all 0s linear;
-    transform: translateX(85%);
-    opacity: 0;
+	transition: all 0s linear;
+	transform: translateX(85%);
+	opacity: 0;
 }
 
 .projectCarousel__slide.activeSlide {
-    opacity: 1;
-    transform: translateX(0);
-    z-index: 2;
+	opacity: 1;
+	transform: translateX(0);
+	z-index: 2;
 }
 
 .projectCarousel__slide.lastSlide {
-    transform: translateX(-85%) scale3d(0.7, 0.7, 0.7);
-    opacity: 0;
+	transform: translateX(-85%) scale3d(0.7, 0.7, 0.7);
+	opacity: 0;
 }
 
 .projectCarousel__slide.nextSlide {
-    transform: translateX(85%) scale3d(0.7, 0.7, 0.7);
-    opacity: 0;
+	transform: translateX(85%) scale3d(0.7, 0.7, 0.7);
+	opacity: 0;
 }
 
 .projectCarousel__slidesWrapper button {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    background-color: transparent;
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    transition: all 0.3s ease;
-    z-index: 4;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 2px;
+	border: 1px solid var(--text-white);
+	background: var(--dark);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+	transition: background-color 0.2s ease;
+	z-index: 4;
 }
 
 .projectCarousel__slidesWrapper button:focus {
-    outline: none;
+	outline: 2px solid var(--white);
+	outline-offset: 2px;
 }
 
 .projectCarousel__slidesWrapper button:active {
-    border-color: var(--white) !important;
+	background: rgba(17, 17, 17, 0.75);
 }
 
 .projectCarousel__slidesWrapper button:hover {
-    transform: scaleX(1.5);
+	background: rgba(17, 17, 17, 0.7);
+}
+
+.projectCarousel__slidesWrapper button::before {
+	content: "";
+	display: block;
+	width: 0.7em;
+	height: 0.7em;
+	border-right: 4px solid var(--text-white);
+	border-top: 4px solid var(--text-white);
 }
 
 .projectCarousel__leftControl {
-    left: 0;
-    border-left: none;
-    border-right: 25px solid var(--white);
+	left: 16px;
+	transform: translateY(-50%);
+}
+
+.projectCarousel__leftControl::before {
+	transform: rotate(-135deg);
 }
 
 .projectCarousel__rightControl {
-    right: 0;
-    border-right: none;
-    border-left: 25px solid var(--dark);
+	right: 16px;
+	transform: translateY(-50%);
+}
+
+.projectCarousel__rightControl::before {
+	transform: rotate(45deg);
 }
 
 @media (max-width: 1100px) {
-    .projectCarousel__slidesWrapper {
-        min-height: 100vh;
-    }
+	.projectCarousel__slidesWrapper {
+		height: 90vh;
+	}
 
-    .projectCarousel__slidesWrapper button {
-        display: none;
-    }
+	.projectCarousel__slidesWrapper button {
+		top: auto;
+		bottom: 12px;
+		width: 54px;
+		height: 54px;
+		background: rgba(17, 17, 17, 0.6);
+	}
+
+	.projectCarousel__leftControl {
+		left: 50%;
+		right: auto;
+		transform: translateX(-120%);
+	}
+
+	.projectCarousel__rightControl {
+		left: 50%;
+		right: auto;
+		transform: translateX(20%);
+	}
 }

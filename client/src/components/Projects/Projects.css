@@ -1,75 +1,79 @@
 .projects__viewAll {
-    width: 100%;
-    display: grid;
-    place-items: center;
-    margin-top: 50px;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	margin-top: 50px;
 }
 
 .projects__viewAll button {
-    background-color: var(--dark);
-    border: none;
-    color: var(--text-white);
-    padding: 20px 80px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    border: 1px solid transparent;
+	background-color: var(--dark);
+	border: none;
+	color: var(--text-white);
+	padding: 20px 80px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	border: 1px solid transparent;
 }
 
 .projects__viewAll button:hover {
-    background-color: var(--text-white);
-    color: var(--dark);
-    border-color: var(--dark);
+	background-color: var(--text-white);
+	color: var(--dark);
+	border-color: var(--dark);
 }
 
 .projects__allProjects {
-    margin-top: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+	margin-top: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .projects__allProjectsHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 100px;
 }
 
 .projects__allProjectsHeader h2 {
-    font-size: 3rem;
-    color: var(--dark);
-    text-align: center;
+	font-size: 3rem;
+	color: var(--dark);
+	text-align: center;
 }
 
 .projects__allProjectsHeader span {
-    width: 300px;
-    border-bottom: 3px solid var(--dark);
+	width: 300px;
+	border-bottom: 3px solid var(--dark);
 }
 
 @media (max-width: 700px) {
-    .projects__viewAll a {
-        padding: 15px 50px;
-        letter-spacing: 1px;
-    }
+	.projects__viewAll {
+		margin-top: 10px;
+	}
 
-    .projects__allProjects {
-        padding-left: 20px;
-        padding-right: 20px;
-        flex-direction: column;
-    }
+	.projects__viewAll a {
+		padding: 15px 50px;
+		letter-spacing: 1px;
+	}
 
-    .projects__allProjectsHeader h2 {
-        font-size: 2.5rem;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
+	.projects__allProjects {
+		padding-left: 20px;
+		padding-right: 20px;
+		flex-direction: column;
+	}
 
-    .projects__allProjectsHeader span {
-        width: 150px;
-    }
+	.projects__allProjectsHeader h2 {
+		font-size: 2.5rem;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.projects__allProjectsHeader span {
+		width: 150px;
+	}
 }
