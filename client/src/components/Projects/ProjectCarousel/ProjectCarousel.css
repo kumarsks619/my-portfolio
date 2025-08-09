@@ -55,9 +55,9 @@
 	place-items: center;
 	width: 48px;
 	height: 48px;
-	border-radius: 10px;
+	border-radius: 2px;
 	border: 1px solid var(--text-white);
-	background: rgba(17, 17, 17, 0.6);
+	background: var(--dark);
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 	transition: background-color 0.2s ease;
 	z-index: 4;
