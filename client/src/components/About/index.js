@@ -46,7 +46,9 @@ const About = () => {
 				</div>
 			</div>
 
-			<div className='about__section about__edu about__interests'>
+			<span className='line'></span>
+
+			<div className='about__section about__edu'>
 				<h4>Now I would like to tell you about my interests & hobbies</h4>
 				<div className='about__interest'>
 					<h3>Playing Football</h3>
@@ -58,10 +60,6 @@ const About = () => {
 						<span>Forward</span>
 					</div>
 				</div>
-
-				<video autoPlay muted loop>
-					<source src={footballVideo} type='video/mp4' />
-				</video>
 
 				<div className='verticalLine'></div>
 

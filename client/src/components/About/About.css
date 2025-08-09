@@ -46,7 +46,6 @@
 	background-size: contain;
 	filter: grayscale(100%);
 	align-items: flex-start;
-	transition: all 2s ease;
 }
 
 .about__intro h4 {
@@ -58,10 +57,6 @@
 	border-right: none;
 	border-top: none;
 	margin-top: 10px;
-}
-
-.about__intro:hover {
-	filter: grayscale(0%);
 }
 
 .about__introGreet {
@@ -78,17 +73,7 @@
 }
 
 .about__edu {
-	background-image: url("../../assets/img/me-edu.jpg");
-	background-repeat: no-repeat;
-	background-position: left top;
-	background-size: contain;
-	filter: grayscale(100%);
-	align-items: flex-end;
-	transition: all 2s ease;
-}
-
-.about__edu:hover {
-	filter: grayscale(0%);
+	align-items: flex-start;
 }
 
 .about__eduDate {
@@ -115,56 +100,20 @@
 }
 
 .about__edu p {
-	text-align: right;
+	text-align: left;
+}
+
+.about__edu h1,
+.about__edu h2,
+.about__edu h3,
+.about__edu h4 {
+	text-align: left;
 }
 
 .about__edu .verticalLine {
 	height: 100px;
 	border-left: 5px solid var(--dark);
 	margin: 20px 0;
-}
-
-.about__interests {
-	align-items: flex-start;
-	background-image: none;
-	filter: grayscale(100%);
-	position: relative;
-	padding: 30px 0;
-	margin-top: 150px;
-}
-
-.about__interests,
-.about__interests h1,
-.about__interests h2,
-.about__interests h3,
-.about__interests h4,
-.about__interests p,
-.about__interests span,
-.about__interests .verticalLine {
-	color: var(--white) !important;
-	border-color: var(--white) !important;
-}
-
-.about__interests video {
-	position: absolute;
-	z-index: -1;
-	left: -88px;
-	top: 0;
-	width: 100vw;
-	height: 100%;
-	object-fit: cover;
-}
-
-.about__interests h4 {
-	margin-bottom: 40px;
-}
-
-.about__interests p {
-	text-align: left;
-}
-
-.about__interests .verticalLine {
-	height: 150px;
 }
 
 .about__closingTag {
@@ -219,7 +168,7 @@
 	}
 
 	.about__intro {
-		padding-top: 500px;
+		padding-top: 30px;
 	}
 
 	.about__intro h4 {
@@ -239,7 +188,7 @@
 	}
 
 	.about__edu {
-		padding-top: 300px;
+		padding-top: 30px;
 	}
 
 	.about__eduDate {
@@ -249,34 +198,14 @@
 	}
 
 	.about__edu .verticalLine {
-		padding-right: 20px;
+		margin-left: 20px;
 	}
 
 	.about__edu h1,
 	.about__edu h2,
 	.about__edu h3,
 	.about__edu h4 {
-		text-align: right;
-	}
-
-	.about__interests {
-		padding: 50px 0;
-		margin-top: 50px;
-	}
-
-	.about__interests video {
-		left: 0;
-	}
-
-	.about__interests h1,
-	.about__interests h2,
-	.about__interests h3,
-	.about__interests h4 {
 		text-align: left;
-	}
-
-	.about__interests .verticalLine {
-		margin-left: 20px;
 	}
 
 	.about__closingTag {

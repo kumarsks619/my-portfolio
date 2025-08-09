@@ -4,7 +4,7 @@ import "./ProjectCard.css"
 
 const ProjectCard = ({ name, image, link, github }) => {
 	return (
-		<div className='projectCard' data-aos='slide-up'>
+		<div className='projectCard'>
 			<div className='projectCard__img'>
 				<img src={image} alt={`kumarsks619 ${name}`} />
 			</div>
