@@ -68,9 +68,9 @@ const ContactForm = () => {
 							</select>
 						</div>
 						<div className='contactForm__inputWrapper'>
-							<label htmlFor='budgetID'>Budget</label>
+							<label htmlFor='budgetID'>Compensation</label>
 							<select name='budget' id='budgetID' value={inputVals.budget} onChange={handleOnChange}>
-								<option value='0'>Compenstation?</option>
+								<option value='0'>Have a number in mind?</option>
 								<option value='Can discuss over a call'>Can discuss over a call</option>
 							</select>
 						</div>
