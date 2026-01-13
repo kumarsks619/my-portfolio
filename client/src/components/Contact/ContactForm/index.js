@@ -63,7 +63,6 @@ const ContactForm = () => {
 								<option value='0'>What are you interested in?</option>
 								<option value='Need some help with a project'>Need some help with a project</option>
 								<option value='Want to hire me full-time'>Want to hire me full-time</option>
-								<option value='Want to offer me an internship'>Want to offer me an internship</option>
 								<option value='Need to do some freelance work'>Need to do some freelance work</option>
 								<option value='Just wanted to say hi!'>Just wanted to say hi!</option>
 							</select>
@@ -71,11 +70,8 @@ const ContactForm = () => {
 						<div className='contactForm__inputWrapper'>
 							<label htmlFor='budgetID'>Budget</label>
 							<select name='budget' id='budgetID' value={inputVals.budget} onChange={handleOnChange}>
-								<option value='0'>What's your budget?</option>
-								<option value='Rs 40k - 50k'>Rs 40k - 50k</option>
-								<option value='Rs 50k - 70k'>Rs 50k - 70k</option>
-								<option value='Rs 70k - 1lakh'>Rs 70k - 1lakh</option>
-								<option value='More than 1lakh'>More than 1lakh</option>
+								<option value='0'>Compenstation?</option>
+								<option value='Can discuss over a call'>Can discuss over a call</option>
 							</select>
 						</div>
 					</div>
