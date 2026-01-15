@@ -38,7 +38,7 @@ const Home = () => {
 					<span>r</span>
 				</p>
 				<p className='home__intro'>
-					I'm a software engineer who loves to built alive websites that feels like a person sitting beside and narrating a story to you. Currently working with JavaScript based frameworks like VueJS & ReactJS.
+					I'm a software engineer who loves to built alive websites that feels like a person sitting beside and narrating a story to you. Currently working with JavaScript based libraries like VueJS & ReactJS.
 					<br />
 					And, Yes! I love to write CSS.
 				</p>

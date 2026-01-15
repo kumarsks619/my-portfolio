@@ -1,17 +1,15 @@
-import React from 'react'
-import Lottie from 'react-lottie'
+import React from 'react';
+import Lottie from 'lottie-react';
 
 const LottieComp = ({ lotteData, height, width }) => {
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: lotteData,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice',
-        },
-    }
+    return (
+        <Lottie
+            animationData={lotteData}
+            loop={true}
+            autoplay={true}
+            style={{ height, width }}
+        />
+    );
+};
 
-    return <Lottie options={defaultOptions} height={height} width={width} />
-}
-
-export default LottieComp
+export default LottieComp;
