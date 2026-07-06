@@ -7,7 +7,6 @@ export const SOCIAL = {
 	LINKEDIN: "https://www.linkedin.com/in/kumarsks619",
 	GITHUB: "https://github.com/kumarsks619",
 	INSTAGRAM: "https://www.instagram.com/blck_tie",
-	FACEBOOK: "https://www.facebook.com/kumarsks619",
-	TWITTER: "https://twitter.com/kumarsks619",
+	X: "https://x.com/kumarsks619",
 }
 export const SLIDESHOW_AUTO_INTERVAL_IN_MILLISECONDS = 10000

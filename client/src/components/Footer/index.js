@@ -27,10 +27,6 @@ const Footer = () => {
 						<i className='fas fa-envelope'></i>
 						Email: <span>kumarsks619@gmail.com</span>
 					</p>
-					<p className='footer__contactInfo'>
-						<i className='fas fa-phone'></i>
-						Phone: <span>+91 8127297708</span>
-					</p>
 				</div>
 
 				<div className='footer__section'>
@@ -66,8 +62,8 @@ const Footer = () => {
 						<a href={SOCIAL.INSTAGRAM} target='_blank' rel='noopener noreferrer' title={`kumarsks619 Instagram`}>
 							<i className='fab fa-instagram'></i> Instagram
 						</a>
-						<a href={SOCIAL.FACEBOOK} target='_blank' rel='noopener noreferrer' title={`kumarsks619 Facebook`}>
-							<i className='fab fa-facebook-square'></i> Facebook
+						<a href={SOCIAL.X} target='_blank' rel='noopener noreferrer' title={`kumarsks619 X (formerly Twitter)`}>
+							<i className='fab fa-twitter'></i> X
 						</a>
 					</div>
 				</div>
